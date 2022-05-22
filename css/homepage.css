@@ -4,28 +4,40 @@ body {
 
 nav {
     background-color: #1B998B;
+    height: 60px;
 }
 
-.navbar-logo-wrapper {
-    padding-left: 8%;
+.navbar-brand{
+    height: 70px;
+    width: 45px;
 }
 
-.navbar-brand {
-    height: 20%;
-    width: 20%;
+.logo-wrapper{
+    margin-left: 100px;
 }
 
 .navbar-nav {
     padding-left: 80%;
 }
 
+a {
+    text-decoration: none;
+    color: #2D3047;
+}
+
+a:hover {
+    color: #D5D5F6;
+}
+
+h3 {
+    margin-top: 15px;
+}
+
 #loginButton {
-    border-radius: 20px;
+    border-radius: 15px;
     width: 80px;
-    height: 45px;
+    line-height: 15px;
     background-color: #D5D5F6;
-    text-align: center;
-    justify-content: center;
     color: #2D3047;
     font-weight: bold;
     @font-face {
@@ -33,4 +45,10 @@ nav {
     }
     border: none;
     outline: none;
+}
+
+#title {
+    color: #FF9B71;
+    text-align: center;
+    margin-top: 30px;
 }
