@@ -52,3 +52,55 @@ h3 {
     text-align: center;
     margin-top: 30px;
 }
+
+
+h3{
+    color: #D5D5F6;
+}
+
+.firstPs {
+    font-size: 25px;
+    color: #D5D5F6;
+}
+
+.secondPs {
+    font-size: 35px;
+    color: #1B998B;
+    margin-left: 80px;
+}
+
+.mid-container{
+    background-color: #D5D5F6;
+}
+
+#dishes {
+    margin: 80px;
+    border-radius: 40px;
+}
+
+#kitchen-knife {
+    transform: rotate(-35.64deg);
+    height: 25rem;
+}
+
+h2 {
+    color: #FF9B71;
+}
+
+#twitter {
+    height: 60px;
+    width: 60px;
+    margin: 10px;
+}
+
+#instagram {
+    height: 60px;
+    width: 60px;
+    margin: 10px;
+}
+
+#facebook {
+    height: 60px;
+    width: 60px;
+    margin: 10px;
+}
