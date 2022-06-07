@@ -2,6 +2,10 @@ body {
     background-color: #2D3047;
 }
 
+.bg{
+    background-color: #D5D5F6;
+}
+
 nav {
     background-color: #1B998B;
     height: 60px;
@@ -72,12 +76,7 @@ h3 {
     margin-left: 80px;
 }
 
-.thirdPs {
-    color: #FF9B71;
-    font-size: 25px;
-}
-
-.mid-container {
+.mid-container{
     background-color: #D5D5F6;
 }
 
