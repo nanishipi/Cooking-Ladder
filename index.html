@@ -12,8 +12,10 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="css/homepage.css">
+    
 </head>
 
 <body>
@@ -79,6 +81,30 @@
             </div>
         </div>
     </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="./images/Cooking Ladder Logo.png" alt="Logotipo" id="logoModal">
+
+            <form id="modalForm">
+                <label class="labels" for="username">Username</label><br>
+                <input class="inputs" type="text" id="username"><br><br>
+
+                <label class="labels" for="username">Password</label><br>
+                <input class="inputs" type="text" id="username"><br>
+
+                <p id="registerText">No account yet? Click here!</p>
+
+                <button id="loginBtn">Login</button>
+            </form>
+        </div>
+
+    </div>
 </body>
+<script type="module" src="./js/views/HomepageView.js"></script>
 
 </html>
