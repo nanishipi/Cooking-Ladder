@@ -43,6 +43,7 @@ a:hover {
 
 h2 {
     font-size: xx-large;
+    font-weight: bold;
 }
 
 #loginButton {
@@ -84,9 +85,17 @@ height: 80px;
 
 .card-title{
     margin-top: 2vh;
+    font-weight: bold
 
 }
 
 .row{
     padding-top: 5vh
+}
+
+.active{
+    font-size:large;
+    font-weight: bold;
+    color:black;
+    font-family: 'Poppins';
 }
