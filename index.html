@@ -15,7 +15,7 @@
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="css/homepage.css">
-    
+
 </head>
 
 <body>
@@ -94,12 +94,60 @@
                 <label class="labels" for="username">Username</label><br>
                 <input class="inputs" type="text" id="username"><br><br>
 
-                <label class="labels" for="username">Password</label><br>
-                <input class="inputs" type="text" id="username"><br>
+                <label class="labels" for="password">Password</label><br>
+                <input class="inputs" type="password" id="password"><br>
 
                 <p id="registerText">No account yet? Click here!</p>
 
                 <button id="loginBtn">Login</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="./images/Cooking Ladder Logo.png" alt="Logotipo" id="logoModal">
+
+            <form id="modalForm">
+                <label class="labels" for="username">Username</label><br>
+                <input class="inputs" type="text" id="username"><br><br>
+
+                <label class="labels" for="username">Password</label><br>
+                <input class="inputs" type="password" id="username"><br><br>
+
+                <label class="labels" for="email">Email</label><br>
+                <input class="inputs" type="text" id="email"><br><br>
+
+                <label class="labels" for="birthdate">BirthDate</label><br>
+                <input class="inputs" type="date" id="birthdate"><br><br>
+
+                <label class="labels" for="location">Location</label><br>
+                <input class="inputs" type="text" id="location"><br><br>
+
+                <label class="labels" for="gender">Gender</label><br>
+
+                    <label id="radio" class="container">Male
+                        <input type="radio" checked="checked">
+                        <span class="radio"></span>
+                    </label>
+    
+                    <label id="radio" class="container">Female
+                        <input type="radio">
+                        <span class="radio"></span>
+                    </label>
+    
+                    <label id="radio" class="container">Other
+                        <input type="radio">
+                        <span class="radio"></span>
+                    </label>
+
+                
+                <button id="registerBtn">Register</button>
             </form>
         </div>
 

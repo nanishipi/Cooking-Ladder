@@ -203,6 +203,7 @@ h2 {
     width: 200px;
     background-color: #D5D5F6;
     padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 #modalForm{
@@ -218,6 +219,10 @@ h2 {
     color: white;
     font-size: 14px;
     font-weight: bold;
+}
+
+#registerText:hover {
+    color: #2D3047;
 }
 
 #loginBtn {
@@ -236,4 +241,32 @@ h2 {
 
     border: none;
     outline: none;
+}
+
+#registerBtn {
+    margin: 10px;
+    border-radius: 15px;
+    border: #D5D5F6;
+    width: 100px;
+    line-height: 34px;
+    background-color: #2D3047;
+    color: whitesmoke;
+    font-weight: bold;
+
+    @font-face {
+        font-family: Poppins;
+    }
+
+    border: none;
+    outline: none;
+}
+
+.radio {
+    padding-left: 100px;
+}
+
+#radio {
+    color: whitesmoke;
+    font-size: 17px;
+    font-family: 'Work Sans';
 }
