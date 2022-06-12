@@ -10,7 +10,7 @@ function removeUser(){
             
             Swal.fire({
                 title: 'Are you sure?',
-                text: "User " + currentUser.name + " will be removed!",
+                text: "User " + '"' +currentUser.name + '"' + " will be removed!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
@@ -43,7 +43,7 @@ function blockUser() {
             const currentUser = User.getCurrentUser()
             Swal.fire({
                 title: 'Are you sure?',
-                text: "User " + currentUser.name + " will be blocked!",
+                text: "User " + '"' +currentUser.name + '"' + " will be blocked!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
