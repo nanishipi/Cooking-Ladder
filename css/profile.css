@@ -1,0 +1,111 @@
+body {
+    background-color: #2D3047;
+}
+
+nav {
+    background-color: #1B998B;
+    height: 60px;
+}
+
+.navbar-brand {
+    height: 70px;
+    width: 45px;
+}
+
+.logo-wrapper {
+    margin-left: 100px;
+}
+
+.navbar-nav {
+    padding-left: 80%;
+}
+
+a {
+    text-decoration: none;
+    color: #2D3047;
+}
+
+a:hover {
+    color: #D5D5F6;
+}
+
+#navbarLinks {
+    padding-right: 33%;
+}
+
+.nav-link {
+    margin: 20px;
+    color: #D5D5F6;
+    font-size: 17px;
+    font-weight: bold;
+    @font-face {
+        font-family: Poppins;
+    }
+}
+
+.nav-link:hover{
+    color: #2D3047;
+}
+
+#logoutBtn {
+    margin-right: 10%;
+    border-radius: 15px;
+    border: #D5D5F6;
+    width: 100px;
+    line-height: 30px;
+    background-color: #D5D5F6;
+    color: #2D3047;
+    font-weight: bold;
+
+    @font-face {
+        font-family: Poppins;
+    }
+
+    border: none;
+    outline: none;
+}
+
+#title {
+    color: #FF9B71;
+    text-align: center;
+    margin-top: 30px;
+}
+
+#profileImg {
+    height: 200px;
+    width: 200px;
+    border-radius: 200px;
+    object-fit: cover;
+    margin-left: 3rem;
+    float:left;
+}
+
+#profileInfo {
+    margin-left: 20%;
+    margin-top: 5%;
+}
+
+.labels {
+    margin: 7px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #FF9B71;
+    font-family: 'Poppins';
+    display: inline-block;
+}
+
+.infoDisplay {
+    color: #D5D5F6;
+    font-size: 20px;
+    margin-left: 2rem;
+}
+
+.progress {
+    width: 300px;
+    margin-left: 2rem;
+}
+
+.progress-bar {
+    background-color: #FF9B71;
+    color: #2D3047;
+}
