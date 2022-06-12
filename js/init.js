@@ -40,5 +40,33 @@ function initdata() {
     localStorage.setItem("users", JSON.stringify(users));
   }
 
- 
+  if(!localStorage.videos){
+    const videos = [
+      {
+        id:1,
+        name:"How to Cook Rice",
+        url:"https://www.youtube.com/watch?v=Xx7sxWI9FNI",
+        level:"Easy",
+        tag:"Others",
+        quizzes:[{
+          videoID:1,
+          theme:"Rice",
+          questions:[
+            {
+              question:"How much water you need for cook 200g rice?",
+              correct_answer:"400ml",
+              answer1:"100ml",
+              answer2:"200ml",
+              answer3:"300ml",
+              answer4:"400ml",          
+            }
+        ]
+        }]
+
+      }
+    ]
+    
+  localStorage.setItem("videos", JSON.stringify(videos));
+  }
+
 }
