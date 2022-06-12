@@ -20,7 +20,7 @@ nav {
 
 .navbar-nav {
     padding-left: 40%;
-    gap: 50px;
+    gap: 20px;
 }
 
 .nav-link {
@@ -46,7 +46,7 @@ h2 {
 }
 
 #loginButton {
-    margin-left: 10rem;
+    margin-left: 4rem;
     border-radius: 15px;
     width: 80px;
     line-height: 15px;
@@ -89,7 +89,7 @@ h2 {
 }
 
 .row {
-    padding-top: 5vh
+    padding-top: 2vh
 }
 
 .active {
@@ -127,7 +127,7 @@ select {
     background-color: #1B998B;
     color: white;
     border: none;
-    height: 4vh;
+    height: 5vh;
     width: 10vh;
 }
 
@@ -142,7 +142,7 @@ select {
     background-color: white;
     color: black;
     border: none;
-    height: 4vh;
+    height: 5vh;
     width: 10vh;
     margin-right: 1vh;
 }
@@ -180,4 +180,16 @@ select {
      justify-content: center;
      align-items: center;
      font-weight: lighter;
+ }
+
+ .table{
+     border: 1px solid black;
+ }
+
+ .info{
+
+    text-align: center;
+    font-size: 3vh;
+    padding-top: 4vh;
+
  }

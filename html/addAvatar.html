@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quizz</title>
+    <title>Avatar</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -42,71 +42,47 @@
     </div>
 
     <div class="container-fluid">
-        <h2>Quizz</h2>
+        <h2>Challenges</h2>
         <hr>
         <div class="row">
             <div class="col-sm-8">
                 <form>
-                    <div class="row inputs">
-                    <div class="form-group col-sm-6 ">
-                        <label for="level">Level</label>
-                        <select class="form-control" name="level" id="level">
-                            <option value="easy">Easy</option>
-                            <option value="medium">Medium</option>
-                            <option value="hard">Hard</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-sm-6 ">
-                        <label for="theme">Theme</label>
-                        <input type="text" class="form-control" id="theme" placeholder="Enter theme">
-                    </div>
-                </div>
-                    <div class="form-group">
-                        <label for="question">Question</label>
-                        <input type="text" class="form-control" id="question" placeholder="Enter question">
-                    </div>
-                    <div class="form-group">
-                        <label for="correctAnswer">Correct Answer</label>
-                        <input type="text" class="form-control" id="correctAnswer" placeholder="Enter correct answer">
-                    </div>
-                    <div class="row inputs">
+                    <div class="row">
                         <div class="form-group col-sm-6">
-                            <label for="answer1">Answer 1</label>
-                           <input type="text" class="form-control" id="answer1" placeholder="Enter answer">
-                        </div>
-                        <div class="form-group col-sm-6">
-                                <label for="answer2">Answer 2</label>
-                               <input type="text" class="form-control" id="answer2" placeholder="Enter answer">
-                            </div>
-                    </div>
-                    <div class="row inputs">
-                        <div class="form-group col-sm-6">
-                                <label for="answer3">Answer 3</label>
-                               <input type="text" class="form-control" id="answer3" placeholder="Enter answer">
-                        </div>
-                        <div class="form-group col-sm-6">
-                                <label for="answer4">Answer 4</label>
-                               <input type="text" class="form-control" id="answer4" placeholder="Enter answer">
+                            <label for="level">User Level</label>
+                            <select class="form-control" name="level" id="level">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
                             </select>
                         </div>
                     </div>
-
+                   
+                    <div class="form-group">
+                        <label for="avatar">Avatar Name</label>
+                        <input type="text" class="form-control" id="avatar" placeholder="Enter avatar name">
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Image Url</label>
+                        <input type="url" class="form-control" id="image" placeholder="Enter image url">
+                    </div>
+                    
                     <div class="btns">
                         <button type="reset" class="btnCancel">Cancel</button>
-                        <button type="submit" class="btnAdd ">Add</button>
+                        <button type="submit" class="btnAdd ">Apply</button>
                     </div>
 
                 </form>
             </div>
             <div class="col-sm-4 background">
-                <img src="../images/quizzes.svg" alt="" class="bgImg">
+                <img src="../images/avatars.svg" alt="" class="bgImg">
             </div>
 
         </div>
     </div>
 
 </body>
-<div class="footer">
+<div  class="footer">
     <p class="footerText"> Copyright© 2022 Cooking Ladder All Rights Reserved.</p>
 </div>
 
