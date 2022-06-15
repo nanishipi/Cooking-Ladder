@@ -193,3 +193,13 @@ select {
     padding-top: 4vh;
 
  }
+
+ .swal-wide{
+
+width: 50vh;
+
+ }
+
+.swal2-input{
+    width: 30vh;
+}

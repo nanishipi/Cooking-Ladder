@@ -46,7 +46,7 @@
         <hr>
         <div class="row">
             <div class="col-sm-8">
-                <form>
+                <form id="addVideo">
                     <div class="form-group">
                         <label for="title">Name</label>
                         <input type="text" class="form-control" id="title" placeholder="Enter title">
@@ -67,10 +67,10 @@
                         <div class="form-group col-sm-6">
                             <label for="tag">Tag</label>
                             <select class="form-control" name="tag" id="tag">
-                                <option value="meat">Meat</option>
-                                <option value="fish">Fish</option>
-                                <option value="salad">Salad</option>
-                                <option value="others">Others</option>
+                                <option value="Meat">Meat</option>
+                                <option value="Fish">Fish</option>
+                                <option value="Salad">Salad</option>
+                                <option value="Others">Others</option>
                             </select>
                         </div>
                     </div>
@@ -92,5 +92,10 @@
 <div  class="footer">
     <p class="footerText"> Copyright© 2022 Cooking Ladder All Rights Reserved.</p>
 </div>
+
+<script type="module" src="../js/views/addVideoView.js"></script>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 
 </html>
