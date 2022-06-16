@@ -102,3 +102,91 @@ a:hover {
 #hard {
     color: #E84855;
 }
+
+.main-container {
+    text-align: justify;
+    line-height: 0;
+}
+
+.difficulty-images {
+    display: inline-block;
+    margin-top: 2rem;
+    margin-left: 6rem;
+    margin-right: 6rem;
+}
+
+.main-container:after {
+    content: "";
+    width: 100%;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.text-container {
+    text-align: justify;
+    line-height: 0;
+}
+
+.text-container:after {
+    content: "";
+    width: 100%;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.difficulty-text {
+    display: inline-block;
+    margin-top: 2rem;
+    margin-left: 12rem;
+    margin-right: 12rem;
+}
+
+.activities-container {
+    background-color: #D5D5F6;
+    margin-top: 3rem;
+    margin-left: 6rem;
+    margin-right: 6rem;
+    border-radius: 40px;
+    padding: 30px;
+}
+
+.card-images {
+    border-radius: 40px;
+    height: 200px;
+    width: 200px;
+    margin-left: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.quizz-title {
+    margin-left: 2rem;
+    margin-top: 1rem;
+    color: #D5D5F6;
+
+    @font-face {
+        font-family: Poppins;
+    }
+}
+
+.card-theme {
+    color: #D5D5F6;
+    margin-left: 2rem;
+    margin-top: 2rem;
+}
+
+.card {
+    border-radius: 40px;
+    background-color: #1B998B;
+}
+
+.theme-text {
+    margin-left: 2rem;
+    margin-top: 1rem;
+    color: #D5D5F6;
+    font-size: 19px;
+
+    @font-face {
+        font-family: Work Sans;
+    }
+}
