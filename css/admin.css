@@ -37,7 +37,7 @@ a {
 }
 
 a:hover {
-    color: #D5D5F6;
+    color: black;
 }
 
 h2 {
@@ -86,6 +86,10 @@ h2 {
 .card-title {
     margin-top: 2vh;
     font-weight: bold
+}
+
+.card-title:hover{
+    color: black;
 }
 
 .row {

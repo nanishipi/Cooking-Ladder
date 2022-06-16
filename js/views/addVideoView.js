@@ -1,7 +1,7 @@
 import * as Video from "../models/videosModel.js";
 
 
-function addVideo(){
+function addVideo() {
 
   document.querySelector("#addVideo").addEventListener("submit", (event) => {
     event.preventDefault();
@@ -13,8 +13,8 @@ function addVideo(){
         document.querySelector("#level").value,
         document.querySelector("#tag").value,
         []
-        
-     
+
+
       );
       Swal.fire(
         'Done!',

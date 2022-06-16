@@ -46,15 +46,19 @@
         <hr>
         <div class="row">
             <div class="col-sm-8">
-                <form>
-                    <div class="form-group ">
-                        <label for="quizz">Quizz</label>
-                        <select class="form-control" name="quizz" id="quizz">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                <form id="addQuestion">
+                    <div class="row inputs">
+                    <div class="form-group col-sm-6">
+                        <label for="video">Video</label>
+                        <select class="form-control" name="video" id="video" onchange>
                         </select>
                     </div>
+                    <div class="form-group col-sm-6 ">
+                        <label for="quizz">Quizz</label>
+                        <select class="form-control" name="quizz" id="quizz">
+                        </select>
+                    </div>
+                </div>
                     <div class="form-group">
                         <label for="question">Question</label>
                         <input type="text" class="form-control" id="question" placeholder="Enter question">
@@ -103,5 +107,11 @@
 <div class="footer">
     <p class="footerText"> Copyright© 2022 Cooking Ladder All Rights Reserved.</p>
 </div>
+
+
+<script type="module" src="../js/views/addQuestionView.js"></script>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 
 </html>

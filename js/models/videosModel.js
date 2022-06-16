@@ -1,5 +1,6 @@
 let videos;
 
+
 // CARREGAR CATs DA LOCALSTORAGE
 export function init() {
   videos = localStorage.videos ? JSON.parse(localStorage.videos) : [];
