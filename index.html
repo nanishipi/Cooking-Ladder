@@ -33,7 +33,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <button id="loginButton" class="nav-item nav-link">Login</button>
+                    <button id="loginButtonModal" class="nav-item nav-link">Login</button>
                 </div>
             </div>
         </nav>
@@ -46,7 +46,7 @@
 
         <div>
             <div style="float:left; width:30%">
-                <img src="./images/spatula orange.png" alt="Estapula"> 
+                <img src="./images/spatula orange.png" alt="Estapula">
             </div>
             <h3>Take your cooking skills to the next level with cooking ladder, we offer you:</h3><br><br>
             <p class="firstPs">> Step by Step Tutorials</p><br>
@@ -91,11 +91,11 @@
             <img src="./images/Cooking Ladder Logo.png" alt="Logotipo" id="logoModal">
 
             <form id="modalForm">
-                <label class="labels" for="username">Username</label><br>
-                <input class="inputs" type="text" id="username"><br><br>
+                <label class="labels" for="usernameLogin">Username</label><br>
+                <input class="inputs" type="text" id="usernameLogin"><br><br>
 
-                <label class="labels" for="password">Password</label><br>
-                <input class="inputs" type="password" id="password"><br>
+                <label class="labels" for="passwordLogin">Password</label><br>
+                <input class="inputs" type="password" id="passwordLogin"><br>
 
                 <p id="registerText">No account yet? Click here!</p>
 
@@ -113,41 +113,36 @@
             <span class="close">&times;</span>
             <img src="./images/Cooking Ladder Logo.png" alt="Logotipo" id="logoModal">
 
-            <form id="modalForm">
-                <label class="labels" for="username">Username</label><br>
-                <input class="inputs" type="text" id="username"><br><br>
+            <form id="registerModalForm">
+                <div class="form-container">
+                    <label class="labels" for="usernameRegister">Username</label><br>
+                    <input class="inputs" type="text" id="usernameRegister"><br><br>
 
-                <label class="labels" for="username">Password</label><br>
-                <input class="inputs" type="password" id="username"><br><br>
+                    <label class="labels" for="passwordRegister">Password</label><br>
+                    <input class="inputs" type="password" id="passwordRegister"><br><br>
 
-                <label class="labels" for="email">Email</label><br>
-                <input class="inputs" type="text" id="email"><br><br>
+                    <label class="labels" for="email">Email</label><br>
+                    <input class="inputs" type="text" id="email"><br><br>
 
-                <label class="labels" for="birthdate">BirthDate</label><br>
-                <input class="inputs" type="date" id="birthdate"><br><br>
+                    <label class="labels" for="birthdate">BirthDate</label><br>
+                    <input class="inputs" type="date" id="birthdate"><br><br>
 
-                <label class="labels" for="location">Location</label><br>
-                <input class="inputs" type="text" id="location"><br><br>
+                    <label class="labels" for="location">Location</label><br>
+                    <input class="inputs" type="text" id="location"><br><br>
 
-                <label class="labels" for="gender">Gender</label><br>
+                    <label class="genderLabel" for="gender">Gender</label><br>
+                    <div class="radio-wrapper">
+                        <input type="radio" class="radio" id="male" name="gender" value="male" checked>
+                        <label class="radio" for="male">Male</label><br>
 
-                    <label id="radio" class="container">Male
-                        <input type="radio" checked="checked">
-                        <span class="radio"></span>
-                    </label>
-    
-                    <label id="radio" class="container">Female
-                        <input type="radio">
-                        <span class="radio"></span>
-                    </label>
-    
-                    <label id="radio" class="container">Other
-                        <input type="radio">
-                        <span class="radio"></span>
-                    </label>
+                        <input type="radio" class="radio" id="female" name="gender" value="female">
+                        <label class="radio"  for="female">Female</label><br>
 
-                
-                <button id="registerBtn">Register</button>
+                        <input type="radio" class="radio" id="other" name="gender" value="other">
+                        <label class="radio" for="other">Other</label><br>
+                    </div>
+                    <button type="submit" id="registerBtn">Register</button>
+                </div>
             </form>
         </div>
 

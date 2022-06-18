@@ -37,6 +37,23 @@ h3 {
     margin-top: 15px;
 }
 
+#loginButtonModal {
+    border-radius: 15px;
+    border: #D5D5F6;
+    width: 80px;
+    line-height: 15px;
+    background-color: #D5D5F6;
+    color: #2D3047;
+    font-weight: bold;
+
+    @font-face {
+        font-family: Poppins;
+    }
+
+    border: none;
+    outline: none;
+}
+
 #loginButton {
     border-radius: 15px;
     border: #D5D5F6;
@@ -262,11 +279,20 @@ h2 {
 }
 
 .radio {
-    padding-left: 100px;
-}
-
-#radio {
     color: whitesmoke;
     font-size: 17px;
     font-family: 'Work Sans';
+}
+
+.form-container {
+    align-items: center;
+    text-align: center;
+}
+
+.genderLabel {
+    text-align: center;
+    margin: 7px;
+    font-weight: bold;
+    color: white;
+    font-family: 'Poppins';
 }
