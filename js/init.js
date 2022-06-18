@@ -60,7 +60,8 @@ function initdata() {
               answer3:"300ml",
               answer4:"400ml",          
             }
-        ]
+        ],
+           xp:0,
         }]
 
       }

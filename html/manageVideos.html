@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Videos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
@@ -31,10 +33,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link " href="admin.html"><i class="fas fa-tasks"></i>Home</a>
-                    <a class="nav-link active   "  href="manageUsers.html.html"><i class="fas fa-tasks"></i>Users</a>
-                    <a class="nav-link " href="adminTutorials.html"><i class="fas fa-home"></i>Tutorials</a>
-                    <a class="nav-link" href="adminGamification.html"><i class="fas fa-user-circle"></i>Gamification</a>
+                    <a class="nav-link " href="admin.html">Home</a>
+                    <a class="nav-link active   "  href="manageUsers.html.html">Users</a>
+                    <a class="nav-link " href="adminTutorials.html">Tutorials</a>
+                    <a class="nav-link" href="adminGamification.html">Gamification</a>
                 </div>
                 <button id="loginButton" class="nav-item">Logout</button>
             </div>
@@ -42,7 +44,10 @@
     </div>
 
     <div class="container-fluid">
-        <h2>Manage Videos</h2>
+        <div class="back">
+            <i class="fa fa-arrow-circle-o-left" style="font-size:36px" onclick="history.back()"></i>
+            <h2>Manage Videos</h2>
+        </div>
         <hr>
         <div id="noVideos"></div>
         <table class="table table-bordered text-center"></table>

@@ -17,7 +17,6 @@ function renderVideoOptions() {
   }
 
 function addQuizz(){
-
   document.querySelector("#addQuizz").addEventListener("submit", (event) => {
     event.preventDefault();
     let videoID =  document.querySelector("#video").value;
@@ -28,7 +27,7 @@ function addQuizz(){
     let answer2 = document.querySelector("#answer2").value;
     let answer3 = document.querySelector("#answer3").value;
     let answer4 = document.querySelector("#answer4").value;
-    
+    let xp = 0
     
     const video = videos.filter(v => v.id == videoID)
 
@@ -48,7 +47,8 @@ function addQuizz(){
                 answer2,
                 answer3,
                 answer4,
-            }]
+            }],
+            xp
 
           );
           Swal.fire(

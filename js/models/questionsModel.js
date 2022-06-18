@@ -15,11 +15,13 @@ export function add(videoID,theme,question,correctAnswer,answer1,answer2,answer3
        
       }
  
- export function getAllQuizzes(){
+ export function getAllQuestions(){
 
     const quizzes = videos.map(video => video.quizzes)
+    const questions = quizzes[0].map(quizz => quizz.questions )
+    console.log(questions);
 
-    return quizzes
+    return questions
 
 };
 
