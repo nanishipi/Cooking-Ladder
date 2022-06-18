@@ -14,13 +14,13 @@ export function removeUser(id) {
     localStorage.setItem("users", JSON.stringify(users));
 }
 
-export function addUser(name, password, email, location, gender, birthdate, level, experience, blocked, quizzesCompleted) {
+export function addUser(id,name, password, email, location, gender, birthdate, level, experience, blocked, quizzesCompleted) {
     if (users.some((user) => user.email === email)) {
-        throw Error(`Theres already an user with the email "${name}" associated!`);
+        throw Error(`Theres already an user with the email "${email}"!`);
     }
     else {
-        console.log(name);
-        users.push(new User(name, password, email, location, gender, birthdate, level, experience, blocked, quizzesCompleted));
+        console.log(email);
+        users.push(new User(id,name, password, email, location, gender, birthdate, level, experience, blocked, quizzesCompleted));
         localStorage.setItem("users", JSON.stringify(users));
         console.log(users);
     }
@@ -49,6 +49,32 @@ export function editUser(name, password, email, location, gender, birthdate, lev
 
 }
 
+export function login(email, password) {
+    const user = users.find(
+      (user) => user.email === email && user.password === password
+    );
+    if (user) {
+      sessionStorage.setItem("loggedUser", JSON.stringify(user));
+      return true;
+    } else {
+      throw Error("Invalid login!");
+    }
+  }
+  
+  export function logout() {
+    sessionStorage.removeItem("loggedUser");
+  }
+  
+  export function isLogged() {
+    return sessionStorage.getItem("loggedUser") ? true : false;
+  }
+  
+  export function getUserLogged() {
+    return JSON.parse(sessionStorage.getItem("loggedUser"));
+  }
+   
+  
+
 export function setCurrentUser(id) {
     localStorage.setItem("user", id);
 }
@@ -59,6 +85,7 @@ export function getCurrentUser() {
 
 
 class User {
+    id=
     name = ""
     password = ""
     email = ""
@@ -70,7 +97,8 @@ class User {
     blocked = false
     quizzesCompleted = []
 
-    constructor(name, password, email, location, gender, birthday, level = 1, experience = 0, blocked = false, quizzesCompleted = []) {
+    constructor(id,name, password, email, location, gender, birthday, level = 1, experience = 0, blocked = false, quizzesCompleted = []) {
+        this.id = id  ,  
         this.name = name,
             this.password = password,
             this.email = email,

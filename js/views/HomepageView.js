@@ -45,6 +45,22 @@ window.onclick = function (event) {
     }
 }
 
+
+loginModal.addEventListener('submit',()  => {
+
+    try{
+        const email = document.querySelector('#emailLogin').value;
+        const password = document.querySelector('#passwordLogin').value;
+        Users.login(email,password)
+
+
+    }catch (error) {
+        console.log(error);
+    }
+
+})
+
+
 registerModalForm.addEventListener('submit', (event) => {
     try {
         const name = document.querySelector('#nameRegister').value;
@@ -55,6 +71,7 @@ registerModalForm.addEventListener('submit', (event) => {
         const gender = document.querySelector('input[name="gender"]:checked').value
 
         Users.addUser(
+            Users.getAllUsers().length + 1,
             name,
             password,
             email,
