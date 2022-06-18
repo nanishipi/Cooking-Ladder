@@ -8,8 +8,6 @@ const registerModal = document.getElementById('registerModal');
 const registerText = document.getElementById('registerText');
 // Get the button that opens the modal
 const loginButtonModal = document.getElementById('loginButtonModal');
-const loginBtn = document.getElementById('loginBtn');
-const registerBtn = document.getElementById('registerBtn');
 
 // Get the <span> element that closes the modal
 const spanLogin = document.getElementsByClassName('close')[0];
@@ -49,7 +47,7 @@ window.onclick = function (event) {
 
 registerModalForm.addEventListener('submit', (event) => {
     try {
-        const username = document.querySelector('#usernameRegister').value;
+        const name = document.querySelector('#nameRegister').value;
         const password = document.querySelector('#passwordRegister').value;
         const email = document.querySelector('#email').value;
         const birthdate = document.querySelector('#birthdate').value;
@@ -57,7 +55,7 @@ registerModalForm.addEventListener('submit', (event) => {
         const gender = document.querySelector('input[name="gender"]:checked').value
 
         Users.addUser(
-            username,
+            name,
             password,
             email,
             location,

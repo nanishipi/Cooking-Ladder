@@ -15,8 +15,8 @@ export function removeUser(id) {
 }
 
 export function addUser(name, password, email, location, gender, birthdate, level, experience, blocked, quizzesCompleted) {
-    if (users.some((user) => user.name === name)) {
-        throw Error(`Theres already an user with the name "${name}"!`);
+    if (users.some((user) => user.email === email)) {
+        throw Error(`Theres already an user with the email "${name}" associated!`);
     }
     else {
         console.log(name);
