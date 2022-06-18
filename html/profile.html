@@ -33,9 +33,9 @@
             </button>
             <div id="navbarLinks" class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" href="admin.html"></i>Videos</a>
-                    <a class="nav-link" href="adminUsers.html"></i>Evaluation</a>
-                    <a class="nav-link" href="adminTutorials.html"></i>Profile</a>
+                    <a class="nav-link" href="videos.html"></i>Videos</a>
+                    <a class="nav-link" href="evaluation.html"></i>Evaluation</a>
+                    <a class="nav-link" href="profile.html"></i>Profile</a>
                 </div>
             </div>
             <button id="logoutBtn" class="nav-item">Logout</button>
@@ -71,11 +71,11 @@
                     <div class="row">
                         <div class="col-sm-2">
                             <div class="label-wrapper">
-                                <label class="labels" for="username">Username:</label>
+                                <label class="labels" for="name">Name:</label>
                             </div>
                         </div>
                         <div id="info-wrapper" class="col-sm-8">
-                            <p class="infoDisplay" id="username">Masterchef Turtle</p>
+                            <p class="infoDisplay" id="name">Masterchef Turtle</p>
                         </div>
                     </div>
                 </div>
@@ -134,7 +134,7 @@
             </form>
 
             <div class="button-wrapper">
-                <button class="editBtn">Edit</button>
+                <button id="editBtnModal">Edit</button>
             </div>
             <h1 id="title">Achievements</h1>
 
@@ -194,6 +194,48 @@
 
         </div><br><br>
     </div>
+
+    <!-- Modal content -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="../images/Cooking Ladder Logo.png" alt="Logotipo" id="logoModal">
+
+            <form id="editModal">
+                <div class="form-container">
+                    <label class="labels" for="nameRegister">Name</label><br>
+                    <input class="inputs" type="text" id="nameRegister"><br><br>
+
+                    <label class="labels" for="passwordRegister">Password</label><br>
+                    <input class="inputs" type="password" id="passwordRegister"><br><br>
+
+                    <label class="labels" for="email">Email</label><br>
+                    <input class="inputs" type="text" id="email"><br><br>
+
+                    <label class="labels" for="birthdate">BirthDate</label><br>
+                    <input class="inputs" type="date" id="birthdate"><br><br>
+
+                    <label class="labels" for="location">Location</label><br>
+                    <input class="inputs" type="text" id="location"><br><br>
+
+                    <label class="genderLabel" for="gender">Gender</label><br>
+                    <div class="radio-wrapper">
+                        <input type="radio" class="radio" id="male" name="gender" value="male" checked>
+                        <label class="radio" for="male">Male</label><br>
+
+                        <input type="radio" class="radio" id="female" name="gender" value="female">
+                        <label class="radio" for="female">Female</label><br>
+
+                        <input type="radio" class="radio" id="other" name="gender" value="other">
+                        <label class="radio" for="other">Other</label><br>
+                    </div>
+                    <button type="submit" id="editBtn">Edit</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
+<script src="../js/init.js"></script>
+<script type="module" src="../js/views/profileView.js"></script>
 
 </html>

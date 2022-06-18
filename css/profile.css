@@ -86,7 +86,7 @@ a:hover {
 }
 
 .labels {
-    margin-top: 20px;
+    margin-top: 10px;
     font-weight: bold;
     font-size: 20px;
     color: #FF9B71;
@@ -98,7 +98,7 @@ a:hover {
     color: #D5D5F6;
     font-size: 20px;
     display: inline-block;
-    margin-top: 20px;
+    margin-top: 8px;
 }
 
 .progress {
@@ -147,7 +147,7 @@ a:hover {
     }
 }
 
-.editBtn {
+#editBtnModal {
     line-height: 30px;
     border: none;
     border-radius: 40px;
@@ -163,4 +163,133 @@ a:hover {
 
 .button-wrapper {
     text-align: center;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #1B998B;
+    margin: 15% auto;
+    /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #D5D5F6;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    color: #D5D5F6;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #E84855;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#logoModal {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.labels {
+    margin: 7px;
+    padding-right: 100px;
+    font-weight: bold;
+    color: white;
+    font-family: 'Poppins';
+}
+
+.inputs {
+    border-radius: 15px;
+    border: #D5D5F6;
+    height: 30px;
+    line-height: 30px;
+    width: 200px;
+    background-color: #D5D5F6;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+#modalForm{
+    text-align: center;
+}
+
+.modal-content {
+    width: 30%;
+}
+
+#registerText {
+    margin: 8px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#registerText:hover {
+    color: #2D3047;
+}
+
+.radio {
+    color: whitesmoke;
+    font-size: 17px;
+    font-family: 'Work Sans';
+}
+
+.form-container {
+    align-items: center;
+    text-align: center;
+}
+
+.genderLabel {
+    text-align: center;
+    margin: 7px;
+    font-weight: bold;
+    color: white;
+    font-family: 'Poppins';
+}
+
+#editBtn {
+    margin: 10px;
+    border-radius: 15px;
+    border: #D5D5F6;
+    width: 100px;
+    line-height: 34px;
+    background-color: #2D3047;
+    color: whitesmoke;
+    font-weight: bold;
+
+    @font-face {
+        font-family: Poppins;
+    }
+
+    border: none;
+    outline: none;
 }

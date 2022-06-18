@@ -84,6 +84,8 @@ a:hover {
     border-radius: 35px;
     width: 250px;
     height: 250px;
+    padding: 30px;
+    background-color: #D5D5F6;
 }
 
 .difficulty-text {

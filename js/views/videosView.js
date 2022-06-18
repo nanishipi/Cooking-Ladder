@@ -7,29 +7,6 @@ const logoutBtn = document.getElementById('logoutBtn');
 // Get the <span> element that closes the modal
 const spanVideo = document.getElementsByClassName('close')[0];
 
-// When the user clicks on the button, open the modal
-logoutBtn.onclick = function() {
-    videoModal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-spanVideo.onclick = function() {
-    videoModal.style.display = "none";
-    playBtn.className = 'play';
-        video.pause();
-    video.pause()
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == videoModal) {
-    videoModal.style.display = "none";
-    playBtn.className = 'play';
-        video.pause();
-    video.pause()
-  }
-}
-
 const videoPlayer = document.querySelector('.video-player');
 const video = videoPlayer.querySelector('.video');
 const playButton = videoPlayer.querySelector('#play-button');
@@ -41,6 +18,28 @@ const fullscreen = videoPlayer.querySelector('.fullscreen');
 const currentTimeElement = document.querySelector('.current');
 const durationTimeElement = document.querySelector('.duration');
 
+// When the user clicks on the button, open the modal
+logoutBtn.onclick = function() {
+    videoModal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+spanVideo.onclick = function() {
+    videoModal.style.display = "none";
+    playButton.className = 'play';
+        video.pause();
+    video.pause()
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == videoModal) {
+    videoModal.style.display = "none";
+    playButton.className = 'play';
+        video.pause();
+    video.pause()
+  }
+}
 
 const togglePlayPause = () => {
     if (video.paused) {
