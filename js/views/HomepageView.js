@@ -48,7 +48,6 @@ window.onclick = function (event) {
 
 loginModal.addEventListener('submit',(e)  => {
         e.preventDefault()
-
         const email = document.querySelector('#emailLogin').value;
         const password = document.querySelector('#passwordLogin').value;
         Users.login(email,password)

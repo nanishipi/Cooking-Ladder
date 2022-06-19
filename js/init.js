@@ -54,6 +54,7 @@ function initdata() {
         level:"Easy",
         tag:"Others",
         theme:"Rice",
+        timestamp:[],
         duration:5,
         quizzes:[{
           videoID:1,
