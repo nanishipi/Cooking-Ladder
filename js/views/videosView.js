@@ -134,10 +134,17 @@ hardImage.addEventListener('click', () => {
 
 const renderVideos = (videos, difficulty) => {
     let result = ''
-
+    let hasEnoughLevel = true;
+    const loggedUser = JSON.parse(sessionStorage.getItem('loggedUser'));
+    if (difficulty == 'Medium' && !(loggedUser.level >= 10)) {
+        hasEnoughLevel = false;
+    } else if (difficulty == 'Hard' && !(loggedUser.level >= 25)) {
+        hasEnoughLevel = false;
+    }
+ 
     if (videos.length != 0) {
         for (let video of videos) {
-            if (video.level == difficulty) {
+            if (video.level == difficulty && hasEnoughLevel) {
                 result += `
             <div class="card" style="width: 100%;">
             <div class="row no-gutters">
@@ -162,6 +169,8 @@ const renderVideos = (videos, difficulty) => {
             </div>
         </div>
         `
+            } else if (hasEnoughLevel == false) {
+                result += `<p id='levelRequirement'>Your level is not high enough to see this content!</p>`
             }
         }
         videosContainer.innerHTML += result

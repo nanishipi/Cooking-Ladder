@@ -635,3 +635,8 @@ input[type=range]:focus::-ms-fill-upper {
     margin-top: 10px;
     color:#D5D5F6;
 }
+
+#levelRequirement {
+    text-align: center;
+    font-weight: bold;
+}
