@@ -138,7 +138,17 @@ hardImage.addEventListener('click', () => {
 const renderVideos = (videos, difficulty) => {
     let result = ''
     let hasEnoughLevel = true;
+    let background = ''
     const loggedUser = JSON.parse(sessionStorage.getItem('loggedUser'));
+    
+    if (difficulty == 'Easy') {
+        background="#1B998B"
+    } else if (difficulty == 'Medium') {
+        background="#FF9B71"
+    } else if (difficulty == 'Hard') {
+        background="#e84855"
+    }
+
     if (difficulty == 'Medium' && !(loggedUser.level >= 10)) {
         hasEnoughLevel = false;
     } else if (difficulty == 'Hard' && !(loggedUser.level >= 25)) {
@@ -149,7 +159,7 @@ const renderVideos = (videos, difficulty) => {
         for (let video of videos) {
             if (video.level == difficulty && hasEnoughLevel) {
                 result += `
-            <div class="card" style="width: 100%;">
+            <div class="card" style="width: 100% ;background-color: ${background}">
             <div class="row no-gutters">
                 <div class="col-sm-2">
                     <img class="card-images" src="../images/turtle chef.jpg" alt="Card Image">
