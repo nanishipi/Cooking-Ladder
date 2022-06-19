@@ -91,6 +91,10 @@ function editVideo() {
             <input type="text" id="theme" class="swal2-input" placeholder="Theme" value="${currentVideo.theme}"/>
         </div>
         <div>
+        <label for="duration" >Duration</label>
+        <input type="number" id="duration" class="swal2-input" placeholder="Duration" value="${currentVideo.duration}"/>
+    </div>
+        <div>
         <label for="photo" >Photo</label>
         <input type="url" id="photo" class="swal2-input" placeholder="Photo" value="${currentVideo.photo}"/>
     </div>
@@ -123,6 +127,7 @@ function editVideo() {
         preConfirm: () => {
           const name = Swal.getPopup().querySelector('#name').value
           const theme = Swal.getPopup().querySelector('#theme').value
+          const duration = Swal.getPopup().querySelector('#duration').value
           const photo = Swal.getPopup().querySelector('#photo').value
           const url = Swal.getPopup().querySelector('#url').value
           const level = Swal.getPopup().querySelector('#level').value
@@ -132,7 +137,7 @@ function editVideo() {
           if (!name || !theme || !url || !level || !tag) {
             Swal.showValidationMessage(`Please fill the inputs`)
           }
-          return { name: name, theme:theme,photo:photo ,url: url, level: level, tag:tag }
+          return { name: name, theme:theme,duration:duration,photo:photo ,url: url, level: level, tag:tag }
         }
       }).then((result) => {
         if (result.isConfirmed) {
@@ -140,7 +145,7 @@ function editVideo() {
             'Edited!',
             'Video successfully edited!',
             'success',
-            Video.editVideo(result.value.name,result.value.theme,result.value.photo,result.value.url,result.value.level,result.value.tag,currentVideo.quizzes)
+            Video.editVideo(result.value.name,result.value.theme,result.value.duration,result.value.photo,result.value.url,result.value.level,result.value.tag,currentVideo.quizzes)
 
           ).then((result) => {
             if (result) {
