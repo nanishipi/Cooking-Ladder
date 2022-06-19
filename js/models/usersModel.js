@@ -53,14 +53,11 @@ export function editUser(id,name, password, email, location,avatarName,avatarPho
         blocked: blocked,
         quizzesCompleted: quizzesCompleted
     }
-    Swal.fire(
-      'Done',
-      `User successfuly updated`,
-      'success'
-    )
-    console.log(users);
+   
+    
     users = users.map(user => user.id == id ? UserNew : user)
     localStorage.setItem('users', JSON.stringify(users));
+    sessionStorage.setItem('loggedUser',JSON.stringify(UserNew))
 
 }
 
