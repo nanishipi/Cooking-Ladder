@@ -69,6 +69,13 @@ a:hover {
     color: #FF9B71;
     text-align: center;
     margin-top: 30px;
+   
+}
+#title2 {
+    color: #FF9B71;
+    text-align: center;
+    margin-top: 30px;
+    margin-left: -10rem;
 }
 
 #profileImg {
@@ -103,10 +110,11 @@ a:hover {
 
 .progress {
     width: 300px;
-    margin-top: 27px;
+    margin-top: 15px;
 }
 
 .achievements {
+    margin-top: 10vh;
     margin-left: 10rem;
 }
 

@@ -6,12 +6,12 @@ export function init() {
   videos = localStorage.videos ? JSON.parse(localStorage.videos) : [];
 }
 
-export function add(id, name,photo, url, level, tag,quizzes) {
+export function add(id, name,theme,photo, url, level, tag,timestamp,quizzes) {
   if (videos.some((video) => video.name === name)) {
     throw Error(`Video with name "${name}" already exists!`);
   } 
   else {
-    videos.push(new Video(id,name,photo, url,  level, tag,quizzes));
+    videos.push(new Video(id,name,theme,photo, url,  level, tag, timestamp,quizzes));
     localStorage.setItem("videos", JSON.stringify(videos));
   }
 }
@@ -27,17 +27,19 @@ export function removeVideo(id) {
     localStorage.setItem("videos", JSON.stringify(videos));
   }
 
-export function editVideo(name,photo,url,level,tag,quizzes) {
+export function editVideo(name,theme,photo,url,level,tag,timestamp,quizzes) {
 
     const currentVideo = getCurrentVideo()
 
     const VideoNew = {
         id:currentVideo.id,
         name:name,
+        theme:theme,
         photo:photo,
         url:url,
         level:level,
         tag:tag,
+        timestamp:timestamp,
         quizzes: quizzes
         
     }
@@ -58,6 +60,7 @@ export function getCurrentVideo() {
 class Video {
     id = null
     name=""
+    theme=""
     photo=""
     url=""
     level= null
@@ -66,9 +69,10 @@ class Video {
     quizzes=[]
 
   
-    constructor(id,name,photo,url,level,tag,timestamp,quizzes) {
+    constructor(id,name,theme,photo,url,level,tag,timestamp,quizzes) {
       this.id = id
       this.name = name,
+      this.theme = theme
       this.photo = photo,
       this.url = url,
       this.level = level,

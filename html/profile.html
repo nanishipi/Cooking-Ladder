@@ -43,102 +43,29 @@
     </div>
 
     <div class="main-container">
-        <div>
+        <div id="userInfo">
             <h1 id="title">Information</h1>
-
-            <img src="../images/turtle chef.jpg" alt="Profile Picture" id="profileImg">
-
-            <form id="profileInfo">
-                <div id="line2" class="col-lg-10">
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <div class="label-wrapper">
-                                <label class="labels" for="level">Level:</label>
-                            </div>
-                        </div>
-                        <div id="infoDisplay" class="col-sm-8">
-                            <div class="progress">
-                                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0"
-                                    aria-valuemax="100" style="width:70%">
-                                    <span class="sr-only">460xp/500xp</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="line2" class="col-lg-10">
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <div class="label-wrapper">
-                                <label class="labels" for="name">Name:</label>
-                            </div>
-                        </div>
-                        <div id="info-wrapper" class="col-sm-8">
-                            <p class="infoDisplay" id="name">Masterchef Turtle</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="line2" class="col-lg-10">
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <div class="label-wrapper">
-                                <label class="labels" for="email">Email:</label>
-                            </div>
-                        </div>
-                        <div id="info-wrapper" class="col-sm-8">
-                            <p class="infoDisplay" id="email">masterchefturtle@gmail.com</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="line2" class="col-lg-10">
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <div class="label-wrapper">
-                                <label class="labels" for="birthdate">Birthdate:</label>
-                            </div>
-                        </div>
-                        <div id="info-wrapper" class="col-sm-8">
-                            <p class="infoDisplay" id="birthdate">14-05-2000</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="line2" class="col-lg-10">
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <div class="label-wrapper">
-                                <label class="labels" for="location">Location:</label>
-                            </div>
-                        </div>
-                        <div id="info-wrapper" class="col-sm-8">
-                            <p class="infoDisplay" id="location">China</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="line2" class="col-lg-10">
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <div class="label-wrapper">
-                                <label class="labels" for="interests">Interests:</label>
-                            </div>
-                        </div>
-                        <div id="info-wrapper" class="col-sm-8">
-                            <p class="infoDisplay" id="interests">Bakery, Rice</p>
-                        </div>
-                    </div>
-                </div>
-            </form>
-
+        </div>
             <div class="button-wrapper">
                 <button id="editBtnModal">Edit</button>
             </div>
-            <h1 id="title">Achievements</h1>
+            
 
             <div class="achievements">
+                <h1 id="title2">Achievements</h1>
+                <div id="line2" class="col-lg-10">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="image-wrapper">
+                                <img class="achievements-images" src="../images/Medium Img.png">
+                            </div>
+                        </div>
+                        <div id="text-wrapper" class="col-sm-8">
+                            <p class="achievements-text">Play 1 Quizzes to unlock</p>
+                        </div>
+                    </div>
+                </div>
+
                 <div id="line2" class="col-lg-10">
                     <div class="row">
                         <div class="col-sm-2">
@@ -160,7 +87,7 @@
                             </div>
                         </div>
                         <div id="text-wrapper" class="col-sm-8">
-                            <p class="achievements-text">Play 10 Quizzes to unlock</p>
+                            <p class="achievements-text">Reach level 2 to unlock</p>
                         </div>
                     </div>
                 </div>
@@ -173,69 +100,29 @@
                             </div>
                         </div>
                         <div id="text-wrapper" class="col-sm-8">
-                            <p class="achievements-text">Reach level 50 to unlock</p>
+                            <p class="achievements-text">Reach level 3 to unlock</p>
                         </div>
                     </div>
                 </div>
-
-                <div id="line2" class="col-lg-10">
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <div class="image-wrapper">
-                                <img class="achievements-images" src="../images/Medium Img.png">
-                            </div>
-                        </div>
-                        <div id="text-wrapper" class="col-sm-8">
-                            <p class="achievements-text">Reach level 100 to unlock</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
 
         </div><br><br>
     </div>
 
     <!-- Modal content -->
-    <div id="editModal" class="modal">
+    <div id="modal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
+            <span class="close" id="closeModal">&times;</span>
             <img src="../images/Cooking Ladder Logo.png" alt="Logotipo" id="logoModal">
-
-            <form id="editModal">
-                <div class="form-container">
-                    <label class="labels" for="nameRegister">Name</label><br>
-                    <input class="inputs" type="text" id="nameRegister"><br><br>
-
-                    <label class="labels" for="passwordRegister">Password</label><br>
-                    <input class="inputs" type="password" id="passwordRegister"><br><br>
-
-                    <label class="labels" for="email">Email</label><br>
-                    <input class="inputs" type="text" id="email"><br><br>
-
-                    <label class="labels" for="birthdate">BirthDate</label><br>
-                    <input class="inputs" type="date" id="birthdate"><br><br>
-
-                    <label class="labels" for="location">Location</label><br>
-                    <input class="inputs" type="text" id="location"><br><br>
-
-                    <label class="genderLabel" for="gender">Gender</label><br>
-                    <div class="radio-wrapper">
-                        <input type="radio" class="radio" id="male" name="gender" value="male" checked>
-                        <label class="radio" for="male">Male</label><br>
-
-                        <input type="radio" class="radio" id="female" name="gender" value="female">
-                        <label class="radio" for="female">Female</label><br>
-
-                        <input type="radio" class="radio" id="other" name="gender" value="other">
-                        <label class="radio" for="other">Other</label><br>
-                    </div>
-                    <button type="submit" id="editBtn">Edit</button>
-                </div>
-            </form>
+            <div id="content">
+            </div>
         </div>
     </div>
 </body>
 <script src="../js/init.js"></script>
 <script type="module" src="../js/views/profileView.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
+
 
 </html>
