@@ -10,6 +10,9 @@ const easyImage = document.querySelector('#easyImage');
 const mediumImage = document.querySelector('#mediumImage');
 const hardImage = document.querySelector('#hardImage');
 
+const mediumMessage = document.querySelector('#mediumMessage');
+const hardMessage = document.querySelector('#hardMessage');
+
 // Get the <span> element that closes the modal
 const spanVideo = document.getElementsByClassName('close')[0];
 
@@ -134,12 +137,29 @@ hardImage.addEventListener('click', () => {
 
 const renderVideos = (videos, difficulty) => {
     let result = ''
+    let hasEnoughLevel = true;
+    let background = ''
+    const loggedUser = JSON.parse(sessionStorage.getItem('loggedUser'));
+    
+    if (difficulty == 'Easy') {
+        background="#1B998B"
+    } else if (difficulty == 'Medium') {
+        background="#FF9B71"
+    } else if (difficulty == 'Hard') {
+        background="#e84855"
+    }
 
+    if (difficulty == 'Medium' && !(loggedUser.level >= 10)) {
+        hasEnoughLevel = false;
+    } else if (difficulty == 'Hard' && !(loggedUser.level >= 25)) {
+        hasEnoughLevel = false;
+    }
+ 
     if (videos.length != 0) {
         for (let video of videos) {
-            if (video.level == difficulty) {
+            if (video.level == difficulty && hasEnoughLevel) {
                 result += `
-            <div class="card" style="width: 100%;">
+            <div class="card" style="width: 100% ;background-color: ${background}">
             <div class="row no-gutters">
                 <div class="col-sm-2">
                     <img class="card-images" src="../images/turtle chef.jpg" alt="Card Image">
@@ -162,11 +182,28 @@ const renderVideos = (videos, difficulty) => {
             </div>
         </div>
         `
+            } else if (hasEnoughLevel == false) {
+                result += `<p id='levelRequirement'>Your level is not high enough to see this content!</p>`
             }
         }
         videosContainer.innerHTML += result
     }
 }
 
+const unlockDifficulties = () => {
+    const loggedUser = JSON.parse(sessionStorage.getItem('loggedUser'));
+
+    if (loggedUser.level >= 10) {
+        mediumImage.src="../images/video orange.png"
+        mediumMessage.style.display="none"
+    } 
+
+    if (loggedUser.level >= 25) {
+        hardImage.src="../images/video red.png"
+        hardMessage.style.display="none"
+    }
+}
+
 Videos.init()
+unlockDifficulties()
 renderVideos(Videos.getAllVideos(), 'Easy');
