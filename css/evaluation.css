@@ -179,6 +179,7 @@ a:hover {
 .card {
     border-radius: 40px;
     background-color: #1B998B;
+    margin-top: 30px;
 }
 
 .theme-text {
@@ -263,4 +264,14 @@ a:hover {
     @font-face {
         font-family: Work Sans;
     }
+}
+
+#mediumMessage {
+    margin-top: 10px;
+    color:#D5D5F6;
+}
+
+#hardMessage {
+    margin-top: 10px;
+    color:#D5D5F6;
 }

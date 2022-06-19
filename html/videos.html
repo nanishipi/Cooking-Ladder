@@ -22,11 +22,11 @@
     <div class="navbar-wrapper">
         <nav class="navbar navbar-expand-lg">
             <div class="logo-wrapper">
-                <a class="navbar-logo-wrapper" href="index.html">
+                <a class="navbar-logo-wrapper" href="../index.html">
                     <img class="navbar-brand" src="../images/Cooking Ladder Logo.png" href="#">
                 </a>
             </div>
-            <h3><a href="index.html">Cooking Ladder</a></h3>
+            <h3><a href="../index.html">Cooking Ladder</a></h3>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -45,40 +45,24 @@
     <h1 id="title">Videos</h1>
 
     <div class="main-container">
-        <img class="difficulty-images" src="../images/video green.png" alt="Easy Difficulty">
-        <img class="difficulty-images" src="../images/Medium Img.png" alt="Medium Difficulty">
-        <img class="difficulty-images" src="../images/Hard Img.png" alt="Hard Difficulty">
-    </div>
-
-    <div class="text-container">
-        <p id="easy" class="difficulty-text">Easy</p>
-        <p id="medium" class="difficulty-text">Medium</p>
-        <p id="hard" class="difficulty-text">Hard</p>
+        <div class="difficulty-cards">
+            <img id="easyImage" class="difficulty-images" src="../images/quizz green.png" alt="Easy Difficulty">
+            <p id="easy" class="difficulty-text">Easy</p>
+        </div>
+        <div class="difficulty-cards">
+            <img id="mediumImage" class="difficulty-images" src="../images/orange lock.png" alt="Medium Difficulty">
+            <p id="medium" class="difficulty-text">Medium</p>
+            <p id="mediumMessage">Unlocks at Level 10</p>
+        </div>
+        <div class="difficulty-cards">
+            <img id="hardImage" class="difficulty-images" src="../images/red lock.png" alt="Hard Difficulty">
+            <p id="hard" class="difficulty-text">Hard</p>
+            <p id="hardMessage">Unlocks at Level 25</p>
+        </div>
     </div>
 
     <div class="videos-container">
-        <div class="card" style="width: 100%;">
-            <div class="row no-gutters">
-                <div class="col-sm-2">
-                    <img class="card-images" src="../images/turtle chef.jpg" alt="Card Image">
-                </div>
-                <div class="col-sm-4">
-                    <div class="card-body">
-                        <h1 class="video-title">Suresh Dasari</h1>
-                        <h3 class="card-theme">Theme</h3>
-                        <p class="theme-text">Como fazer Arroz</p>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <h3 class="duration-title">Duration:</h3>
-                    <h3 class="recipe-type-title">Recipe Type:</h3>
-                </div>
-                <div class="col-sm-2">
-                    <p class="duration-text">20:34</p>
-                    <p class="recipe-type-text">Rice</p>
-                </div>
-            </div>
-        </div>
+
     </div>
 
     <!-- Video Modal -->
@@ -114,7 +98,22 @@
                     </div>
                 </div>
             </div>
-        </div>
+
+            <div class="video-info-container">
+                <button class="button button-like">
+                    <i class="fas fa-thumbs-up"></i>
+                    <span>Like</span>
+                </button>
+                <p id="likeCount">0</p>
+                <button class="share-button">Share</button>
+                <div class="rating">
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span>
+                </div>
+            </div>
 </body>
 <script src="../js/init.js"></script>
 <script type="module" src="../js/views/videosView.js"></script>

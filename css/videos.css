@@ -88,6 +88,14 @@ a:hover {
     background-color: #D5D5F6;
 }
 
+.difficulty-images:hover {
+    background-color: whitesmoke;
+}
+
+.difficulty-images .selected {
+    background-color: whitesmoke;
+}
+
 .difficulty-text {
     font-weight: bold;
     margin-top: 20px;
@@ -113,9 +121,10 @@ a:hover {
 
 .difficulty-images {
     display: inline-block;
-    margin-top: 2rem;
     margin-left: 6rem;
     margin-right: 6rem;
+    padding: 40px;
+    background-color: #D5D5F6;
 }
 
 .main-container:after {
@@ -194,6 +203,7 @@ a:hover {
 .card {
     border-radius: 40px;
     background-color: #1B998B;
+    margin-top: 30px;
 }
 
 .theme-text {
@@ -309,7 +319,7 @@ a:hover {
 }
 
 #play-button {
-    padding: 5px;
+    padding: 7px;
     background: none;
     outline: 0;
     cursor: pointer;
@@ -482,7 +492,7 @@ input[type=range]:focus::-ms-fill-upper {
     justify-content: center;
 }
 
-.mute.muted{
+.mute.muted {
     opacity: 0.5;
 }
 
@@ -495,7 +505,7 @@ input[type=range]:focus::-ms-fill-upper {
     display: none;
 }
 
-.mute.muted .slash{
+.mute.muted .slash {
     display: block;
 }
 
@@ -503,4 +513,125 @@ input[type=range]:focus::-ms-fill-upper {
     background: transparent;
     color: #E84855;
     border: none;
+}
+
+.video-info-container {
+    margin-top: 20px;
+    margin-left: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.button-like {
+    border: 2px solid black;
+    background-color: transparent;
+    text-decoration: none;
+    padding: 1rem;
+    position: relative;
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+    border-radius: 3rem;
+    color: black;
+    transition: all ease 0.4s;
+}
+
+.button-like span {
+    margin-left: 0.5rem;
+}
+
+.button-like .fa,
+.button-like span {
+    transition: all ease 0.4s;
+}
+
+.button-like:focus {
+    background-color: transparent;
+}
+
+.button-like:focus .fa,
+.button-like:focus span {
+    color: black;
+}
+
+.button-like:hover {
+    border-color: #E84855;
+    background-color: transparent;
+}
+
+.button-like:hover .fa,
+.button-like:hover span {
+    color: #E84855;
+}
+
+.liked {
+    background-color: #E84855;
+    border-color: #E84855;
+}
+
+.liked .fa,
+.liked span {
+    color: whitesmoke;
+}
+
+.liked .fa-thumbs-up {
+    color: whitesmoke;
+}
+
+.liked:focus {
+    background-color: #E84855;
+}
+
+.liked:focus .fa,
+.liked:focus span {
+    color: whitesmoke;
+}
+
+.liked:hover {
+    background-color: #E84855;
+    border-color: #E84855;
+}
+
+.liked:hover .fa,
+.liked:hover span {
+    color: whitesmoke;
+}
+
+.fa-thumbs-up {
+    color: #E84855;
+}
+
+#likeCount {
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.share-button {
+    margin-left: 50px;
+    border-radius: 50px;
+    height: 40px;
+    width: 80px;
+    border: none;
+    color: whitesmoke;
+    background-color: #E84855;
+    margin-top: 10px;
+}
+
+.rating {
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.checked {
+    color: #E84855;
+}
+
+#mediumMessage {
+    margin-top: 10px;
+    color:#D5D5F6;
+}
+
+#hardMessage {
+    margin-top: 10px;
+    color:#D5D5F6;
 }
