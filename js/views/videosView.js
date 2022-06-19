@@ -10,6 +10,9 @@ const easyImage = document.querySelector('#easyImage');
 const mediumImage = document.querySelector('#mediumImage');
 const hardImage = document.querySelector('#hardImage');
 
+const mediumMessage = document.querySelector('#mediumMessage');
+const hardMessage = document.querySelector('#hardMessage');
+
 // Get the <span> element that closes the modal
 const spanVideo = document.getElementsByClassName('close')[0];
 
@@ -177,5 +180,20 @@ const renderVideos = (videos, difficulty) => {
     }
 }
 
+const unlockDifficulties = () => {
+    const loggedUser = JSON.parse(sessionStorage.getItem('loggedUser'));
+
+    if (loggedUser.level >= 10) {
+        mediumImage.src="../images/video orange.png"
+        mediumMessage.style.display="none"
+    } 
+
+    if (loggedUser.level >= 25) {
+        hardImage.src="../images/video red.png"
+        hardMessage.style.display="none"
+    }
+}
+
 Videos.init()
+unlockDifficulties()
 renderVideos(Videos.getAllVideos(), 'Easy');
