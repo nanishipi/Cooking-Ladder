@@ -8,7 +8,6 @@ const editBtn = document.querySelector('#editBtn')
 const editModal = document.querySelector('#modal');
 
 const spanEdit = document.getElementById('closeModal');
-console.log(spanEdit);
 
 // When the user clicks on the button, open the modal
 editButtonModal.onclick = function () {
@@ -32,7 +31,6 @@ const user = JSON.parse(sessionStorage.getItem('loggedUser'))
 function renderUserInfo(){
 
 
-    console.log(user);
     const content = document.getElementById("userInfo")
 
     const avatars = Avatar.getAllAvatars()
@@ -53,14 +51,12 @@ function renderUserInfo(){
                         <label class="labels" for="level">Level:</label>
                     </div>
                 </div>
-                <div id="infoDisplay" class="col-sm-8">
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0"
-                            aria-valuemax="100" style="width:70%">
-                            <span class="sr-only">460xp/500xp</span>
-                        </div>
-                    </div>
-                </div>
+                <div id="info-wrapper" class="col-sm-8">
+                <p class="infoDisplay" id="name">${user.level} (${user.experience}xp/500xp)</p>
+            </div>
+                       
+                      
+                   
             </div>
         </div>
 
@@ -98,7 +94,7 @@ function renderUserInfo(){
                     </div>
                 </div>
                 <div id="info-wrapper" class="col-sm-8">
-                    <p class="infoDisplay" id="birthdate">${user.birthday}</p>
+                    <p class="infoDisplay" id="birthdate">${user.birthdate}</p>
                 </div>
             </div>
         </div>
@@ -122,7 +118,7 @@ function renderUserInfo(){
 }
 
 
-function editUser() {
+function showModal() {
 
    const content = document.getElementById('content')
    content.innerHTML += ` <form id="editModal">
@@ -140,7 +136,7 @@ function editUser() {
            <input class="inputs" type="text" id="email"required value=${user.email}><br><br>
 
            <label class="labels" for="birthdate">BirthDate</label><br>
-           <input class="inputs" type="date" id="birthdate" required value=${user.birthday}><br><br>
+           <input class="inputs" type="date" id="birthdate" required value=${user.birthdate}><br><br>
 
            <label class="labels" for="location">Location</label><br>
            <input class="inputs" type="text" id="location"required value=${user.location}><br><br>
@@ -160,40 +156,51 @@ function editUser() {
        </div>
    </form>
 `
-const form = document.getElementById('editModal')
-
-form.addEventListener('submit',(e)  => {
-    e.preventDefault()
-
-    const name = document.querySelector('#name').value;
-    const password = document.querySelector('#password').value;
-    const password2 = document.querySelector('#password2').value;
-    const email = document.querySelector('#email').value;
-    const birthdate = document.querySelector('#birthdate').value;
-    const location = document.querySelector('#location').value;
-    const gender = document.querySelector('input[name="gender"]:checked').value
-    console.log(name);
-
-    if(password === password2){
-        User.editUser(user.id,name,password,email,location,user.avatarName,user.avatarPhoto,gender,birthdate,user.level,user.experience,user.blocked,user.quizzesCompleted)
-    }
-    else{
-        Swal.fire(
-            'Oops',
-            `Passwords should match!`,
-            'error'
-          )
-    }
-
-
-})
-
-
-  
 
 }
+
+
+function editUser(){
+
+    const form = document.getElementById('editModal')
+
+    form.addEventListener('submit',(e)  => {
+        e.preventDefault()
+    
+        const password = document.querySelector('#password').value;
+        const password2 = document.querySelector('#password2').value;
+        const gender = document.querySelector('input[name="gender"]:checked').value
+    
+        if(password === password2){
+            Swal.fire(
+                'Done',
+                `User successfuly updated`,
+                'success'
+              ).then((result) => {
+                if (result) {
+                  location.reload()
+                  User.editUser(user.id,form.name.value,password,form.email.value,form.location.value,user.avatarName,user.avatarPhoto,gender,form.birthdate.value,user.level,user.experience,user.blocked,user.quizzesCompleted)
+
+                }
+              })
+        }
+        else{
+            Swal.fire(
+                'Oops',
+                `Passwords should match!`,
+                'error'
+              )
+        }
+    
+    
+    })
+    
+
+}
+
 
 Avatar.init()
 User.init()
 renderUserInfo()
+showModal()
 editUser()
