@@ -6,12 +6,12 @@ export function init() {
   videos = localStorage.videos ? JSON.parse(localStorage.videos) : [];
 }
 
-export function add(id, name, url, level, tag,quizzes) {
+export function add(id, name,photo, url, level, tag,quizzes) {
   if (videos.some((video) => video.name === name)) {
     throw Error(`Video with name "${name}" already exists!`);
   } 
   else {
-    videos.push(new Video(id,name, url,  level, tag,quizzes));
+    videos.push(new Video(id,name,photo, url,  level, tag,quizzes));
     localStorage.setItem("videos", JSON.stringify(videos));
   }
 }
@@ -27,13 +27,14 @@ export function removeVideo(id) {
     localStorage.setItem("videos", JSON.stringify(videos));
   }
 
-export function editVideo(name,url,level,tag,quizzes) {
+export function editVideo(name,photo,url,level,tag,quizzes) {
 
     const currentVideo = getCurrentVideo()
 
     const VideoNew = {
         id:currentVideo.id,
         name:name,
+        photo:photo,
         url:url,
         level:level,
         tag:tag,
@@ -57,19 +58,24 @@ export function getCurrentVideo() {
 class Video {
     id = null
     name=""
+    photo=""
     url=""
     level= null
     tag=""
+    timestamp=[]
     quizzes=[]
 
   
-    constructor(id,name,url,level,tag,quizzes) {
+    constructor(id,name,photo,url,level,tag,timestamp,quizzes) {
       this.id = id
       this.name = name,
+      this.photo = photo,
       this.url = url,
       this.level = level,
       this.tag = tag
+      this.timestamp = timestamp
       this.quizzes = quizzes
+
     
     }
   } 

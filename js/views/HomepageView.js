@@ -46,44 +46,51 @@ window.onclick = function (event) {
 }
 
 
-loginModal.addEventListener('submit',()  => {
+loginModal.addEventListener('submit',(e)  => {
+        e.preventDefault()
 
-    try{
         const email = document.querySelector('#emailLogin').value;
         const password = document.querySelector('#passwordLogin').value;
         Users.login(email,password)
-
-
-    }catch (error) {
-        console.log(error);
-    }
 
 })
 
 
 registerModalForm.addEventListener('submit', (event) => {
-    try {
+    event.preventDefault();
+
+
         const name = document.querySelector('#nameRegister').value;
         const password = document.querySelector('#passwordRegister').value;
+        const password2 = document.querySelector('#passwordRegister2').value;
         const email = document.querySelector('#email').value;
         const birthdate = document.querySelector('#birthdate').value;
         const location = document.querySelector('#location').value;
         const gender = document.querySelector('input[name="gender"]:checked').value
 
-        Users.addUser(
-            Users.getAllUsers().length + 1,
-            name,
-            password,
-            email,
-            location,
-            gender,
-            birthdate
-        )
-    } catch (error) {
-        console.log(error);
-    }
+       
+        if(password === password2){
+            Users.addUser(
+                Users.getAllUsers().length + 1,
+                name,
+                password,
+                email,
+                location,
+                "",
+                "",
+                gender,
+                birthdate
+            )
+        }
+        else{
+            Swal.fire(
+                'Oops',
+                `Passwords should match!`,
+                'error'
+              )
+        }
+        
 
 
-    event.preventDefault();
 })
 

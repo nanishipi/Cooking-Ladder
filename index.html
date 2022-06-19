@@ -91,11 +91,11 @@
             <img src="./images/Cooking Ladder Logo.png" alt="Logotipo" id="logoModal">
 
             <form id="modalForm">
-                <label class="labels" for="emailLogin">Email</label><br>
-                <input class="inputs" type="text" id="emailLogin"><br><br>
+                <label class="labels" for="emailLogin" >Email</label><br>
+                <input class="inputs" type="text" id="emailLogin" required><br><br>
 
                 <label class="labels" for="passwordLogin">Password</label><br>
-                <input class="inputs" type="password" id="passwordLogin"><br>
+                <input class="inputs" type="password" id="passwordLogin" required><br>
 
                 <p id="registerText">No account yet? Click here!</p>
 
@@ -116,19 +116,22 @@
             <form id="registerModalForm">
                 <div class="form-container">
                     <label class="labels" for="nameRegister">Name</label><br>
-                    <input class="inputs" type="text" id="nameRegister"><br><br>
+                    <input class="inputs" type="text" id="nameRegister" required><br><br>
 
                     <label class="labels" for="passwordRegister">Password</label><br>
-                    <input class="inputs" type="password" id="passwordRegister"><br><br>
+                    <input class="inputs" type="password" id="passwordRegister" required><br><br>
+
+                    <label class="labels" for="passwordRegister2">Confirm Password</label><br>
+                    <input class="inputs" type="password" id="passwordRegister2" required><br><br>
 
                     <label class="labels" for="email">Email</label><br>
-                    <input class="inputs" type="text" id="email"><br><br>
+                    <input class="inputs" type="text" id="email" required><br><br>
 
                     <label class="labels" for="birthdate">BirthDate</label><br>
-                    <input class="inputs" type="date" id="birthdate"><br><br>
+                    <input class="inputs" type="date" id="birthdate" required><br><br>
 
                     <label class="labels" for="location">Location</label><br>
-                    <input class="inputs" type="text" id="location"><br><br>
+                    <input class="inputs" type="text" id="location" required><br><br>
 
                     <label class="genderLabel" for="gender">Gender</label><br>
                     <div class="radio-wrapper">
@@ -150,6 +153,8 @@
 </body>
 <script src="./js/init.js"></script>
 <script type="module" src="./js/views/HomepageView.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 
 
 </html>

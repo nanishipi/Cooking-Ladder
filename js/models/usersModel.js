@@ -14,29 +14,38 @@ export function removeUser(id) {
     localStorage.setItem("users", JSON.stringify(users));
 }
 
-export function addUser(id,name, password, email, location, gender, birthdate, level, experience, blocked, quizzesCompleted) {
+export function addUser(id,name, password, email, location,avatarName,avatarPhoto, gender, birthdate, level, experience, blocked, quizzesCompleted) {
     if (users.some((user) => user.email === email)) {
-        throw Error(`Theres already an user with the email "${email}"!`);
+      Swal.fire(
+        `User with email ${email} already exist!`,
+        'Try Again',
+        'error'
+      )
     }
     else {
-        console.log(email);
-        users.push(new User(id,name, password, email, location, gender, birthdate, level, experience, blocked, quizzesCompleted));
+        Swal.fire(
+          'Done',
+          `User successfuly registed`,
+          'success'
+        )
+        users.push(new User(id,name, password, email, location,avatarName,avatarPhoto, gender, birthdate, level, experience, blocked, quizzesCompleted));
         localStorage.setItem("users", JSON.stringify(users));
-        console.log(users);
+
     }
 }
 
 
-export function editUser(name, password, email, location, gender, birthdate, level, experience, blocked, quizzesCompleted) {
+export function editUser(id,name, password, email, location,avatarName,avatarPhoto, gender, birthdate, level, experience, blocked, quizzesCompleted) {
 
-    const currentUser = getCurrentUser()
 
     const UserNew = {
-        id: currentUser.id,
+        id: id,
         name: name,
         password: password,
         email: email,
         location: location,
+        avatarName:avatarName,
+        avatarPhoto:avatarPhoto,
         gender: gender,
         birthdate: birthdate,
         level: level,
@@ -44,7 +53,7 @@ export function editUser(name, password, email, location, gender, birthdate, lev
         blocked: blocked,
         quizzesCompleted: quizzesCompleted
     }
-    users = users.map(user => user.id == currentUser.id ? UserNew : user)
+    users = users.map(user => user.id == id ? UserNew : user)
     localStorage.setItem('users', JSON.stringify(users));
 
 }
@@ -54,10 +63,24 @@ export function login(email, password) {
       (user) => user.email === email && user.password === password
     );
     if (user) {
+      Swal.fire(
+        'Login Success!',
+        `Welcome ${user.name}`,
+        'success'
+      ).then((result) => {
+        if (result) {
+          window.location.href="../html/videos.html"
+          
+        }
+      })
       sessionStorage.setItem("loggedUser", JSON.stringify(user));
       return true;
     } else {
-      throw Error("Invalid login!");
+      Swal.fire(
+        'Invalid Login!',
+        'Try Again',
+        'error'
+      )
     }
   }
   
@@ -90,6 +113,8 @@ class User {
     password = ""
     email = ""
     location = ""
+    avatarName = ""
+    avatarPhoto = ""
     gender = ""
     birthday = ""
     level = 1
@@ -97,12 +122,14 @@ class User {
     blocked = false
     quizzesCompleted = []
 
-    constructor(id,name, password, email, location, gender, birthday, level = 1, experience = 0, blocked = false, quizzesCompleted = []) {
+    constructor(id,name, password, email, location,avatarName,avatarPhoto, gender, birthday, level = 1, experience = 0, blocked = false, quizzesCompleted = []) {
         this.id = id  ,  
         this.name = name,
             this.password = password,
             this.email = email,
             this.location = location,
+            this.avatarName = avatarName,
+            this.avatarPhoto = avatarPhoto,
             this.gender = gender,
             this.birthday = birthday,
             this.level = level,

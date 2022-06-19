@@ -9,6 +9,7 @@ function addVideo() {
       Video.add(
         Video.getAllVideos().length + 1,
         document.querySelector("#title").value,
+        document.querySelector("photo").value,
         document.querySelector("#url").value,
         document.querySelector("#level").value,
         document.querySelector("#tag").value,
