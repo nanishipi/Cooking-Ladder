@@ -87,6 +87,14 @@ function editVideo() {
             <input type="text" id="name" class="swal2-input" placeholder="Name" value="${currentVideo.name}"/>
         </div>
         <div>
+            <label for="theme" >Theme</label>
+            <input type="text" id="theme" class="swal2-input" placeholder="Theme" value="${currentVideo.theme}"/>
+        </div>
+        <div>
+        <label for="photo" >Photo</label>
+        <input type="url" id="photo" class="swal2-input" placeholder="Photo" value="${currentVideo.photo}"/>
+    </div>
+        <div>
             <label for="url" >Url</label>
             <input type="url" id="url" class="swal2-input" placeholder="Url" value="${currentVideo.url}">
         </div>
@@ -114,15 +122,17 @@ function editVideo() {
         confirmButtonText: 'Save',
         preConfirm: () => {
           const name = Swal.getPopup().querySelector('#name').value
+          const theme = Swal.getPopup().querySelector('#theme').value
+          const photo = Swal.getPopup().querySelector('#photo').value
           const url = Swal.getPopup().querySelector('#url').value
           const level = Swal.getPopup().querySelector('#level').value
           const tag = Swal.getPopup().querySelector('#tag').value
 
 
-          if (!name || !url || !level) {
+          if (!name || !theme || !url || !level || !tag) {
             Swal.showValidationMessage(`Please fill the inputs`)
           }
-          return { name: name, url: url, level: level, tag:tag }
+          return { name: name, theme:theme,photo:photo ,url: url, level: level, tag:tag }
         }
       }).then((result) => {
         if (result.isConfirmed) {
@@ -130,7 +140,7 @@ function editVideo() {
             'Edited!',
             'Video successfully edited!',
             'success',
-            Video.editVideo(result.value.name,result.value.url,result.value.level,result.value.tag,currentVideo.quizzes)
+            Video.editVideo(result.value.name,result.value.theme,result.value.photo,result.value.url,result.value.level,result.value.tag,currentVideo.quizzes)
 
           ).then((result) => {
             if (result) {
