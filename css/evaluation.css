@@ -244,6 +244,7 @@ a:hover {
   padding: 20px;
   border: 1px solid #d5d5f6;
   width: 80%;
+  overflow-y:scroll;
   /* Could be more or less, depending on screen size */
 }
 
@@ -321,4 +322,48 @@ a:hover {
 
 .quizz:hover {
   background-color: darkgray;
+}
+
+
+.quizzTitle{
+  font-weight:900;
+}
+
+#quizzQuestion{
+  font-size: x-large;
+}
+
+input[type="radio"] {
+  display: none;
+  border: 10px solid white;
+  border-radius: 10px;
+  color: white;
+  padding: 100px;
+}
+
+label{
+  border: 1px solid white;
+  border-radius: 10px;
+  color: white;
+  width: 20vh;
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+input[type="radio"]:checked + label {
+  background-color: #d1c51e;
+  color: white;
+  border: 1px solid;
+  border-radius: 10px;
+  width: 20vh;
+  height: 5vh;}
+
+
+.answers{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
 }

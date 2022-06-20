@@ -1,4 +1,4 @@
-import * as Video from "../models/videosModel.js";
+/* import * as Video from "../models/videosModel.js";
 
 let quizzes
 
@@ -63,7 +63,6 @@ export function getCurrentQuizz() {
   let quizz = []
 
   for (let i = 0; i < quizzes.length; i++) {
-    /* console.log(quizzes[i]); */
     const data = quizzes[i].find((quizz) => quizz.theme == quizzTheme && quizz.videoID == quizzVideoID)
     if (data != undefined) {
       quizz.push(data)
@@ -90,3 +89,4 @@ class Quizz {
   }
 }
 
+ */

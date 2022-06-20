@@ -3,6 +3,7 @@ import * as Quizz from "../models/quizzesModel.js";
 
 
 const quizzModal = document.querySelector('#quizzModal');
+let questionsForm = document.querySelector('#questionsForm')
 
 const logoutBtn = document.getElementById('logoutBtn');
 
@@ -17,19 +18,6 @@ const hardMessage = document.querySelector('#hardMessage');
 const spanQuizz = document.getElementsByClassName('close')[0];
 const activitiesContainer = document.querySelector('.activities-container');
 
-
-
-// When the user clicks on <span> (x), close the modal
-spanQuizz.onclick = function () {
-    quizzModal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == quizzModal) {
-        quizzModal.style.display = "none";
-    }
-}
 
 easyImage.addEventListener('click', () => {
     activitiesContainer.innerHTML = ''
@@ -118,9 +106,15 @@ const renderQuizzes = (videos, difficulty) => {
                 result = `<p id='levelRequirement'>Your level is not high enough to see this content!</p>`
             }
         }
+        activitiesContainer.innerHTML = result
+        openQuizz()
+        closeQuizz()
+        
+
     }
-    activitiesContainer.innerHTML += result
-    openQuizz()
+
+
+     
 }
 
 const unlockDifficulties = () => {
@@ -141,15 +135,14 @@ const unlockDifficulties = () => {
 function openQuizz(){
 
     const btns = document.getElementsByClassName('quizz')
-    const content = document.getElementById('quizzModalForm')
-    let result = ''
 
     for(const btn of btns){
         btn.addEventListener('click',(e)=>{
             e.preventDefault()
-            content.innerHTML = ''
             Videos.setCurrentVideo(btn.id)
             const currentVideo = Videos.getCurrentVideo()
+
+            let result = `<h2 id="quizzTitle" class="quizzTitle">${currentVideo.name}</h2>`
 
              quizzModal.style.display = "block";
 
@@ -163,41 +156,91 @@ function openQuizz(){
             }
             document.getElementById('modal').style.backgroundColor = color
 
-            const quizz = currentVideo.quizzes.find(quizz => quizz.theme == btn.name)
-            quizz.questions.map(question => {
-                result += `                
 
-                    <h2 id="quizzTitle">${currentVideo.name}</h2>
-                    <p id="quizzQuestion">${question.question}</p>
-                    <input type="radio" name="${question.question}" id="${question.answer1}" value="${question.answer1}">
-                    <label for="${question.answer1}">${question.answer1}</label>
-                    <input type="radio" name="${question.question}" id="${question.answer2}" value="${question.answer2}">
-                    <label for="${question.answer2}">${question.answer2}</label>
-                    <input type="radio" name="${question.question}" id="${question.answer3}" value="${question.answer3}">
-                    <label for="${question.answer3}">${question.answer3}</label>
-                    <input type="radio" name="${question.question}" id="${question.answer4}" value="${question.answer4}">
-                    <label for="${question.answer4}">${question.answer4}</label>
+            Quizz.setCurrentQuizz(btn.name,btn.id)
+            const quizz = Quizz.getCurrentQuizz()
+            quizz[0].questions.map(question => {
+
+                result += `                
+                
+                <p id="quizzQuestion">${question.question}</p>
+                <div class="questions">
+
+                <div class="answers">
+                <input type="radio" name="${question.question}" id="${question.answer1}" value="${question.answer1}">
+                <label for="${question.answer1}">${question.answer1}</label>
+                <input type="radio" name="${question.question}" id="${question.answer2}" value="${question.answer2}">
+                <label for="${question.answer2}">${question.answer2}</label>
+                </div>
+                <div class="answers">
+                <input type="radio" name="${question.question}" id="${question.answer3}" value="${question.answer3}">
+                <label for="${question.answer3}">${question.answer3}</label>
+                <input type="radio" name="${question.question}" id="${question.answer4}" value="${question.answer4}">
+                <label for="${question.answer4}">${question.answer4}</label>
+                </div>   
+                </div>  
     `
-            })
-           
-            content.innerHTML = result
+            });
+
+            questionsForm.innerHTML = result
 
         })
+        
     }
 
 }
 
+function closeQuizz(){
+
+// When the user clicks on <span> (x), close the modal
+spanQuizz.addEventListener('click',()=> {
+    quizzModal.style.display = "none";
+
+
+})
+
+// When the user clicks anywhere outside of the modal, close it
+window.addEventListener('click',(event)=> {
+    if (event.target == quizzModal) {
+        quizzModal.style.display = "none";
+
+
+
+    }
+})
+
+}
+
+
 function submitAnswers(){
 
-    document.getElementById('done').addEventListener('submit',(e)=>{
+    document.getElementById('done').addEventListener('click',(e)=>{
+        const quizz =  Quizz.getCurrentQuizz()
+        quizz[0].questions.map(question => {
+            const answer = document.querySelector(`input[name="${question.question}"]:checked`).value
+            console.log(answer);
 
-        e.preventDefault();
-        let questions = currentVideo
+           if(question.correct_answer === answer){
+
+            console.log("correct");
+
+           } 
+        
+           else{
+            console.log("nooo");
+           }
+        }
+             )
+
+        
+        
+
     })
 
 }
 
 Videos.init()
-renderQuizzes(Videos.getAllVideos(), 'Easy');
 unlockDifficulties();
+renderQuizzes(Videos.getAllVideos(), 'Easy');
 
+submitAnswers()
