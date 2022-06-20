@@ -159,7 +159,7 @@ const renderVideos = (videos, difficulty) => {
         for (let video of videos) {
             if (video.level == difficulty && hasEnoughLevel) {
                 result += `
-            <div class="card" style="width: 100% ;background-color: ${background}">
+            <div id="${video.id}" class="card" style="width: 100% ;background-color: ${background}">
             <div class="row no-gutters">
                 <div class="col-sm-2">
                     <img class="card-images" src="../images/turtle chef.jpg" alt="Card Image">
@@ -168,7 +168,7 @@ const renderVideos = (videos, difficulty) => {
                     <div class="card-body">
                         <h1 class="video-title">${video.name}</h1>
                         <h3 class="card-theme">Theme</h3>
-                        <p class="theme-text">${video.quizzes.theme}</p>
+                        <p class="theme-text">${video.theme}</p>
                     </div>
                 </div>
                 <div class="col-sm-2">
@@ -204,6 +204,16 @@ const unlockDifficulties = () => {
     }
 }
 
+const addCardListners = () => {
+    const cards = document.getElementsByClassName("card");
+    for (const card of cards) {
+        card.addEventListener('click', () => {
+            Videos.setCurrentVideo(card.id)
+        })
+    }
+}
+
 Videos.init()
 unlockDifficulties()
 renderVideos(Videos.getAllVideos(), 'Easy');
+addCardListners()

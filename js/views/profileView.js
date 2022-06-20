@@ -25,18 +25,18 @@ window.onclick = function (event) {
         editModal.style.display = "none";
     }
 }
-const user = JSON.parse(sessionStorage.getItem('loggedUser')) 
+const user = JSON.parse(sessionStorage.getItem('loggedUser'))
 
 
-function renderUserInfo(){
+function renderUserInfo() {
 
 
     const content = document.getElementById("userInfo")
 
     const avatars = Avatar.getAllAvatars()
-    
-    const avatar = avatars.find(avatar  =>  avatar.level == user.level )
-    
+    console.log(avatars)
+    const avatar = avatars.find(avatar => avatar.level == 3) //Falar com o Jia Acerca Disto
+
     user.avatarName = avatar.name
     user.avatarPhoto = avatar.url
 
@@ -120,8 +120,8 @@ function renderUserInfo(){
 
 function showModal() {
 
-   const content = document.getElementById('content')
-   content.innerHTML += ` <form id="editModal">
+    const content = document.getElementById('content')
+    content.innerHTML += ` <form id="editModal">
        <div class="form-container">
            <label class="labels" for="name">Name</label><br>
            <input class="inputs" type="text" id="name" required value=${user.name}><br><br>
@@ -160,42 +160,66 @@ function showModal() {
 }
 
 
-function editUser(){
+function editUser() {
 
     const form = document.getElementById('editModal')
 
-    form.addEventListener('submit',(e)  => {
+    form.addEventListener('submit', (e) => {
         e.preventDefault()
-    
+
         const password = document.querySelector('#password').value;
         const password2 = document.querySelector('#password2').value;
         const gender = document.querySelector('input[name="gender"]:checked').value
-    
-        if(password === password2){
+
+        if (password === password2) {
             Swal.fire(
                 'Done',
                 `User successfuly updated`,
                 'success'
-              ).then((result) => {
+            ).then((result) => {
                 if (result) {
-                  location.reload()
-                  User.editUser(user.id,form.name.value,password,form.email.value,form.location.value,user.avatarName,user.avatarPhoto,gender,form.birthdate.value,user.level,user.experience,user.blocked,user.quizzesCompleted)
+                    location.reload()
+                    User.editUser(user.id, form.name.value, password, form.email.value, form.location.value, user.avatarName, user.avatarPhoto, gender, form.birthdate.value, user.level, user.experience, user.blocked, user.quizzesCompleted)
 
                 }
-              })
+            })
         }
-        else{
+        else {
             Swal.fire(
                 'Oops',
                 `Passwords should match!`,
                 'error'
-              )
+            )
         }
-    
-    
-    })
-    
 
+
+    })
+
+
+}
+
+const checkAchievements = () => {
+    const quizzAchievement1 = document.querySelector('#quizzAchievement1');
+    const quizzAchievement2 = document.querySelector('#quizzAchievement2');
+    const levelAchievement1 = document.querySelector('#levelAchievement1');
+    const levelAchievement2 = document.querySelector('#levelAchievement2');
+
+    const reachLevels1 = document.querySelector('#reachLevels1');
+    const reachLevels2 = document.querySelector('#reachLevels2');
+    const clearQuizzes1 = document.querySelector('#clearQuizzes1');
+    const clearQuizzes2 = document.querySelector('#clearQuizzes2');
+
+    const loggedUser = JSON.parse(sessionStorage.getItem('loggedUser'));
+
+    if (loggedUser.level >= 10) {
+        levelAchievement1.src="../images/medal level silver.png"
+        reachLevels1.innerHTML= 'You passed the level 10 mark, Congratulations!'
+    }
+    
+    if (loggedUser.level >= 25) {
+        levelAchievement2.src="../images/medal level gold.png"
+        reachLevels2.innerHTML= 'You passed the level 25 mark, Congratulations!'
+    }
 }
 
 
@@ -204,3 +228,4 @@ User.init()
 renderUserInfo()
 showModal()
 editUser()
+checkAchievements()
