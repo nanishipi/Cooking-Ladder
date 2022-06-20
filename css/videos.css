@@ -515,7 +515,7 @@ input[type="range"]:focus::-ms-fill-upper {
   border: none;
 }
 
-.video-info-container {
+.video-options-container {
   margin-top: 20px;
   margin-left: 4rem;
   display: flex;
@@ -639,4 +639,8 @@ input[type="range"]:focus::-ms-fill-upper {
 #levelRequirement {
   text-align: center;
   font-weight: bold;
+}
+
+.video-info-container {
+    
 }

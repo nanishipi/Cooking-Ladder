@@ -211,6 +211,16 @@ const checkAchievements = () => {
 
     const loggedUser = JSON.parse(sessionStorage.getItem('loggedUser'));
 
+    if (loggedUser.quizzesCompleted.length >= 1) {
+        quizzAchievement1.src="../images/medal quizzes silver.png"
+        clearQuizzes1.innerHTML= 'You finished your first quizz, Congratulations!'
+    }
+
+    if (loggedUser.quizzesCompleted.length >= 5) {
+        quizzAchievement2.src="../images/medal quizzes gold.png"
+        clearQuizzes2.innerHTML= 'You finished at least 5 quizzes, Congratulations!'
+    }
+
     if (loggedUser.level >= 10) {
         levelAchievement1.src="../images/medal level silver.png"
         reachLevels1.innerHTML= 'You passed the level 10 mark, Congratulations!'

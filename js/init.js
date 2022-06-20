@@ -86,12 +86,12 @@ function initdata() {
        url: "https://pbs.twimg.com/profile_images/3721528514/a9911346006c26738225b5b7bdbbb41c_400x400.png"
       },
       {
-        level:2,
+        level:5,
         name:"Junior",
         url:"https://png.pngtree.com/png-clipart/20210914/ourmid/pngtree-cute-young-chef-png-image_3929096.jpg"
       },
       {
-        level:3,
+        level:25,
         name:"Master",
         url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVnRq9jlDVU9hZapKOjDOfLxPeAjJJeovSOQ&usqp=CAU"
       }

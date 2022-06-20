@@ -33,7 +33,7 @@ const videosContainer = document.querySelector('.videos-container');
 
 // When the user clicks on the button, open the modal
 logoutBtn.onclick = function () {
-    videoModal.style.display = "block";
+    
 }
 
 // When the user clicks on <span> (x), close the modal
@@ -159,7 +159,7 @@ const renderVideos = (videos, difficulty) => {
         for (let video of videos) {
             if (video.level == difficulty && hasEnoughLevel) {
                 result += `
-            <div id="${video.id}" class="card" style="width: 100% ;background-color: ${background}">
+            <div id="${video.id}" class="card video" style="width: 100% ;background-color: ${background}">
             <div class="row no-gutters">
                 <div class="col-sm-2">
                     <img class="card-images" src="../images/turtle chef.jpg" alt="Card Image">
@@ -209,6 +209,10 @@ const addCardListners = () => {
     for (const card of cards) {
         card.addEventListener('click', () => {
             Videos.setCurrentVideo(card.id)
+            const video = Videos.getCurrentVideo()
+            
+            videoModal.style.display = "block";
+
         })
     }
 }
