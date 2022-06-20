@@ -239,7 +239,6 @@ a:hover {
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #1b998b;
   margin: 15% auto;
   /* 15% from the top and centered */
   padding: 20px;
@@ -296,4 +295,30 @@ a:hover {
 #hardMessage {
   margin-top: 10px;
   color: #d5d5f6;
+}
+
+.play {
+  align-self: center;
+}
+
+.quizz {
+  border-radius: 15px;
+  border: #d5d5f6;
+  width: 80px;
+  line-height: 15px;
+  background-color: #d5d5f6;
+  padding: 1rem;
+  color: #2d3047;
+  font-weight: bold;
+
+  @font-face {
+    font-family: Poppins;
+  }
+
+  border: none;
+  outline: none;
+}
+
+.quizz:hover {
+  background-color: darkgray;
 }
