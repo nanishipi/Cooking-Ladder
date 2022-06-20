@@ -72,6 +72,7 @@ function addTimestamp() {
         if (result.isConfirmed) {
           Swal.fire(
             'Done!',
+            'Added successfully!',
             'success',
 
             currentVideo.timestamp.push({

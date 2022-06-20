@@ -1,4 +1,5 @@
 import * as Videos from "../models/videosModel.js";
+import * as Users from "../models/usersModel.js";
 
 // Get the modals
 const videoModal = document.getElementById('videoModal');
@@ -28,13 +29,27 @@ const currentTimeElement = document.querySelector('.current');
 const durationTimeElement = document.querySelector('.duration');
 
 const likeBtn = document.querySelector('.button-like');
+const likeCount = document.querySelector('#likeCount');
+
+const shareBtn = document.querySelector('.share-button'); 
 
 const videosContainer = document.querySelector('.videos-container');
 
 // When the user clicks on the button, open the modal
 logoutBtn.onclick = function () {
-    
+    Users.logout()
 }
+
+likeBtn.addEventListener('click', () => {
+    
+})
+
+shareBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText("https://www.youtube.com/watch?v=D9G1VOjN_84");
+    Swal.fire(
+        `Video URL copied to clipboard!`,
+    )
+})
 
 // When the user clicks on <span> (x), close the modal
 spanVideo.onclick = function () {
@@ -206,13 +221,13 @@ const unlockDifficulties = () => {
 
 const addCardListners = () => {
     const cards = document.getElementsByClassName("card");
+    let result = ''
     for (const card of cards) {
         card.addEventListener('click', () => {
             Videos.setCurrentVideo(card.id)
-            const video = Videos.getCurrentVideo()
-            
-            videoModal.style.display = "block";
+            const currentVideo = Videos.getCurrentVideo()
 
+            videoModal.style.display = "block";
         })
     }
 }

@@ -8,6 +8,12 @@ const editBtn = document.querySelector('#editBtn')
 const editModal = document.querySelector('#modal');
 
 const spanEdit = document.getElementById('closeModal');
+const logoutBtn = document.getElementById('logoutBtn');
+
+// When the user clicks on the button, open the modal
+logoutBtn.onclick = function () {
+    Users.logout()
+}
 
 // When the user clicks on the button, open the modal
 editButtonModal.onclick = function () {

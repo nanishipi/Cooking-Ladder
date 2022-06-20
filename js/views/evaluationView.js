@@ -1,6 +1,6 @@
 import * as Videos from "../models/videosModel.js";
 import * as Quizz from "../models/quizzesModel.js";
-
+import * as Users from "../models/usersModel.js";
 
 const quizzModal = document.querySelector('#quizzModal');
 
@@ -18,6 +18,10 @@ const spanQuizz = document.getElementsByClassName('close')[0];
 const activitiesContainer = document.querySelector('.activities-container');
 
 
+// When the user clicks on the button, open the modal
+logoutBtn.onclick = function () {
+    Users.logout()
+}
 
 // When the user clicks on <span> (x), close the modal
 spanQuizz.onclick = function () {
