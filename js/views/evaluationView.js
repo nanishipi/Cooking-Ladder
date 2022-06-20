@@ -1,4 +1,6 @@
 import * as Videos from "../models/videosModel.js";
+import * as Quizz from "../models/quizzesModel.js";
+
 
 const quizzModal = document.querySelector('#quizzModal');
 
@@ -83,37 +85,47 @@ const renderQuizzes = (videos, difficulty) => {
                 <div id="${video.id}" class="card" style="width: 100% ;background-color: ${background}">
                 <div class="row no-gutters">
                     <div class="col-sm-2">
-                        <img class="card-images" src="../images/turtle chef.jpg" alt="Card Image">
-                    </div>
-                    <div class="col-sm-10">
-                        <div class="card-body">
-                            <h1 class="quizz-title">${video.name}</h1>
-                            <h3 class="card-theme">Theme</h3>
-                            <p class="theme-text">${video.quizzes[0].theme}</p>
-                        </div>
+                    <img class="card-images" src="../images/turtle chef.jpg" alt="Card Image">
+                </div>
+                <div class="col-sm-4">
+                    <div class="card-body">
+                        <h1 class="quizz-title">${video.name}</h1>
+                        <h3 class="card-theme">Theme</h3>
+                        <p class="theme-text">${quizz.theme}</p>
                     </div>
                 </div>
+                <div class="col-sm-2">
+                <h3 class="questions-title">Questions:</h3>
+                <h3 class="experience-title">Experience:</h3>
             </div>
-        `
+            <div class="col-sm-2">
+                <p class="questions-text">${quizz.questions.length}</p>
+                <p class="experience-text">${quizz.xp}</p>
+            </div>
+               
+                    </div>
+                </div>
+            `
+
             } else if (hasEnoughLevel == false) {
-                result += `<p id='levelRequirement'>Your level is not high enough to see this content!</p>`
+                result = `<p id='levelRequirement'>Your level is not high enough to see this content!</p>`
             }
         }
-        activitiesContainer.innerHTML += result
     }
+    activitiesContainer.innerHTML += result
 }
 
 const unlockDifficulties = () => {
     const loggedUser = JSON.parse(sessionStorage.getItem('loggedUser'));
 
     if (loggedUser.level >= 10) {
-        mediumImage.src="../images/quizz orange.png"
-        mediumMessage.style.display="none"
-    } 
+        mediumImage.src = "../images/quizz orange.png"
+        mediumMessage.style.display = "none"
+    }
 
     if (loggedUser.level >= 25) {
-        hardImage.src="../images/quizz red.png"
-        hardMessage.style.display="none"
+        hardImage.src = "../images/quizz red.png"
+        hardMessage.style.display = "none"
     }
 }
 

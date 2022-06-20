@@ -27,9 +27,15 @@ export function addUser(id,name, password, email, location,avatarName,avatarPhot
           'Done',
           `User successfuly registed`,
           'success'
-        )
-        users.push(new User(id,name, password, email, location,avatarName,avatarPhoto, gender, birthdate, level, experience, blocked, quizzesCompleted));
-        localStorage.setItem("users", JSON.stringify(users));
+        ).then((result) => {
+          if (result) {
+            window.location.href="/"
+            users.push(new User(id,name, password, email, location,avatarName,avatarPhoto, gender, birthdate, level, experience, blocked, quizzesCompleted));
+            localStorage.setItem("users", JSON.stringify(users));
+          }
+        })
+      
+       
 
     }
 }
@@ -65,7 +71,9 @@ export function login(email, password) {
     const user = users.find(
       (user) => user.email === email && user.password === password
     );
-    if (user) {
+
+   
+     if (user && user.blocked == false) {
       Swal.fire(
         'Login Success!',
         `Welcome ${user.name}`,
@@ -78,7 +86,27 @@ export function login(email, password) {
       })
       sessionStorage.setItem("loggedUser", JSON.stringify(user));
       return true;
-    } else {
+    } 
+    if(user && user.blocked ==true){
+      Swal.fire(
+        'Error!',
+        'User Blocked',
+        'error'
+      )
+    }
+    else if(email == "admin@gmail.com" && password == "admin"){
+      Swal.fire(
+        'Login Success!',
+        `Welcome Admin`,
+        'success'
+      ).then((result) => {
+        if (result) {
+          window.location.href="../html/admin.html"
+          
+        }
+      })
+    }
+    else {
       Swal.fire(
         'Invalid Login!',
         'Try Again',

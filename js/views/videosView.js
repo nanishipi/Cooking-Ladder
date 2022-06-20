@@ -183,7 +183,7 @@ const renderVideos = (videos, difficulty) => {
         </div>
         `
             } else if (hasEnoughLevel == false) {
-                result += `<p id='levelRequirement'>Your level is not high enough to see this content!</p>`
+                result = `<p id='levelRequirement'>Your level is not high enough to see this content!</p>`
             }
         }
         videosContainer.innerHTML += result
