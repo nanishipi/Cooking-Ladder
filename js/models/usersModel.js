@@ -102,7 +102,7 @@ export function login(email, password) {
       ).then((result) => {
         if (result) {
           window.location.href="../html/admin.html"
-          
+          sessionStorage.setItem("loggedUser", JSON.stringify("admin"));
         }
       })
     }
