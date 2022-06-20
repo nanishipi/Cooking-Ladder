@@ -6,12 +6,12 @@ export function init() {
   videos = localStorage.videos ? JSON.parse(localStorage.videos) : [];
 }
 
-export function add(id, name,theme,durantion,photo, url, level, tag,timestamp,quizzes) {
+export function add(id, name,theme,duration,photo, url, level, tag,timestamp,quizzes) {
   if (videos.some((video) => video.name === name)) {
     throw Error(`Video with name "${name}" already exists!`);
   } 
   else {
-    videos.push(new Video(id,name,theme,durantion,photo, url,  level, tag, timestamp,quizzes));
+    videos.push(new Video(id,name,theme,duration,photo, url,  level, tag, timestamp,quizzes));
     localStorage.setItem("videos", JSON.stringify(videos));
   }
 }
@@ -27,7 +27,7 @@ export function removeVideo(id) {
     localStorage.setItem("videos", JSON.stringify(videos));
   }
 
-export function editVideo(name,theme,durantion,photo,url,level,tag,timestamp,quizzes) {
+export function editVideo(name,theme,duration,photo,url,level,tag,timestamp,quizzes) {
 
     const currentVideo = getCurrentVideo()
 
@@ -35,7 +35,7 @@ export function editVideo(name,theme,durantion,photo,url,level,tag,timestamp,qui
         id:currentVideo.id,
         name:name,
         theme:theme,
-        durantion:durantion,
+        duration:duration,
         photo:photo,
         url:url,
         level:level,

@@ -202,7 +202,7 @@ function editVideo() {
             'Edited!',
             'Video successfully edited!',
             'success',
-            Video.editVideo(result.value.name, result.value.theme, result.value.duration, result.value.photo, result.value.url, result.value.level, result.value.tag, currentVideo.quizzes)
+            Video.editVideo(result.value.name, result.value.theme, Number(result.value.duration) , result.value.photo, result.value.url, result.value.level, result.value.tag,currentVideo.timestamp, currentVideo.quizzes)
 
           ).then((result) => {
             if (result) {
