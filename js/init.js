@@ -16,7 +16,7 @@ function initdata() {
        avatarPhoto:"", 
        gender:"male",
        birthday: "2008-03-03",
-       level: 1,
+       level: 10,
        experience:0,
        blocked: false,
        quizzesCompleted:[]

@@ -37,6 +37,15 @@ function addQuizz(){
       }
 
       else {
+        if(video[0].level == "Easy"){
+          xp = 200
+        }
+        else if(video[0].level == "Medium"){
+          xp = 350
+        }
+        else{
+          xp = 500
+        }
         Quizz.add(
             Number(videoID),
             theme,

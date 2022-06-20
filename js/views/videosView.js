@@ -168,7 +168,7 @@ const renderVideos = (videos, difficulty) => {
                     <div class="card-body">
                         <h1 class="video-title">${video.name}</h1>
                         <h3 class="card-theme">Theme</h3>
-                        <p class="theme-text">${video.quizzes.theme}</p>
+                        <p class="theme-text">${video.theme}</p>
                     </div>
                 </div>
                 <div class="col-sm-2">
@@ -183,7 +183,7 @@ const renderVideos = (videos, difficulty) => {
         </div>
         `
             } else if (hasEnoughLevel == false) {
-                result += `<p id='levelRequirement'>Your level is not high enough to see this content!</p>`
+                result = `<p id='levelRequirement'>Your level is not high enough to see this content!</p>`
             }
         }
         videosContainer.innerHTML += result

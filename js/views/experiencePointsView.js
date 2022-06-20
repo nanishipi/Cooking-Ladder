@@ -47,15 +47,7 @@ function setXP(){
           })
         })
       }
-        
-        
-    
-  
-
 }
-
-
-
 
 function renderTable(quizzes) {
 
