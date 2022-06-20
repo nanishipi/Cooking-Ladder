@@ -14,6 +14,39 @@ const spanLogin = document.getElementsByClassName('close')[0];
 const spanRegister = document.getElementsByClassName('close')[1];
 
 const registerModalForm = document.getElementById('registerModalForm');
+const navbar = document.querySelector('.navbar-wrapper');
+
+const logoutBtn = document.getElementById('logoutBtn');
+
+const loggedUser = JSON.parse(sessionStorage.getItem('loggedUser'));
+
+if (loggedUser) {
+    navbar.innerHTML = ''
+
+    navbar.innerHTML = `
+    <nav class="navbar navbar-expand-lg">
+    <div class="logo-wrapper">
+        <a class="navbar-logo-wrapper" href="../index.html">
+            <img class="navbar-brand" src="../images/Cooking Ladder Logo.png" href="#">
+        </a>
+    </div>
+    <h3><a href="../index.html">Cooking Ladder</a></h3>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div id="navbarLinks" class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-link" href="./html/videos.html"></i>Videos</a>
+            <a class="nav-link" href="./html/evaluation.html"></i>Evaluation</a>
+            <a class="nav-link" href="./html/profile.html"></i>Profile</a>
+        </div>
+    </div>
+    <button id="logoutBtn" class="nav-item">Logout</button>
+</nav>
+    
+    `
+}
 
 // When the user clicks on the button, open the modal
 loginButtonModal.onclick = function () {

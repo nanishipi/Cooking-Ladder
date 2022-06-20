@@ -1,6 +1,6 @@
 import * as Videos from "../models/videosModel.js";
 import * as Quizz from "../models/quizzesModel.js";
-
+import * as Users from "../models/usersModel.js";
 
 const quizzModal = document.querySelector('#quizzModal');
 let questionsForm = document.querySelector('#questionsForm')
@@ -18,6 +18,23 @@ const hardMessage = document.querySelector('#hardMessage');
 const spanQuizz = document.getElementsByClassName('close')[0];
 const activitiesContainer = document.querySelector('.activities-container');
 
+
+// When the user clicks on the button, open the modal
+logoutBtn.onclick = function () {
+    Users.logout()
+}
+
+// When the user clicks on <span> (x), close the modal
+spanQuizz.onclick = function () {
+    quizzModal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target == quizzModal) {
+        quizzModal.style.display = "none";
+    }
+}
 
 easyImage.addEventListener('click', () => {
     activitiesContainer.innerHTML = ''

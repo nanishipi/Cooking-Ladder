@@ -1,66 +1,66 @@
 /* import * as Video from "../models/videosModel.js";
 
-let quizzes
+// let quizzes
 
-Video.init()
-let videos = Video.getAllVideos()
+// Video.init()
+// let videos = Video.getAllVideos()
 
-export function init() {
-  quizzes = localStorage.quizzes ? JSON.parse(localStorage.quizzes) : [];
-}
+// export function init() {
+//   quizzes = localStorage.quizzes ? JSON.parse(localStorage.quizzes) : [];
+// }
 
-export function add(videoID, theme, questions, xp) {
+// export function add(videoID, theme, questions, xp) {
 
 
-  let video = videos.find(v => v.id == videoID)
-  video.quizzes.push(new Quizz(videoID, theme, questions, xp))
-  localStorage.setItem("videos", JSON.stringify(videos));
+//   let video = videos.find(v => v.id == videoID)
+//   video.quizzes.push(new Quizz(videoID, theme, questions, xp))
+//   localStorage.setItem("videos", JSON.stringify(videos));
 
-}
+// }
 
-export function getAllQuizzes() {
+// export function getAllQuizzes() {
 
-  const quizzes = videos.map(video => video.quizzes)
+//   const quizzes = videos.map(video => video.quizzes)
 
-  return quizzes
+//   return quizzes
 
-};
+// };
 
-export function setXP(videoID, theme, questions, xp) {
+// export function setXP(videoID, theme, questions, xp) {
 
-  const QuizzNew = {
-    videoID: videoID,
-    theme: theme,
-    questions: questions,
-    xp: xp
+//   const QuizzNew = {
+//     videoID: videoID,
+//     theme: theme,
+//     questions: questions,
+//     xp: xp
 
-  }
-    let video 
-   for (const v of videos) {
-     if (v.id === videoID) {
-     video = v.quizzes.map(q => q.theme === theme ? QuizzNew : q); 
+//   }
+//     let video 
+//    for (const v of videos) {
+//      if (v.id === videoID) {
+//      video = v.quizzes.map(q => q.theme === theme ? QuizzNew : q); 
 
-   }
-   }
-   const data = videos.find(v => v.id === videoID)
-   data.quizzes = video
-   videos = videos.map(v => v.id === videoID ? data : v)
-   localStorage.setItem('videos', JSON.stringify(videos)); 
+//    }
+//    }
+//    const data = videos.find(v => v.id === videoID)
+//    data.quizzes = video
+//    videos = videos.map(v => v.id === videoID ? data : v)
+//    localStorage.setItem('videos', JSON.stringify(videos)); 
 
-}
+// }
 
-export function setCurrentQuizz(id, videoID) {
-  localStorage.setItem("quizz", id);
-  localStorage.setItem("videoID", videoID);
+// export function setCurrentQuizz(id, videoID) {
+//   localStorage.setItem("quizz", id);
+//   localStorage.setItem("videoID", videoID);
 
-}
+// }
 
-export function getCurrentQuizz() {
+// export function getCurrentQuizz() {
 
-  const quizzes = getAllQuizzes()
-  let quizzTheme = String(localStorage.getItem('quizz'))
-  let quizzVideoID = String(localStorage.getItem('videoID'))
-  let quizz = []
+//   const quizzes = getAllQuizzes()
+//   let quizzTheme = String(localStorage.getItem('quizz'))
+//   let quizzVideoID = String(localStorage.getItem('videoID'))
+//   let quizz = []
 
   for (let i = 0; i < quizzes.length; i++) {
     const data = quizzes[i].find((quizz) => quizz.theme == quizzTheme && quizz.videoID == quizzVideoID)
@@ -70,23 +70,23 @@ export function getCurrentQuizz() {
   }
   return quizz
 
-}
+// }
 
 
 
-class Quizz {
-  videoID = null
-  theme = ""
-  questions = []
-  xp = null
+// class Quizz {
+//   videoID = null
+//   theme = ""
+//   questions = []
+//   xp = null
 
 
-  constructor(videoID, theme, questions, xp) {
-    this.videoID = videoID,
-      this.theme = theme,
-      this.questions = questions,
-      this.xp = xp
-  }
-}
+//   constructor(videoID, theme, questions, xp) {
+//     this.videoID = videoID,
+//       this.theme = theme,
+//       this.questions = questions,
+//       this.xp = xp
+//   }
+// }
 
  */
