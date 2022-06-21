@@ -89,13 +89,30 @@ function initdata() {
           theme:"Soup",
           questions:[
             {
-              question:"How much water you need for cook 200g rice?",
-              correctAnswer:"400ml",
+              question:"How much water you need for make soup for 2 peaple?",
+              correctAnswer:"500ml",
               answer1:"100ml",
-              answer2:"200ml",
-              answer3:"300ml",
-              answer4:"400ml"          
+              answer2:"120ml",
+              answer3:"500ml",
+              answer4:"300ml"          
+            },
+            {
+              question:"What the most important ingredient for soup?",
+              correctAnswer:"water",
+              answer1:"Juice",
+              answer2:"Water",
+              answer3:"Salt",
+              answer4:"Potatos"          
+            },
+            {
+              question:"How much time you need to make the soup?",
+              correctAnswer:"15 minutes",
+              answer1:"1 minute",
+              answer2:"10 minutes",
+              answer3:"5 minutes",
+              answer4:"15 minutes"          
             }
+
         ],
            xp:200,
         }],
