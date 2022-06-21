@@ -79,7 +79,7 @@ function addTimestamp() {
               title: result.value.title,
               time: result.value.time
             }),
-            Video.editVideo(currentVideo.name,currentVideo.theme,currentVideo.duration,currentVideo.photo,currentVideo.url,currentVideo.level,currentVideo.tag,currentVideo.timestamp,currentVideo.quizzes)
+            Video.editVideo(currentVideo.name,currentVideo.theme,currentVideo.duration,currentVideo.photo,currentVideo.url,currentVideo.path,currentVideo.level,currentVideo.tag,currentVideo.timestamp,currentVideo.quizzes)
 
           ).then((result) => {
             if (result) {
@@ -161,6 +161,10 @@ function editVideo() {
             <input type="url" id="url" class="swal2-input" placeholder="Url" value="${currentVideo.url}">
         </div>
         <div>
+            <label for="path" >Path</label>
+            <input type="text" id="path" class="swal2-input" placeholder="Path" value="${currentVideo.path}">
+        </div>
+        <div>
             <label for="level" >Level</label>
             <select id="level"  class="swal2-input">
             <option value=${currentVideo.level}>${currentVideo.level}</option>
@@ -188,6 +192,7 @@ function editVideo() {
           const duration = Swal.getPopup().querySelector('#duration').value
           const photo = Swal.getPopup().querySelector('#photo').value
           const url = Swal.getPopup().querySelector('#url').value
+          const path = Swal.getPopup().querySelector('#path').value
           const level = Swal.getPopup().querySelector('#level').value
           const tag = Swal.getPopup().querySelector('#tag').value
 
@@ -195,7 +200,7 @@ function editVideo() {
           if (!name || !theme || !url || !level || !tag) {
             Swal.showValidationMessage(`Please fill the inputs`)
           }
-          return { name: name, theme: theme, duration: duration, photo: photo, url: url, level: level, tag: tag }
+          return { name: name, theme: theme, duration: duration, photo: photo, url: url, path:path, level: level, tag: tag }
         }
       }).then((result) => {
         if (result.isConfirmed) {
@@ -203,7 +208,7 @@ function editVideo() {
             'Edited!',
             'Video successfully edited!',
             'success',
-            Video.editVideo(result.value.name, result.value.theme, Number(result.value.duration) , result.value.photo, result.value.url, result.value.level, result.value.tag,currentVideo.timestamp, currentVideo.quizzes)
+            Video.editVideo(result.value.name, result.value.theme, Number(result.value.duration) , result.value.photo, result.value.url,result.value.path, result.value.level, result.value.tag,currentVideo.timestamp, currentVideo.quizzes)
 
           ).then((result) => {
             if (result) {
