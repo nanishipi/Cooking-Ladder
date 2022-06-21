@@ -1,5 +1,3 @@
-import { path } from "express/lib/application";
-
 let videos;
 
 // CARREGAR CATs DA LOCALSTORAGE
