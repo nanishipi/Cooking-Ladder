@@ -18,7 +18,6 @@ function loggedUser(){
 
     const user = JSON.parse(sessionStorage.getItem('loggedUser'))
 const avatars = Avatar.getAllAvatars()
-    console.log(avatars)
     let level 
     if(user.level < 5){
         level = 1
@@ -35,7 +34,6 @@ const avatars = Avatar.getAllAvatars()
 
 
     
-    console.log(level);
     const avatar = avatars.find(avatar => avatar.level == level) //Falar com o Jia Acerca Disto
     user.avatarPhoto = avatar.url
 

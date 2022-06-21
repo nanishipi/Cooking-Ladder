@@ -1,8 +1,35 @@
 import * as Video from "../models/videosModel.js";
+import * as Quizzes from "../models/quizzesModel.js";
+
 
 Video.init()
+Quizzes.init()
+
 let videos = Video.getAllVideos()
 
+
+export function remove(id,theme,question){
+  const video = videos.find(video => video.id == id)
+  console.log(id);
+  const quizz = video.quizzes.find(quizz => quizz.theme == theme)
+  const questionsFiltered = quizz.questions.filter(q => q.question !== question)
+  
+  let quizzFound
+  for ( const v of videos){
+    if(v.id === id){
+      quizzFound = v.quizzes.find(q => q.theme == theme)
+    }
+  }
+  quizzFound.questions = questionsFiltered
+  console.log(quizzFound);
+  const update = video.quizzes.map(q => q.theme == theme ? quizzFound : q)
+  console.log(update);
+
+/* 
+  videos = videos.filter((video) => video.id !== id);
+    localStorage.setItem("videos", JSON.stringify(videos)); */
+
+}
 
 export function add(videoID,theme,question,correctAnswer,answer1,answer2,answer3,answer4) {
     
@@ -24,6 +51,30 @@ export function add(videoID,theme,question,correctAnswer,answer1,answer2,answer3
     return questions
 
 };
+
+export function setCurrentQuestion(question, quizzTheme) {
+  localStorage.setItem("question", question);
+  localStorage.setItem("quizzTheme", quizzTheme);
+
+}
+
+export function getCurrentQuestion() {
+
+  const quizzes = Quizzes.getAllQuizzes()
+  let quizzTheme = String(localStorage.getItem('quizzTheme'))
+  let question = String(localStorage.getItem('question'))
+  let quizz = []
+
+  for (let i = 0; i < quizzes.length; i++) {
+    const data = quizzes[i].find(q => q.theme == quizzTheme)
+    if (data != undefined) {
+      quizz.push(data)
+    }
+
+  }
+  const questionFound = quizz[0].questions.find(q => q.question == question)
+  return questionFound;
+}
 
 
 class Question {
