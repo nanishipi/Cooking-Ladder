@@ -1,3 +1,5 @@
+import { path } from "express/lib/application";
+
 let videos;
 
 // CARREGAR CATs DA LOCALSTORAGE
@@ -5,12 +7,12 @@ export function init() {
     videos = localStorage.videos ? JSON.parse(localStorage.videos) : [];
 }
 
-export function add(id, name, theme, duration, photo, url, level, tag, timestamp, quizzes) {
+export function add(id, name, theme, duration, photo, url,path, level, tag, timestamp, quizzes) {
     if (videos.some((video) => video.name === name)) {
         throw Error(`Video with name "${name}" already exists!`);
     }
     else {
-        videos.push(new Video(id, name, theme, duration, photo, url, level, tag, timestamp, quizzes));
+        videos.push(new Video(id, name, theme, duration, photo,path, url, level, tag, timestamp, quizzes));
         localStorage.setItem("videos", JSON.stringify(videos));
     }
 }
@@ -24,7 +26,7 @@ export function removeVideo(id) {
     localStorage.setItem("videos", JSON.stringify(videos));
 }
 
-export function editVideo(name, theme, duration, photo, url, level, tag, timestamp, quizzes) {
+export function editVideo(name, theme, duration, photo, url,path, level, tag, timestamp, quizzes) {
 
     const currentVideo = getCurrentVideo()
 
@@ -35,6 +37,7 @@ export function editVideo(name, theme, duration, photo, url, level, tag, timesta
         duration: duration,
         photo: photo,
         url: url,
+        path:path,
         level: level,
         tag: tag,
         timestamp: timestamp,
@@ -62,19 +65,21 @@ class Video {
     duration = null
     photo = ""
     url = ""
+    path = ""
     level = null
     tag = ""
     timestamp = []
     quizzes = []
 
 
-    constructor(id, name, theme, duration, photo, url, level, tag, timestamp, quizzes) {
+    constructor(id, name, theme, duration, photo, url,path, level, tag, timestamp, quizzes) {
         this.id = id
         this.name = name,
             this.theme = theme,
             this.duration = duration,
             this.photo = photo,
             this.url = url,
+            this.paht = path
             this.level = level,
             this.tag = tag
         this.timestamp = timestamp

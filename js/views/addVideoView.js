@@ -13,6 +13,7 @@ function addVideo() {
         document.querySelector("#duration").value,
         document.querySelector("#photo").value,
         document.querySelector("#url").value,
+        document.querySelector("#path").value,
         document.querySelector("#level").value,
         document.querySelector("#tag").value,
         [],
