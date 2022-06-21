@@ -124,6 +124,25 @@ const getvideoFunctions = (currentVideo) => {
     const likeCount = document.querySelector('#likeCount');
 
     const shareBtn = document.querySelector('.share-button');
+    const exercisesCollection = document.getElementsByClassName('exercises-paragraphs')
+    const exercises = [...exercisesCollection];
+
+    exercises.forEach(exercise => {
+        exercise.addEventListener('click', () => {
+            const exerciseValues = exercise.getAttribute('id').split('-');
+            const videoId = exerciseValues[0];
+            const quizzTheme = exerciseValues[1];
+
+            const currentQuizz = {
+                videoID: videoId,
+                theme: quizzTheme,
+                clicked: 'yes'
+            }
+            localStorage.setItem('quizzToOpen', JSON.stringify(currentQuizz));
+            window.location.href = "../html/evaluation.html"
+        })
+    });
+
 
     likeBtn.addEventListener('click', () => {
         const userlike = currentVideo.likes.find(like => 
@@ -264,19 +283,15 @@ const renderVideo = (currentVideo) => {
         </button>
         <p id="likeCount">${currentVideo.likes.length}</p>
         <button class="share-button">Share</button>
-        <div class="rating">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-        </div>
     </div>
     <div class="video-info-container">
         <p class="tag">${currentVideo.tag}</p>
-    
-    `
+    `   
     const timestamps = currentVideo.timestamp;
+
+    if (timestamps.length != 0) {
+        result += `<h3 class="timestamps-title">Timestamps</h3>`
+    }
 
     timestamps.forEach(timestamp => {
         result += `<div class="timestapms">
@@ -284,7 +299,21 @@ const renderVideo = (currentVideo) => {
     </div>
     `
     });
-    
+
+    const quizzes = currentVideo.quizzes;
+
+    if (quizzes.length != 0) {
+        result += `<h3 class="exercises-title">Exercises</h3>`
+    }
+
+    quizzes.forEach(quizz => {
+        result += `<div class="exercises">
+        <p id="${quizz.videoID}-${quizz.theme}" class="exercises-paragraphs">Exercise about ${quizz.theme}</p>    
+    </div>
+    `
+    })
+
+
     result += `</div>
     <div class="comment-button-wrapper">
     <button class="comments-button">Comments</button>
