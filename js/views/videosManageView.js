@@ -86,7 +86,7 @@ function addTimestamp() {
               timeStart: result.value.timeStart,
               timeEnd:result.value.timeEnd,
             }),
-            Video.editVideo(currentVideo.name,currentVideo.theme,currentVideo.duration,currentVideo.photo,currentVideo.url,currentVideo.path,currentVideo.level,currentVideo.tag,currentVideo.timestamp,currentVideo.quizzes, currentVideo.likes)
+            Video.editVideo(currentVideo.name,currentVideo.theme,currentVideo.duration,currentVideo.photo,currentVideo.url,currentVideo.path,currentVideo.level,currentVideo.tag,currentVideo.timestamp,currentVideo.quizzes, currentVideo.likes, currentVideo.comments)
 
           ).then((result) => {
             if (result) {
@@ -215,7 +215,7 @@ function editVideo() {
             'Edited!',
             'Video successfully edited!',
             'success',
-            Video.editVideo(result.value.name, result.value.theme, Number(result.value.duration) , result.value.photo, result.value.url,result.value.path, result.value.level, result.value.tag,currentVideo.timestamp, currentVideo.quizzes, currentVideo.likes)
+            Video.editVideo(result.value.name, result.value.theme, Number(result.value.duration) , result.value.photo, result.value.url,result.value.path, result.value.level, result.value.tag,currentVideo.timestamp, currentVideo.quizzes, currentVideo.likes, currentVideo.comments)
 
           ).then((result) => {
             if (result) {

@@ -70,7 +70,8 @@ function initdata() {
         ],
            xp:0,
         }],
-      likes: []
+      likes: [],
+      comments: []
       }
     ]
     
