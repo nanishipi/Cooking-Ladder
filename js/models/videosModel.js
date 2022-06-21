@@ -5,12 +5,12 @@ export function init() {
     videos = localStorage.videos ? JSON.parse(localStorage.videos) : [];
 }
 
-export function add(id, name, theme, duration, photo, url,path, level, tag, timestamp, quizzes, likes) {
+export function add(id, name, theme, duration, photo, url, path, level, tag, timestamp, quizzes, likes, comments) {
     if (videos.some((video) => video.name === name)) {
         throw Error(`Video with name "${name}" already exists!`);
     }
     else {
-        videos.push(new Video(id, name, theme, duration, photo,url,path, level, tag, timestamp, quizzes, likes));
+        videos.push(new Video(id, name, theme, duration, photo, url, path, level, tag, timestamp, quizzes, likes, comments));
         localStorage.setItem("videos", JSON.stringify(videos));
     }
 }
@@ -24,7 +24,7 @@ export function removeVideo(id) {
     localStorage.setItem("videos", JSON.stringify(videos));
 }
 
-export function editVideo(name, theme, duration, photo, url,path, level, tag, timestamp, quizzes, likes) {
+export function editVideo(name, theme, duration, photo, url, path, level, tag, timestamp, quizzes, likes, comments) {
 
     const currentVideo = getCurrentVideo()
 
@@ -35,12 +35,13 @@ export function editVideo(name, theme, duration, photo, url,path, level, tag, ti
         duration: duration,
         photo: photo,
         url: url,
-        path:path,
+        path: path,
         level: level,
         tag: tag,
         timestamp: timestamp,
         quizzes: quizzes,
-        likes: likes
+        likes: likes,
+        comments: comments
     }
     videos = videos.map(video => video.id == currentVideo.id ? VideoNew : video)
     localStorage.setItem('videos', JSON.stringify(videos));
@@ -69,9 +70,9 @@ class Video {
     timestamp = []
     quizzes = []
     likes = []
+    comments = []
 
-
-    constructor(id, name, theme, duration, photo, url,path, level, tag, timestamp, quizzes, likes) {
+    constructor(id, name, theme, duration, photo, url, path, level, tag, timestamp, quizzes, likes, comments) {
         this.id = id
         this.name = name,
             this.theme = theme,
@@ -79,10 +80,11 @@ class Video {
             this.photo = photo,
             this.url = url,
             this.path = path
-            this.level = level,
+        this.level = level,
             this.tag = tag
         this.timestamp = timestamp
         this.quizzes = quizzes
         this.likes = likes
+        this.comments = comments
     }
 }

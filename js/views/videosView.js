@@ -127,6 +127,33 @@ const getvideoFunctions = (currentVideo) => {
     const exercisesCollection = document.getElementsByClassName('exercises-paragraphs')
     const exercises = [...exercisesCollection];
 
+    const comments = document.querySelector('.comments-button');
+    const commentsSection = document.querySelector('.comment-section');
+
+    const sendBtn = document.querySelector('.send-comment');
+    const commentBox = document.querySelector('.comment-box');
+
+    sendBtn.addEventListener('click', () => {
+        const comment = commentBox.value;
+        if (comment != '') {
+            commentBox.value = '';
+            const commentTosend = {
+                commentValue: comment,
+                user: loggedUser.name
+            }
+            currentVideo.comments.push(commentTosend)
+            Videos.editVideo(currentVideo.name,currentVideo.theme,currentVideo.duration,currentVideo.photo,currentVideo.url,currentVideo.path,currentVideo.level,currentVideo.tag,currentVideo.timestamp,currentVideo.quizzes, currentVideo.likes, currentVideo.comments);
+        }
+    })
+
+    comments.addEventListener('click', () => {
+        if (commentsSection.style.display == "none") {
+            commentsSection.style.display = "block";
+        } else {
+            commentsSection.style.display = "none"
+        }
+    })
+
     exercises.forEach(exercise => {
         exercise.addEventListener('click', () => {
             const exerciseValues = exercise.getAttribute('id').split('-');
@@ -137,9 +164,7 @@ const getvideoFunctions = (currentVideo) => {
                 videoID: videoId,
                 theme: quizzTheme,
             }
-            const user = JSON.parse(sessionStorage.getItem('loggedUser'))
-            const completed = user.quizzesCompleted.find(quizz  => quizz.videoID == videoId && quizz.quizz == quizzTheme )
-            console.log(completed);
+            const completed = loggedUser.quizzesCompleted.find(quizz  => quizz.videoID == videoId && quizz.quizz == quizzTheme )
             if(completed){
                 Swal.fire(
                     'Oops!',
@@ -174,7 +199,7 @@ const getvideoFunctions = (currentVideo) => {
             likeBtn.classList.toggle('liked');
         }
         likeCount.innerHTML = currentVideo.likes.length
-        Videos.editVideo(currentVideo.name,currentVideo.theme,currentVideo.duration,currentVideo.photo,currentVideo.url,currentVideo.path,currentVideo.level,currentVideo.tag,currentVideo.timestamp,currentVideo.quizzes, currentVideo.likes);
+        Videos.editVideo(currentVideo.name,currentVideo.theme,currentVideo.duration,currentVideo.photo,currentVideo.url,currentVideo.path,currentVideo.level,currentVideo.tag,currentVideo.timestamp,currentVideo.quizzes, currentVideo.likes, currentVideo.comments);
     })
 
     shareBtn.addEventListener('click', () => {
@@ -306,6 +331,7 @@ const renderVideo = (currentVideo) => {
         <button class="share-button">Share</button>
     </div>
     <div class="video-info-container">
+        <h3 class="tags-title">Tag</h3>
         <p class="tag">${currentVideo.tag}</p>
     `   
     const timestamps = currentVideo.timestamp;
@@ -339,6 +365,18 @@ const renderVideo = (currentVideo) => {
     result += `</div>
     <div class="comment-button-wrapper">
     <button class="comments-button">Comments</button>
+    </div>
+    <div class="comment-section">
+    `
+    const comments = currentVideo.comments;
+
+    comments.forEach(comment => {
+        result += `<p class="comment">${comment.user}: ${comment.commentValue}</p>
+    `
+    })
+
+    result += `
+    <input type="text" class="comment-box"><button class="send-comment">Send</button>
     </div>`
 
     modalContent.innerHTML = result;

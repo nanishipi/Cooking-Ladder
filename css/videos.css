@@ -699,6 +699,7 @@ p .timestamp-title {
     line-height: 35px;
     padding-left: 20px;
     padding-right: 20px;
+    margin-top: 20px;
 }
 
 #userImg {
@@ -715,4 +716,34 @@ p .timestamp-title {
 
 .exercises-title {
     color: #e84855;
+}
+
+.tags-title {
+    color: #e84855;
+}
+
+.comment-section {
+    background-color: aliceblue;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.comment-box {
+    width: 90%;
+    border: 1px solid black;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    outline: none;
+    border-radius: 20px;
+}
+
+.send-comment {
+    margin: 15px;
+    border-radius: 20px;
+    width: 70px;
+    border: none;
+    background-color: #e84855;
+    color: whitesmoke;
+    line-height: 30px;
 }
