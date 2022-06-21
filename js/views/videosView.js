@@ -10,6 +10,7 @@ const hardImage = document.querySelector('#hardImage');
 
 const mediumMessage = document.querySelector('#mediumMessage');
 const hardMessage = document.querySelector('#hardMessage');
+const loggedUser = JSON.parse(sessionStorage.getItem('loggedUser'));
 
 const videosContainer = document.querySelector('.videos-container');
 
@@ -41,7 +42,6 @@ const renderVideos = (videos, difficulty) => {
     let result = ''
     let hasEnoughLevel = true;
     let background = ''
-    const loggedUser = JSON.parse(sessionStorage.getItem('loggedUser'));
 
     if (difficulty == 'Easy') {
         background = "#1B998B"
@@ -90,11 +90,10 @@ const renderVideos = (videos, difficulty) => {
         }
         videosContainer.innerHTML += result
     }
+    addCardListners()
 }
 
 const unlockDifficulties = () => {
-    const loggedUser = JSON.parse(sessionStorage.getItem('loggedUser'));
-
     if (loggedUser.level >= 10) {
         mediumImage.src = "../images/video orange.png"
         mediumMessage.style.display = "none"
@@ -127,7 +126,22 @@ const getvideoFunctions = (currentVideo) => {
     const shareBtn = document.querySelector('.share-button');
 
     likeBtn.addEventListener('click', () => {
+        const userlike = currentVideo.likes.find(like => 
+            like.userId == loggedUser.id && like.videoId == currentVideo.id
+        )
 
+        if (userlike) {
+              currentVideo.likes = currentVideo.likes.filter(like => 
+                like.userId != loggedUser.id && like.videoId != currentVideo.id
+            )
+        } else {
+            currentVideo.likes.push({
+                userId: loggedUser.id,
+                videoId: currentVideo.id
+            })
+        }
+        likeCount.innerHTML = currentVideo.likes.length
+        Videos.editVideo(currentVideo.name,currentVideo.theme,currentVideo.duration,currentVideo.photo,currentVideo.url,currentVideo.path,currentVideo.level,currentVideo.tag,currentVideo.timestamp,currentVideo.quizzes, currentVideo.likes);
     })
 
     shareBtn.addEventListener('click', () => {
@@ -248,7 +262,7 @@ const renderVideo = (currentVideo) => {
             <i class="fas fa-thumbs-up"></i>
             <span>Like</span>
         </button>
-        <p id="likeCount">0</p>
+        <p id="likeCount">${currentVideo.likes.length}</p>
         <button class="share-button">Share</button>
         <div class="rating">
             <span class="fa fa-star checked"></span>
@@ -266,7 +280,7 @@ const renderVideo = (currentVideo) => {
 
     timestamps.forEach(timestamp => {
         result += `<div class="timestapms">
-        <p class="timestapms-paragraphs"><span>0:00 - 2:37</span> --- <span class="timestamp-title">${timestamp.title}</span> </p>    
+        <p class="timestapms-paragraphs"><span>${timestamp.timeStart} - ${timestamp.timeEnd}</span> --- <span class="timestamp-title">${timestamp.title}</span> </p>    
     </div>
     `
     });
@@ -297,4 +311,3 @@ const addCardListners = () => {
 Videos.init()
 unlockDifficulties()
 renderVideos(Videos.getAllVideos(), 'Easy');
-addCardListners()
