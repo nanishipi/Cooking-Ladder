@@ -91,7 +91,7 @@ loginModal.addEventListener('submit',(e)  => {
 registerModalForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
-
+        const users = Users.getAllUsers()
         const name = document.querySelector('#nameRegister').value;
         const password = document.querySelector('#passwordRegister').value;
         const password2 = document.querySelector('#passwordRegister2').value;
@@ -100,19 +100,37 @@ registerModalForm.addEventListener('submit', (event) => {
         const location = document.querySelector('#location').value;
         const gender = document.querySelector('input[name="gender"]:checked').value
 
-       
         if(password === password2){
-            Users.addUser(
-                Users.getAllUsers().length + 1,
-                name,
-                password,
-                email,
-                location,
-                "",
-                "",
-                gender,
-                birthdate
-            )
+            if (users.some((user) => user.email === email)) {
+                Swal.fire(
+                    `User with email ${email} already exist!`,
+                    'Try Again',
+                    'error'
+                )
+            }
+            else {
+                Swal.fire(
+                    'Done',
+                    `User successfuly registed`,
+                    'success'
+                ).then((result) => {
+                    if (result) {
+                        Users.addUser(
+                            Users.getAllUsers().length + 1,
+                            name,
+                            password,
+                            email,
+                            location,
+                            "",
+                            "",
+                            gender,
+                            birthdate
+                        )
+                        window.location.href = "/"
+                      
+                    }
+                })
+            }          
         }
         else{
             Swal.fire(
@@ -121,8 +139,6 @@ registerModalForm.addEventListener('submit', (event) => {
                 'error'
               )
         }
-        
-
 
 })
 

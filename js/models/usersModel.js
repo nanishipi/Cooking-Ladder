@@ -15,29 +15,10 @@ export function removeUser(id) {
 }
 
 export function addUser(id, name, password, email, location, avatarName, avatarPhoto, gender, birthdate, level, experience, blocked, quizzesCompleted) {
-    if (users.some((user) => user.email === email)) {
-        Swal.fire(
-            `User with email ${email} already exist!`,
-            'Try Again',
-            'error'
-        )
-    }
-    else {
-        Swal.fire(
-            'Done',
-            `User successfuly registed`,
-            'success'
-        ).then((result) => {
-            if (result) {
-                window.location.href = "/"
-                users.push(new User(id, name, password, email, location, avatarName, avatarPhoto, gender, birthdate, level, experience, blocked, quizzesCompleted));
-                localStorage.setItem("users", JSON.stringify(users));
-            }
-        })
 
+    users.push(new User(id, name, password, email, location, avatarName, avatarPhoto, gender, birthdate, level, experience, blocked, quizzesCompleted));
+    localStorage.setItem("users", JSON.stringify(users));
 
-
-    }
 }
 
 
@@ -86,19 +67,19 @@ export function login(email, password) {
         sessionStorage.setItem("loggedUser", JSON.stringify(user));
         return true;
     }
-    else if(email == "admin@gmail.com" && password == "admin"){
-      Swal.fire(
-        'Login Success!',
-        `Welcome Admin`,
-        'success'
-      ).then((result) => {
-        if (result) {
-          window.location.href="../html/admin.html"
-          sessionStorage.setItem("loggedUser", JSON.stringify("admin"));
-        }
-      })
+    else if (email == "admin@gmail.com" && password == "admin") {
+        Swal.fire(
+            'Login Success!',
+            `Welcome Admin`,
+            'success'
+        ).then((result) => {
+            if (result) {
+                window.location.href = "../html/admin.html"
+                sessionStorage.setItem("loggedUser", JSON.stringify("admin"));
+            }
+        })
     }
-    else if(user && user.blocked == true){
+    else if (user && user.blocked == true) {
         Swal.fire(
             'Oops!',
             'Your account was blocked!',
@@ -115,27 +96,7 @@ export function login(email, password) {
 }
 
 export function logout() {
-    Swal.fire({
-        title: 'Are you sure you want to logout?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes'
-    }).then((result) => {
-        if (result.isConfirmed) {
-            Swal.fire(
-                'Success',
-                'Logged out successfully!',
-                'success'
-            ).then((result) => {
-                if (result) {
-                    sessionStorage.removeItem("loggedUser");
-                    window.location.href = "/"
-                }
-            })
-        }
-    })
+    sessionStorage.removeItem("loggedUser");
 }
 
 
@@ -158,7 +119,7 @@ export function getCurrentUser() {
 
 class User {
     id =
-    name = ""
+        name = ""
     password = ""
     email = ""
     location = ""
