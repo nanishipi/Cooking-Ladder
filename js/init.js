@@ -17,7 +17,7 @@ function initdata() {
        gender:"male",
        birthdate: "2008-03-03",
        level: 10,
-       experience:0,
+       experience:360,
        blocked: false,
        quizzesCompleted:[]
       }, 
@@ -31,9 +31,9 @@ function initdata() {
         avatarPhoto:"", 
         gender:"male",
         birthdate: "2008-03-03",
-        level: 1,
-        experience:0,
-        blocked: true,
+        level: 50,
+        experience:200,
+        blocked: false,
         quizzesCompleted:[]        
        }, 
       
@@ -47,14 +47,14 @@ function initdata() {
       {
         id:1,
         name:"How to Cook Rice",
-        photo:"https://cdn.discordapp.com/attachments/822430293704441866/988163789474111539/unknown.png",
+        photo:"https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/7a50544f-7025-484c-ab9c-b68d9a138242/Derivates/2dbce5cd-ed5d-48be-8ef5-6eb1c7b42078.jpg",
         url:"https://www.youtube.com/watch?v=Xx7sxWI9FNI",
-        path:"../videos/KDA_-_VILLAIN_ft_Madison_Beer_and_Kim_Petras_Official_Concept_Video_-_Starring_Evelynn - 10Convert.com.mp4.mp4",
+        path:"../videos/How to Cook Rice.mp4",
         level:"Easy",
-        tag:"Others",
+        tag:"Rice",
         theme:"Rice",
         timestamp:[],
-        duration:5,
+        duration:"4:33",
         quizzes:[{
           videoID:1,
           theme:"Rice",
@@ -65,10 +65,126 @@ function initdata() {
               answer1:"100ml",
               answer2:"200ml",
               answer3:"300ml",
-              answer4:"400ml",          
+              answer4:"400ml"          
             }
         ],
-           xp:0,
+           xp:200,
+        }],
+      likes: [],
+      comments: []
+      },
+      {
+        id:2,
+        name:"How to Cook Soup",
+        photo:"https://www.eatthis.com/wp-content/uploads/sites/4/2022/01/hot-and-sour-soup.jpg?quality=82&strip=all",
+        url:"https://www.youtube.com/watch?v=dMrNqNcQ6qY",
+        path:"../videos/Delicious_Chicken_soup__Chicken-vegetable_egg_drop_soup_for_Kids_lunch_by_tiffin_Box.mp4",
+        level:"Easy",
+        tag:"Soup",
+        theme:"Soup",
+        timestamp:[],
+        duration:"4:03",
+        quizzes:[{
+          videoID:2,
+          theme:"Soup",
+          questions:[
+            {
+              question:"How much water you need for cook 200g rice?",
+              correctAnswer:"400ml",
+              answer1:"100ml",
+              answer2:"200ml",
+              answer3:"300ml",
+              answer4:"400ml"          
+            }
+        ],
+           xp:200,
+        }],
+      likes: [],
+      comments: []
+      },
+      {
+        id:3,
+        name:"How to Cook Pasta",
+        photo:"https://www.seriouseats.com/thmb/DeOzmC_A8yHIiCLo2KCcUfedwv4=/1500x844/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__2020__03__20200224-carretteira-pasta-vicky-wasik-21-ffe68515b25f4b348cbde845a59d6a62.jpg",
+        url:"https://www.youtube.com/watch?v=OMRUIrbZDpM",
+        path:"../videos/How_To_Cook_Pasta_Properly__Step_by_Step_Pasta_Cooking.mp4",
+        level:"Medium",
+        tag:"Pasta",
+        theme:"Pasta",
+        timestamp:[],
+        duration:"3:34",
+        quizzes:[{
+          videoID:3,
+          theme:"Pasta",
+          questions:[
+            {
+              question:"How much water you need for cook 200g rice?",
+              correctAnswer:"400ml",
+              answer1:"100ml",
+              answer2:"200ml",
+              answer3:"300ml",
+              answer4:"400ml"          
+            }
+        ],
+           xp:350,
+        }],
+      likes: [],
+      comments: []
+      },
+      {
+        id:4,
+        name:"How to Cook Fish",
+        photo:"https://static.independent.co.uk/2021/11/30/11/iStock-1156413921.jpg?quality=75&width=982&height=726&auto=webp",
+        url:"https://www.youtube.com/watch?v=SsSX-eJsPtw",
+        path:"../videos/Gordon_Ramsays_Guide_To_Fish.mp4",
+        level:"Medium",
+        tag:"Fish",
+        theme:"Fish",
+        timestamp:[],
+        duration:"10:40",
+        quizzes:[{
+          videoID:4,
+          theme:"Fish",
+          questions:[
+            {
+              question:"How much water you need for cook 200g rice?",
+              correctAnswer:"400ml",
+              answer1:"100ml",
+              answer2:"200ml",
+              answer3:"300ml",
+              answer4:"400ml"          
+            }
+        ],
+           xp:350,
+        }],
+      likes: [],
+      comments: []
+      },
+      {
+        id:5,
+        name:"Gordon Ramsay's Guide to Steak",
+        photo:"https://www.seriouseats.com/thmb/uGGwEqPZf7PzhES1ZCAqHLgCbG8=/1500x844/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2015__05__Anova-Steak-Guide-Sous-Vide-Photos15-beauty-159b7038c56a4e7685b57f478ca3e4c8.jpg",
+        url:"https://www.youtube.com/watch?v=uNT_AxXrUGs",
+        path:"../videos/Gordon_Ramsays_Guide_To_Steak.mp4",
+        level:"Hard",
+        tag:"Meat",
+        theme:"Meat",
+        timestamp:[],
+        duration:"9:13",
+        quizzes:[{
+          videoID:5,
+          theme:"Meat",
+          questions:[
+            {
+              question:"How much water you need for cook 200g rice?",
+              correctAnswer:"400ml",
+              answer1:"100ml",
+              answer2:"200ml",
+              answer3:"300ml",
+              answer4:"400ml"          
+            }
+        ],
+           xp:500,
         }],
       likes: [],
       comments: []
