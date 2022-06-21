@@ -643,49 +643,56 @@ input[type="range"]:focus::-ms-fill-upper {
 }
 
 .video-info-container {
-    margin-left: 80px;
-    margin-top: 20px;
+  margin-left: 80px;
+  margin-top: 20px;
 }
-
 
 .timestapms-paragraphs {
-    color:#e84855;
-    font-size: 20px;
+  color: #e84855;
+  font-size: 20px;
 }
 
-p .timestamp-title{
-    color: #e84855;
-    font-size: 20px;
-    font-weight: bold;
+p .timestamp-title {
+  color: #e84855;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .comments-button {
-    background-color: #e84855;
-    color: whitesmoke;
-    border-radius: 40px;
-    border: none;
-    outline: none;
-    width: 150px;
-    line-height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background-color: #e84855;
+  color: whitesmoke;
+  border-radius: 40px;
+  border: none;
+  outline: none;
+  width: 150px;
+  line-height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .comment-button-wrapper {
-    text-align: center;
-    align-items: center;
-    display: flex;
-    justify-content: center;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .tag {
-    width:fit-content;
-    background-color: #e84855;
-    color: whitesmoke;
-    text-align: center;
-    border-radius: 40px;
-    line-height: 35px;
-    padding-left: 20px;
-    padding-right: 20px;
+  width: fit-content;
+  background-color: #e84855;
+  color: whitesmoke;
+  text-align: center;
+  border-radius: 40px;
+  line-height: 35px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#userImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: relative;
+  right: 1vh;
 }

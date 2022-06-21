@@ -1,303 +1,310 @@
 body {
-    background-color: #2D3047;
+  background-color: #2d3047;
 }
 
 nav {
-    background-color: #1B998B;
-    height: 60px;
+  background-color: #1b998b;
+  height: 60px;
 }
 
 .navbar-brand {
-    height: 70px;
-    width: 45px;
+  height: 70px;
+  width: 45px;
 }
 
 .logo-wrapper {
-    margin-left: 100px;
+  margin-left: 100px;
 }
 
 .navbar-nav {
-    padding-left: 80%;
+  padding-left: 80%;
 }
 
 a {
-    text-decoration: none;
-    color: #2D3047;
+  text-decoration: none;
+  color: #2d3047;
 }
 
 a:hover {
-    color: #D5D5F6;
+  color: #d5d5f6;
 }
 
 #navbarLinks {
-    padding-right: 33%;
+  padding-right: 33%;
 }
 
 .nav-link {
-    margin: 20px;
-    color: #D5D5F6;
-    font-size: 17px;
-    font-weight: bold;
-    @font-face {
-        font-family: Poppins;
-    }
+  margin: 20px;
+  color: #d5d5f6;
+  font-size: 17px;
+  font-weight: bold;
+  @font-face {
+    font-family: Poppins;
+  }
 }
 
-.nav-link:hover{
-    color: #2D3047;
+.nav-link:hover {
+  color: #2d3047;
 }
 
 #logoutButton {
-    margin-right: 10%;
-    border-radius: 15px;
-    border: #D5D5F6;
-    width: 100px;
-    line-height: 30px;
-    background-color: #D5D5F6;
-    color: #2D3047;
-    font-weight: bold;
+  margin-right: 10%;
+  border-radius: 15px;
+  border: #d5d5f6;
+  width: 100px;
+  line-height: 30px;
+  background-color: #d5d5f6;
+  color: #2d3047;
+  font-weight: bold;
 
-    @font-face {
-        font-family: Poppins;
-    }
+  @font-face {
+    font-family: Poppins;
+  }
 
-    border: none;
-    outline: none;
+  border: none;
+  outline: none;
 }
 
 #title {
-    color: #FF9B71;
-    text-align: center;
-    margin-top: 30px;
-   
+  color: #ff9b71;
+  text-align: center;
+  margin-top: 30px;
 }
 #title2 {
-    color: #FF9B71;
-    text-align: center;
-    margin-top: 30px;
-    margin-left: -10rem;
+  color: #ff9b71;
+  text-align: center;
+  margin-top: 30px;
+  margin-left: -10rem;
 }
 
 #profileImg {
-    height: 200px;
-    width: 200px;
-    border-radius: 200px;
-    object-fit: cover;
-    margin-left: 3rem;
-    float:left;
+  height: 200px;
+  width: 200px;
+  border-radius: 200px;
+  object-fit: cover;
+  margin-left: 3rem;
+  float: left;
 }
 
 #profileInfo {
-    margin-left: 20%;
-    margin-top: 5%;
+  margin-left: 20%;
+  margin-top: 5%;
 }
 
 .labels {
-    margin-top: 10px;
-    font-weight: bold;
-    font-size: 20px;
-    color: #FF9B71;
-    font-family: 'Poppins';
-    display: inline-block;
+  margin-top: 10px;
+  font-weight: bold;
+  font-size: 20px;
+  color: #ff9b71;
+  font-family: "Poppins";
+  display: inline-block;
 }
 
 .infoDisplay {
-    color: #D5D5F6;
-    font-size: 20px;
-    display: inline-block;
-    margin-top: 8px;
+  color: #d5d5f6;
+  font-size: 20px;
+  display: inline-block;
+  margin-top: 8px;
 }
 
 .progress {
-    width: 300px;
-    margin-top: 15px;
+  width: 300px;
+  margin-top: 15px;
 }
 
 .achievements {
-    margin-top: 10vh;
-    margin-left: 10rem;
+  margin-top: 10vh;
+  margin-left: 10rem;
 }
 
 .progress-bar {
-    background-color: #FF9B71;
-    color: #2D3047;
+  background-color: #ff9b71;
+  color: #2d3047;
 }
 
 .achievement-cards {
-    margin: 50px;
+  margin: 50px;
 }
 
 .achievements-images {
-    border-radius: 150px;
-    width: 150px;
-    height: 150px;
+  border-radius: 150px;
+  width: 150px;
+  height: 150px;
 }
 
-.main-container{
-    display: inline;
+.main-container {
+  display: inline;
 }
 
 .image-wrapper {
-    margin: 50px;
+  margin: 50px;
 }
 
 #text-wrapper {
-    margin-top: 67px;
+  margin-top: 67px;
 }
 
 .achievements-text {
-    font-size: 24px;
-    color: #D5D5F6;
-    margin-top: 30px;
-    margin-left: 30px;
-    @font-face {
-        font-family: Work Sans;
-    }
+  font-size: 24px;
+  color: #d5d5f6;
+  margin-top: 30px;
+  margin-left: 30px;
+  @font-face {
+    font-family: Work Sans;
+  }
 }
 
 #editBtnModal {
-    line-height: 30px;
-    border: none;
-    border-radius: 40px;
-    width: 150px;
-    color: #2D3047;
-    background-color: #FF9B71;
-    font-size: 20px;
-    font-weight: bold;
-    @font-face {
-        font-family: Poppins;
-    }
+  line-height: 30px;
+  border: none;
+  border-radius: 40px;
+  width: 150px;
+  color: #2d3047;
+  background-color: #ff9b71;
+  font-size: 20px;
+  font-weight: bold;
+  @font-face {
+    font-family: Poppins;
+  }
 }
 
 .button-wrapper {
-    text-align: center;
+  text-align: center;
 }
 
 /* The Modal (background) */
 .modal {
-    display: none;
-    /* Hidden by default */
-    position: fixed;
-    /* Stay in place */
-    z-index: 1;
-    /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%;
-    /* Full width */
-    height: 100%;
-    /* Full height */
-    overflow: auto;
-    /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0);
-    /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4);
-    /* Black w/ opacity */
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
 }
 
 /* Modal Content/Box */
 .modal-content {
-    background-color: #1B998B;
-    margin: 15% auto;
-    /* 15% from the top and centered */
-    padding: 20px;
-    border: 1px solid #D5D5F6;
-    width: 80%;
-    /* Could be more or less, depending on screen size */
+  background-color: #1b998b;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #d5d5f6;
+  width: 80%;
+  /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
 .close {
-    color: #D5D5F6;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+  color: #d5d5f6;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-    color: #E84855;
-    text-decoration: none;
-    cursor: pointer;
+  color: #e84855;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 #logoModal {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .labels {
-    margin: 7px;
-    padding-right: 100px;
-    font-weight: bold;
-    color: white;
-    font-family: 'Poppins';
+  margin: 7px;
+  padding-right: 100px;
+  font-weight: bold;
+  color: white;
+  font-family: "Poppins";
 }
 
 .inputs {
-    border-radius: 15px;
-    border: #D5D5F6;
-    height: 30px;
-    line-height: 30px;
-    width: 200px;
-    background-color: #D5D5F6;
-    padding-left: 1rem;
-    padding-right: 1rem;
+  border-radius: 15px;
+  border: #d5d5f6;
+  height: 30px;
+  line-height: 30px;
+  width: 200px;
+  background-color: #d5d5f6;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
-#modalForm{
-    text-align: center;
+#modalForm {
+  text-align: center;
 }
 
 .modal-content {
-    width: 30%;
+  width: 30%;
 }
 
 #registerText {
-    margin: 8px;
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
+  margin: 8px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 #registerText:hover {
-    color: #2D3047;
+  color: #2d3047;
 }
 
 .radio {
-    color: whitesmoke;
-    font-size: 17px;
-    font-family: 'Work Sans';
+  color: whitesmoke;
+  font-size: 17px;
+  font-family: "Work Sans";
 }
 
 .form-container {
-    align-items: center;
-    text-align: center;
+  align-items: center;
+  text-align: center;
 }
 
 .genderLabel {
-    text-align: center;
-    margin: 7px;
-    font-weight: bold;
-    color: white;
-    font-family: 'Poppins';
+  text-align: center;
+  margin: 7px;
+  font-weight: bold;
+  color: white;
+  font-family: "Poppins";
 }
 
 #editBtn {
-    margin: 10px;
-    border-radius: 15px;
-    border: #D5D5F6;
-    width: 100px;
-    line-height: 34px;
-    background-color: #2D3047;
-    color: whitesmoke;
-    font-weight: bold;
+  margin: 10px;
+  border-radius: 15px;
+  border: #d5d5f6;
+  width: 100px;
+  line-height: 34px;
+  background-color: #2d3047;
+  color: whitesmoke;
+  font-weight: bold;
 
-    @font-face {
-        font-family: Poppins;
-    }
+  @font-face {
+    font-family: Poppins;
+  }
 
-    border: none;
-    outline: none;
+  border: none;
+  outline: none;
+}
+
+#userImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  position: relative;
+  right: 1vh;
 }

@@ -48,6 +48,10 @@ function renderUserInfo() {
     else{
         level = 25
     }
+
+    let progress = (user.experience * 100) / 500
+
+
     console.log(level);
     const avatar = avatars.find(avatar => avatar.level == level) //Falar com o Jia Acerca Disto
     user.avatarName = avatar.name
@@ -65,7 +69,14 @@ function renderUserInfo() {
                     </div>
                 </div>
                 <div id="info-wrapper" class="col-sm-8">
-                <p class="infoDisplay" id="name">${user.level} (${user.experience}xp/500xp)</p>
+                <span class="text-white">${user.level} (${user.experience}xp/500xp)</span>
+
+                <div class="progress">
+                <div class="progress-bar" role="progressbar" aria-valuenow="70"
+                aria-valuemin="0" aria-valuemax="100" style="width:${progress}%">
+                ${progress}%
+                </div>
+                </div>
             </div>
                        
                       
