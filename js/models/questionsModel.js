@@ -55,20 +55,33 @@ export function add(videoID,theme,question,correctAnswer,answer1,answer2,answer3
 
 export function edit(id,theme,question,correctAnswer,answer1,answer2,answer3,answer4) {
 
-        const QuestionNew = {
+        const QuestionNew = [{
           question:question,
           correctAnswer:correctAnswer,
           answer1:answer1,
           answer2:answer2,
-          answer2:answer3,
-          answer2:answer4,
+          answer3:answer3,
+          answer4:answer4,
 
       
+        }]
+
+
+
+        let quizzFound
+        for ( const v of videos){
+          if(v.id === id){
+            quizzFound = v.quizzes.find(q => q.theme === theme )
+          }
         }
+        quizzFound.questions = QuestionNew
+        console.log(quizzFound);
+
+
         let updated
         for (const v of videos) {
           if (v.id === id) {
-          updated = v.quizzes.map(q => q.theme === theme ? QuestionNew : q); 
+          updated = v.quizzes.map(q => q.theme === theme ? quizzFound : q); 
       
         }
         }
