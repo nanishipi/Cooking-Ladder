@@ -114,24 +114,24 @@ const renderQuizzes = (videos, difficulty) => {
                         </div>
                     </div>
                 `
-    
+
 
                 })
 
-                
+
             } else if (hasEnoughLevel == false) {
-                result = `<p id='levelRequirement'>Your level is not high enough to see this content!</p>`
+                result = `
+                <form id="quizzModalForm">
+                <p id='levelRequirement'>Your level is not high enough to see this content!</p>`
             }
         }
         activitiesContainer.innerHTML = result
-        openQuizz()
-        closeQuizz()
-        
+
 
     }
 
 
-     
+
 }
 
 const unlockDifficulties = () => {
@@ -149,22 +149,22 @@ const unlockDifficulties = () => {
 }
 
 
-function openQuizz(){
+function openQuizz() {
 
     const btns = document.getElementsByClassName('quizz')
 
-    for(const btn of btns){
-        btn.addEventListener('click',(e)=>{
+    for (const btn of btns) {
+        btn.addEventListener('click', (e) => {
             e.preventDefault()
             Videos.setCurrentVideo(btn.id)
             const currentVideo = Videos.getCurrentVideo()
 
             let result = `<h2 id="quizzTitle" class="quizzTitle">${currentVideo.name}</h2>`
 
-             quizzModal.style.display = "block";
+            quizzModal.style.display = "block";
 
-             let color 
-             if (currentVideo.level == 'Easy') {
+            let color
+            if (currentVideo.level == 'Easy') {
                 color = "#1B998B"
             } else if (currentVideo.level == 'Medium') {
                 color = "#FF9B71"
@@ -174,7 +174,7 @@ function openQuizz(){
             document.getElementById('modal').style.backgroundColor = color
 
 
-            Quizz.setCurrentQuizz(btn.name,btn.id)
+            Quizz.setCurrentQuizz(btn.name, btn.id)
             const quizz = Quizz.getCurrentQuizz()
             quizz[0].questions.map(question => {
 
@@ -182,82 +182,170 @@ function openQuizz(){
                 
                 <p id="quizzQuestion">${question.question}</p>
                 <div class="questions">
-
+                
                 <div class="answers">
-                <input type="radio" name="${question.question}" id="${question.answer1}" value="${question.answer1}">
-                <label for="${question.answer1}">${question.answer1}</label>
-                <input type="radio" name="${question.question}" id="${question.answer2}" value="${question.answer2}">
-                <label for="${question.answer2}">${question.answer2}</label>
+                <input type="radio" name="${question.question}" id="${question.question}-${question.answer1}" value="${question.answer1}" required>
+                <label for="${question.question}-${question.answer1}" required>${question.answer1}</label>
+                <input type="radio" name="${question.question}" id="${question.question}-${question.answer2}" value="${question.answer2}">
+                <label for="${question.question}-${question.answer2}">${question.answer2}</label>
                 </div>
                 <div class="answers">
-                <input type="radio" name="${question.question}" id="${question.answer3}" value="${question.answer3}">
-                <label for="${question.answer3}">${question.answer3}</label>
-                <input type="radio" name="${question.question}" id="${question.answer4}" value="${question.answer4}">
-                <label for="${question.answer4}">${question.answer4}</label>
-                </div>   
+                <input type="radio" name="${question.question}" id="${question.question}-${question.answer3}" value="${question.answer3}">
+                <label for="${question.question}-${question.answer3}">${question.answer3}</label>
+                <input type="radio" name="${question.question}" id="${question.question}-${question.answer4}" value="${question.answer4}">
+                <label for="${question.question}-${question.answer4}">${question.answer4}</label>
                 </div>  
+                </div>  
+               
     `
             });
 
             questionsForm.innerHTML = result
+            questionsForm.innerHTML += `
+            <input id="done" type="submit">
+            </form> `
+
+            document.getElementById('done').addEventListener('click', () => {
+                let correct_answers = 0
+
+                const quizz = Quizz.getCurrentQuizz()
+                quizz[0].questions.map(question => {
+                    const answer = document.querySelector(`input[name="${question.question}"]:checked`)
+                    const answerLabel = document.querySelector(`label[for="${question.question}-${answer.value}"]`)
+
+                    console.log(answer.value);
+                    if (answer) {
+
+                        if (question.correctAnswer === answer.value) {
+
+                            answerLabel.style.backgroundColor = "green"
+                            
+                             correct_answers ++
+                        }
+                        else {
+                            answerLabel.style.backgroundColor = "red"
+                        }
+                    }
+
+                    if(correct_answers ==  quizz[0].questions.length){
+                        Swal.fire(
+                            'Congratulations!',
+                            `You complete the quizz and gained ${quizz[0].xp} xp `,
+                            'success'
+                          )
+                    }
+
+
+                }
+                )
+
+            })
+
+
 
         })
-        
+
+
+
     }
+
 
 }
 
-function closeQuizz(){
+function closeQuizz() {
 
-// When the user clicks on <span> (x), close the modal
-spanQuizz.addEventListener('click',()=> {
-    quizzModal.style.display = "none";
-
-
-})
-
-// When the user clicks anywhere outside of the modal, close it
-window.addEventListener('click',(event)=> {
-    if (event.target == quizzModal) {
+    // When the user clicks on <span> (x), close the modal
+    spanQuizz.addEventListener('click', () => {
         quizzModal.style.display = "none";
 
 
+    })
 
-    }
-})
+    // When the user clicks anywhere outside of the modal, close it
+    window.addEventListener('click', (event) => {
+        if (event.target == quizzModal) {
+            quizzModal.style.display = "none";
 
-}
 
 
-function submitAnswers(){
-
-    document.getElementById('done').addEventListener('click',(e)=>{
-        const quizz =  Quizz.getCurrentQuizz()
-        quizz[0].questions.map(question => {
-            const answer = document.querySelector(`input[name="${question.question}"]:checked`).value
-            console.log(answer);
-
-           if(question.correct_answer === answer){
-
-            console.log("correct");
-
-           } 
-        
-           else{
-            console.log("nooo");
-           }
         }
-             )
-
-        
-        
-
     })
 
 }
 
+
+function submitAnswers() {
+
+
+    modal.addEventListener('submit', (e) => {
+        const quizz = Quizz.getCurrentQuizz()
+        quizz[0].questions.map(question => {
+            const answer = document.querySelector(`input[name="${question.question}"]:checked`)
+            const answerLabel = document.querySelector(`label[for="${question.question}-${answer.value}"]`)
+
+            console.log(answer.value);
+
+
+
+
+            if (answer) {
+
+                if (question.correctAnswer === answer.value) {
+
+                    answerLabel.style.backgroundColor = "green"
+
+                }
+                else {
+                    answerLabel.style.backgroundColor = "red"
+                }
+            }
+
+
+
+
+
+        }
+        )
+
+
+        /*   const answers =[]
+          for(let i = 0; i < questions.length; i++ )
+          {
+             const answer = document.querySelector(`input[name="${questions[i].question}"]:checked`)
+          answers.push(answer.value) */
+
+
+
+        /*   const answerLabel = document.querySelector(`label[for="${questions[i].question}-${answer.value}"]`)
+          
+          if(questions[i].correct_answer === answer.value){
+
+              answerLabel.style.backgroundColor = "green" 
+  
+             } 
+             else{
+              console.log(answerLabel);
+              answerLabel.style.backgroundColor = "red" 
+             } */
+    }
+        /*  console.log(answers);
+         for(let i = 0; i < answers.length; i++ ){
+             if(answers[i] == questions[i].correct_answer){
+                 console.log("done");
+             }
+         } */
+
+
+
+
+    )
+
+}
+
+
+
 Videos.init()
 unlockDifficulties();
 renderQuizzes(Videos.getAllVideos(), 'Easy');
-
-submitAnswers()
+openQuizz();
+closeQuizz();

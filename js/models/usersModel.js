@@ -59,7 +59,7 @@ export function editUser(id, name, password, email, location, avatarName, avatar
         blocked: blocked,
         quizzesCompleted: quizzesCompleted
     }
-
+    console.log(users);
 
     users = users.map(user => user.id == id ? UserNew : user)
     localStorage.setItem('users', JSON.stringify(users));

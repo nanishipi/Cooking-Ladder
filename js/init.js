@@ -62,7 +62,7 @@ function initdata() {
           questions:[
             {
               question:"How much water you need for cook 200g rice?",
-              correct_answer:"400ml",
+              correctAnswer:"400ml",
               answer1:"100ml",
               answer2:"200ml",
               answer3:"300ml",
