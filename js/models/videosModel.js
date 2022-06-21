@@ -10,7 +10,7 @@ export function add(id, name, theme, duration, photo, url,path, level, tag, time
         throw Error(`Video with name "${name}" already exists!`);
     }
     else {
-        videos.push(new Video(id, name, theme, duration, photo,path, url, level, tag, timestamp, quizzes));
+        videos.push(new Video(id, name, theme, duration, photo,url,path, level, tag, timestamp, quizzes));
         localStorage.setItem("videos", JSON.stringify(videos));
     }
 }
@@ -77,7 +77,7 @@ class Video {
             this.duration = duration,
             this.photo = photo,
             this.url = url,
-            this.paht = path
+            this.path = path
             this.level = level,
             this.tag = tag
         this.timestamp = timestamp

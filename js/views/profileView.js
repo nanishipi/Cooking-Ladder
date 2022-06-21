@@ -35,8 +35,21 @@ function renderUserInfo() {
 
     const avatars = Avatar.getAllAvatars()
     console.log(avatars)
-    const avatar = avatars.find(avatar => avatar.level == 5) //Falar com o Jia Acerca Disto
-
+    let level 
+    if(user.level < 5){
+        level = 1
+    }
+    if(user.level  >= 5 && user.level < 10){
+        level = 5
+    }
+    if(user.level  >= 10 && user.level < 25){
+        level = 10
+    }
+    else{
+        level = 25
+    }
+    console.log(level);
+    const avatar = avatars.find(avatar => avatar.level == level) //Falar com o Jia Acerca Disto
     user.avatarName = avatar.name
     user.avatarPhoto = avatar.url
 

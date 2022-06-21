@@ -53,8 +53,12 @@ function addTimestamp() {
             <input type="text" id="title" class="swal2-input" placeholder="Title" />
         </div>
         <div>
-            <label for="time" >Time</label>
-            <input type="number" id="time" class="swal2-input" placeholder="Time in seconds" />
+            <label for="timeStart" >Start time</label>
+            <input type="text" id="timeStart" class="swal2-input" placeholder="Time in seconds" />
+        </div>
+        <div>
+            <label for="timeEnd" >End time</label>
+            <input type="text" id="timeEnd" class="swal2-input" placeholder="Time in seconds" />
         </div>
     
         `,
@@ -64,9 +68,11 @@ function addTimestamp() {
         confirmButtonText: 'Save',
         preConfirm: () => {
           const title = Swal.getPopup().querySelector('#title').value
-          const time = Swal.getPopup().querySelector('#time').value
+          const timeStart = Swal.getPopup().querySelector('#timeStart').value
+          const timeEnd = Swal.getPopup().querySelector('#timeEnd').value
+
     
-          return { title:title, time:time}
+          return { title:title, timeStart:timeStart, timeEnd:timeEnd}
         }
       }).then((result) => {
         if (result.isConfirmed) {
@@ -77,7 +83,8 @@ function addTimestamp() {
 
             currentVideo.timestamp.push({
               title: result.value.title,
-              time: result.value.time
+              timeStart: result.value.timeStart,
+              timeEnd:result.value.timeEnd,
             }),
             Video.editVideo(currentVideo.name,currentVideo.theme,currentVideo.duration,currentVideo.photo,currentVideo.url,currentVideo.path,currentVideo.level,currentVideo.tag,currentVideo.timestamp,currentVideo.quizzes)
 

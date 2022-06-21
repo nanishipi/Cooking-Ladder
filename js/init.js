@@ -92,6 +92,11 @@ function initdata() {
         url:"https://png.pngtree.com/png-clipart/20210914/ourmid/pngtree-cute-young-chef-png-image_3929096.jpg"
       },
       {
+        level:10,
+        name:"Veteran",
+        url:"https://toppng.com/uploads/preview/o-to-image-food-chef-clip-art-11563230050s2jojm2i13.png"
+      },
+      {
         level:25,
         name:"Master",
         url:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVnRq9jlDVU9hZapKOjDOfLxPeAjJJeovSOQ&usqp=CAU"
