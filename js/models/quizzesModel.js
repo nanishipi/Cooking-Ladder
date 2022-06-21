@@ -35,10 +35,10 @@ export function setXP(videoID, theme, questions, xp) {
     xp: xp
 
   }
-    let video 
+    let quizz 
    for (const v of videos) {
      if (v.id === videoID) {
-     video = v.quizzes.map(q => q.theme === theme ? QuizzNew : q); 
+     quizz = v.quizzes.map(q => q.theme === theme ? QuizzNew : q); 
 
    }
    }
@@ -63,7 +63,7 @@ export function getCurrentQuizz() {
   let quizz = []
 
   for (let i = 0; i < quizzes.length; i++) {
-    /* console.log(quizzes[i]); */
+
     const data = quizzes[i].find((quizz) => quizz.theme == quizzTheme && quizz.videoID == quizzVideoID)
     if (data != undefined) {
       quizz.push(data)

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="../css/admin.css">
+</head>
+
+<body class="bg">
+    <div class="navbar-wrapper">
+        <nav class="navbar navbar-expand-lg">
+            <div class="logo-wrapper">
+                <a class="navbar-logo-wrapper" href="admin.html">
+                    <img class="navbar-brand" src="../images/Cooking Ladder Logo.png" href="admin.html">
+                </a>
+            </div>
+            <h3><a href="admin.html">Cooking Ladder</a></h3>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link " href="admin.html">Home</a>
+                    <a class="nav-link  "  href="manageUsers.html">Users</a>
+                    <a class="nav-link active  " href="adminTutorials.html">Tutorials</a>
+                    <a class="nav-link" href="adminGamification.html">Gamification</a>
+                </div>
+                <button id="logoutButton" class="nav-item">Logout</button>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid">
+        <div class="back">
+            <i class="fa fa-arrow-circle-o-left" style="font-size:36px" onclick="history.back()"></i>
+            <h2>Manage Questions</h2>
+        </div>
+        <hr>
+        <div id="noQuestions"></div>
+        <table class="table table-bordered text-center"></table>
+    </div>
+
+</body>
+<div  class="footer">
+    <p class="footerText"> Copyright© 2022 Cooking Ladder All Rights Reserved.</p>
+</div>
+
+<script type="module" src="../js/views/logoutView.js"></script>
+<script type="module" src="../js/views/questionsManageView.js"></script>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
+
+</html>
