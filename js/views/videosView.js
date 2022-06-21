@@ -136,10 +136,22 @@ const getvideoFunctions = (currentVideo) => {
             const currentQuizz = {
                 videoID: videoId,
                 theme: quizzTheme,
-                clicked: 'yes'
             }
-            localStorage.setItem('quizzToOpen', JSON.stringify(currentQuizz));
-            window.location.href = "../html/evaluation.html"
+            const user = JSON.parse(sessionStorage.getItem('loggedUser'))
+            const completed = user.quizzesCompleted.find(quizz  => quizz.videoID == videoId && quizz.quizz == quizzTheme )
+            console.log(completed);
+            if(completed){
+                Swal.fire(
+                    'Oops!',
+                    `Exercise already completed! `,
+                    'warning'
+                )
+            }
+            else{
+                localStorage.setItem('quizzToOpen', JSON.stringify(currentQuizz));
+                window.location.href = "../html/evaluation.html"
+            }
+           
         })
     });
 
@@ -307,6 +319,7 @@ const renderVideo = (currentVideo) => {
     }
 
     quizzes.forEach(quizz => {
+        if(quizz.questions.length != 0)
         result += `<div class="exercises">
         <p id="${quizz.videoID}-${quizz.theme}" class="exercises-paragraphs">Exercise about ${quizz.theme}</p>    
     </div>

@@ -392,3 +392,22 @@ input[type="radio"]:checked + label {
   position: relative;
   right: 1vh;
 }
+
+.btnDone{
+
+  display: flex;
+  justify-content: center;
+
+}
+
+#done{
+
+  background-color: blue;
+  color: white;
+  border: 1px solid;
+  border-radius: 10px;
+  margin-top: 3vh;
+  width: 15vh;
+  height: 5vh;
+
+}

@@ -19,6 +19,7 @@ const activitiesContainer = document.querySelector('.activities-container');
 // When the user clicks on <span> (x), close the modal
 spanQuizz.onclick = function () {
     quizzModal.style.display = "none";
+
 }
 
 // When the user clicks anywhere outside of the modal, close it
@@ -79,8 +80,10 @@ const renderQuizzes = (videos, difficulty) => {
             if (video.level == difficulty && hasEnoughLevel) {
 
                 video.quizzes.map(quizz => {
-
-                    const completed = user.quizzesCompleted.find(q => q.videoID == quizz.videoID && q.quizz == quizz.theme)
+                    
+                    if(quizz.questions.length != 0){
+                        
+                        const completed = user.quizzesCompleted.find(q => q.videoID == quizz.videoID && q.quizz == quizz.theme)
                     if (completed) {
                         button = `<button id="${video.id}" class="quizzCompleted" disabled name="${quizz.theme}">Completed</button>`
                     }
@@ -117,6 +120,7 @@ const renderQuizzes = (videos, difficulty) => {
                     </div>
                 `
 
+                    }
 
                 })
 
@@ -158,7 +162,7 @@ function openQuizz(quizzToLoad) {
 
     if (quizzToLoad) {
         quizzModal.style.display = "block";
-        
+
         Videos.setCurrentVideo(quizzToLoad.videoID)
         const currentVideo = Videos.getCurrentVideo()
         console.log(currentVideo);
@@ -172,16 +176,107 @@ function openQuizz(quizzToLoad) {
             color = "#e84855"
         }
         document.getElementById('modal').style.backgroundColor = color
-        
+
         let result = `<h2 id="quizzTitle" class="quizzTitle">${currentVideo.name}</h2>`
 
-        Quizz.setCurrentQuizz(quizzToLoad.theme , quizzToLoad.videoID)
+        Quizz.setCurrentQuizz(quizzToLoad.theme, quizzToLoad.videoID)
 
         const quizz = Quizz.getCurrentQuizz()
-        
-        
+        quizz[0].questions.map(question => {
+
+            result += `                
+            
+            <p id="quizzQuestion">${question.question}</p>
+            <div class="questions">
+            
+            <div class="answers">
+            <input type="radio" name="${question.question}" id="${question.question}-${question.answer1}" value="${question.answer1}" required>
+            <label for="${question.question}-${question.answer1}" required>${question.answer1}</label>
+            <input type="radio" name="${question.question}" id="${question.question}-${question.answer2}" value="${question.answer2}">
+            <label for="${question.question}-${question.answer2}">${question.answer2}</label>
+            </div>
+            <div class="answers">
+            <input type="radio" name="${question.question}" id="${question.question}-${question.answer3}" value="${question.answer3}">
+            <label for="${question.question}-${question.answer3}">${question.answer3}</label>
+            <input type="radio" name="${question.question}" id="${question.question}-${question.answer4}" value="${question.answer4}">
+            <label for="${question.question}-${question.answer4}">${question.answer4}</label>
+            </div>  
+            </div>  
+           
+`
+        });
+
+        questionsForm.innerHTML = result
+        questionsForm.innerHTML += `
+        <div class="btnDone">     
+            <input id="done" type="submit" value="Answer">
+            </div>    
+        `
+
+        document.getElementById('done').addEventListener('click', () => {
+            let correct_answers = 0
+
+            const quizz = Quizz.getCurrentQuizz()
+            quizz[0].questions.map(question => {
+                const answer = document.querySelector(`input[name="${question.question}"]:checked`)
+                const answerLabel = document.querySelector(`label[for="${question.question}-${answer.value}"]`)
+
+                console.log(answer.value);
+                if (answer) {
+
+                    if (question.correctAnswer === answer.value) {
+
+                        answerLabel.style.backgroundColor = "green"
+
+                        correct_answers++
+                    }
+                    else {
+                        answerLabel.style.backgroundColor = "red"
+                    }
+                }
+
+                if (correct_answers == quizz[0].questions.length) {
+                    Swal.fire(
+                        'Congratulations!',
+                        `You complete the quizz and gained ${quizz[0].xp} xp `,
+                        'success'
+                    ).then((result) => {
+                        if (result) {
+                            const user = JSON.parse(sessionStorage.getItem('loggedUser'))
+                            user.experience += Number(quizz[0].xp)
+                            if (user.experience >= 500) {
+                                user.level++
+                                user.experience = user.experience - 500
+                            }
+                            user.quizzesCompleted.push({
+                                videoID: currentVideo.id,
+                                quizz: quizz[0].theme
+                            })
+                            Users.editUser(user.id, user.name, user.password, user.email, user.location, user.avatarName, user.avatarPhoto, user.gender, user.birthdate, user.level, user.experience, user.blocked, user.quizzesCompleted)
+                            location.reload()
+                        }
+                    })
+                }
+                else {
+                    Swal.fire(
+                        'Oops!',
+                        `You failed, try again! `,
+                        'error'
+                    ).then((result) => {
+                        if (result) {
+                            location.reload()
+                        }
+                    })
+                }
+            }
+            )
+        })
+
+        localStorage.removeItem('quizzToOpen')
+
+
     }
-    
+
 
     const btns = document.getElementsByClassName('quizz');
 
@@ -234,8 +329,9 @@ function openQuizz(quizzToLoad) {
 
             questionsForm.innerHTML = result
             questionsForm.innerHTML += `
-            <input id="done" type="submit">
-            </form> `
+            <div class="btnDone">     
+            <input id="done" type="submit" value="Answer">
+            </div>              `
 
             document.getElementById('done').addEventListener('click', () => {
                 let correct_answers = 0
@@ -296,6 +392,7 @@ function openQuizz(quizzToLoad) {
                 )
             })
         })
+
     }
 }
 
