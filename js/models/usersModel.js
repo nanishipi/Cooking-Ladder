@@ -81,7 +81,6 @@ export function login(email, password) {
         ).then((result) => {
             if (result) {
                 window.location.href = "../html/videos.html"
-
             }
         })
         sessionStorage.setItem("loggedUser", JSON.stringify(user));

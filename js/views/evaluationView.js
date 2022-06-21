@@ -80,11 +80,11 @@ const renderQuizzes = (videos, difficulty) => {
 
                 video.quizzes.map(quizz => {
 
-                   const completed = user.quizzesCompleted.find(q => q.videoID == quizz.videoID && q.quizz == quizz.theme)
-                    if(completed){
+                    const completed = user.quizzesCompleted.find(q => q.videoID == quizz.videoID && q.quizz == quizz.theme)
+                    if (completed) {
                         button = `<button id="${video.id}" class="quizzCompleted" disabled name="${quizz.theme}">Completed</button>`
                     }
-                    else{
+                    else {
                         button = `<button id="${video.id}" class="quizz" name="${quizz.theme}">Play</button> `
                     }
 
@@ -130,11 +130,13 @@ const renderQuizzes = (videos, difficulty) => {
         activitiesContainer.innerHTML = result
         openQuizz();
         closeQuizz();
-
+        window.onload = () => {
+            const quizzToLoad = localStorage.quizzToOpen ? JSON.parse(localStorage.quizzToOpen) : [];
+            if (quizzToLoad.length != 0) {
+                openQuizz(quizzToLoad);
+            }
+        };
     }
-
-
-
 }
 
 const unlockDifficulties = () => {
@@ -152,9 +154,36 @@ const unlockDifficulties = () => {
 }
 
 
-function openQuizz() {
+function openQuizz(quizzToLoad) {
 
-    const btns = document.getElementsByClassName('quizz')
+    if (quizzToLoad) {
+        quizzModal.style.display = "block";
+        
+        Videos.setCurrentVideo(quizzToLoad.videoID)
+        const currentVideo = Videos.getCurrentVideo()
+        console.log(currentVideo);
+
+        let color
+        if (currentVideo.level == 'Easy') {
+            color = "#1B998B"
+        } else if (currentVideo.level == 'Medium') {
+            color = "#FF9B71"
+        } else if (currentVideo.level == 'Hard') {
+            color = "#e84855"
+        }
+        document.getElementById('modal').style.backgroundColor = color
+        
+        let result = `<h2 id="quizzTitle" class="quizzTitle">${currentVideo.name}</h2>`
+
+        Quizz.setCurrentQuizz(quizzToLoad.theme , quizzToLoad.videoID)
+
+        const quizz = Quizz.getCurrentQuizz()
+        
+        
+    }
+    
+
+    const btns = document.getElementsByClassName('quizz');
 
     for (const btn of btns) {
         btn.addEventListener('click', (e) => {
@@ -222,67 +251,52 @@ function openQuizz() {
                         if (question.correctAnswer === answer.value) {
 
                             answerLabel.style.backgroundColor = "green"
-                            
-                             correct_answers ++
+
+                            correct_answers++
                         }
                         else {
                             answerLabel.style.backgroundColor = "red"
                         }
                     }
 
-                    if(correct_answers ==  quizz[0].questions.length){
+                    if (correct_answers == quizz[0].questions.length) {
                         Swal.fire(
                             'Congratulations!',
                             `You complete the quizz and gained ${quizz[0].xp} xp `,
                             'success'
-                          ).then((result) => {
+                        ).then((result) => {
                             if (result) {
-                              const user = JSON.parse(sessionStorage.getItem('loggedUser'))
-                              user.experience += Number(quizz[0].xp)
-                              if(user.experience >= 500){
-                                user.level ++
-                                user.experience = user.experience - 500
-                              }
-                              user.quizzesCompleted.push({
-                                videoID:currentVideo.id,
-                                quizz: quizz[0].theme
-                              })
-                              Users.editUser(user.id,user.name,user.password,user.email,user.location,user.avatarName,user.avatarPhoto,user.gender,user.birthdate,user.level,user.experience,user.blocked,user.quizzesCompleted)
+                                const user = JSON.parse(sessionStorage.getItem('loggedUser'))
+                                user.experience += Number(quizz[0].xp)
+                                if (user.experience >= 500) {
+                                    user.level++
+                                    user.experience = user.experience - 500
+                                }
+                                user.quizzesCompleted.push({
+                                    videoID: currentVideo.id,
+                                    quizz: quizz[0].theme
+                                })
+                                Users.editUser(user.id, user.name, user.password, user.email, user.location, user.avatarName, user.avatarPhoto, user.gender, user.birthdate, user.level, user.experience, user.blocked, user.quizzesCompleted)
                                 location.reload()
                             }
-                          })
+                        })
                     }
-
-                    else{
-
-                            Swal.fire(
-                                'Oops!',
-                                `You failed, try again! `,
-                                'error'
-                              ).then((result) => {
-                                if (result) {
+                    else {
+                        Swal.fire(
+                            'Oops!',
+                            `You failed, try again! `,
+                            'error'
+                        ).then((result) => {
+                            if (result) {
                                 location.reload()
-                                }
-                              })
-                         
-                     
+                            }
+                        })
                     }
-
-
                 }
                 )
-
             })
-
-
-
         })
-
-
-
     }
-
-
 }
 
 function closeQuizz() {
