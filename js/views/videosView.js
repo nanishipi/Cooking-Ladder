@@ -4,8 +4,6 @@ import * as Users from "../models/usersModel.js";
 // Get the modals
 const videoModal = document.getElementById('videoModal');
 
-// Get the button that opens the modal
-const logoutBtn = document.getElementById('logoutBtn');
 
 const easyImage = document.querySelector('#easyImage');
 const mediumImage = document.querySelector('#mediumImage');
@@ -35,10 +33,6 @@ const shareBtn = document.querySelector('.share-button');
 
 const videosContainer = document.querySelector('.videos-container');
 
-// When the user clicks on the button, open the modal
-logoutBtn.onclick = function () {
-    Users.logout()
-}
 
 likeBtn.addEventListener('click', () => {
     

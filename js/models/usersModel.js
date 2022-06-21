@@ -99,6 +99,13 @@ export function login(email, password) {
         }
       })
     }
+    else if(user && user.blocked == true){
+        Swal.fire(
+            'Oops!',
+            'Your account was blocked!',
+            'error'
+        )
+    }
     else {
         Swal.fire(
             'Invalid Login!',

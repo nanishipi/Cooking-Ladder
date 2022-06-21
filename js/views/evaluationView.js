@@ -5,8 +5,6 @@ import * as Users from "../models/usersModel.js";
 const quizzModal = document.querySelector('#quizzModal');
 let questionsForm = document.querySelector('#questionsForm')
 
-const logoutBtn = document.getElementById('logoutBtn');
-
 const easyImage = document.querySelector('#easyImage');
 const mediumImage = document.querySelector('#mediumImage');
 const hardImage = document.querySelector('#hardImage');
@@ -17,12 +15,6 @@ const hardMessage = document.querySelector('#hardMessage');
 // Get the <span> element that closes the modal
 const spanQuizz = document.getElementsByClassName('close')[0];
 const activitiesContainer = document.querySelector('.activities-container');
-
-
-// When the user clicks on the button, open the modal
-logoutBtn.onclick = function () {
-    Users.logout()
-}
 
 // When the user clicks on <span> (x), close the modal
 spanQuizz.onclick = function () {
@@ -80,11 +72,21 @@ const renderQuizzes = (videos, difficulty) => {
         hasEnoughLevel = false;
     }
 
+    const user = JSON.parse(sessionStorage.getItem('loggedUser'))
+    let button = ""
     if (videos.length != 0) {
         for (let video of videos) {
             if (video.level == difficulty && hasEnoughLevel) {
 
                 video.quizzes.map(quizz => {
+
+                   const completed = user.quizzesCompleted.find(q => q.videoID == quizz.videoID && q.quizz == quizz.theme)
+                    if(completed){
+                        button = `<button id="${video.id}" class="quizzCompleted" disabled name="${quizz.theme}">Completed</button>`
+                    }
+                    else{
+                        button = `<button id="${video.id}" class="quizz" name="${quizz.theme}">Play</button> `
+                    }
 
                     result += `
                     <div id="${video.id}" data="${quizz.theme} "class="card" style="width: 100% ;background-color: ${background}">
@@ -108,7 +110,7 @@ const renderQuizzes = (videos, difficulty) => {
                     <p class="experience-text">${quizz.xp}</p>
                 </div>
                 <div class="col-sm-2 play">
-                <button id="${video.id}" class="quizz" name="${quizz.theme}">Play</button>
+                    ${button}
                 </div>
                
                         </div>
@@ -126,7 +128,8 @@ const renderQuizzes = (videos, difficulty) => {
             }
         }
         activitiesContainer.innerHTML = result
-
+        openQuizz();
+        closeQuizz();
 
     }
 
@@ -232,7 +235,37 @@ function openQuizz() {
                             'Congratulations!',
                             `You complete the quizz and gained ${quizz[0].xp} xp `,
                             'success'
-                          )
+                          ).then((result) => {
+                            if (result) {
+                              const user = JSON.parse(sessionStorage.getItem('loggedUser'))
+                              user.experience += Number(quizz[0].xp)
+                              if(user.experience >= 500){
+                                user.level ++
+                                user.experience = user.experience - 500
+                              }
+                              user.quizzesCompleted.push({
+                                videoID:currentVideo.id,
+                                quizz: quizz[0].theme
+                              })
+                              Users.editUser(user.id,user.name,user.password,user.email,user.location,user.avatarName,user.avatarPhoto,user.gender,user.birthdate,user.level,user.experience,user.blocked,user.quizzesCompleted)
+                                location.reload()
+                            }
+                          })
+                    }
+
+                    else{
+
+                            Swal.fire(
+                                'Oops!',
+                                `You failed, try again! `,
+                                'error'
+                              ).then((result) => {
+                                if (result) {
+                                location.reload()
+                                }
+                              })
+                         
+                     
                     }
 
 
@@ -274,78 +307,8 @@ function closeQuizz() {
 }
 
 
-function submitAnswers() {
-
-
-    modal.addEventListener('submit', (e) => {
-        const quizz = Quizz.getCurrentQuizz()
-        quizz[0].questions.map(question => {
-            const answer = document.querySelector(`input[name="${question.question}"]:checked`)
-            const answerLabel = document.querySelector(`label[for="${question.question}-${answer.value}"]`)
-
-            console.log(answer.value);
-
-
-
-
-            if (answer) {
-
-                if (question.correctAnswer === answer.value) {
-
-                    answerLabel.style.backgroundColor = "green"
-
-                }
-                else {
-                    answerLabel.style.backgroundColor = "red"
-                }
-            }
-
-
-
-
-
-        }
-        )
-
-
-        /*   const answers =[]
-          for(let i = 0; i < questions.length; i++ )
-          {
-             const answer = document.querySelector(`input[name="${questions[i].question}"]:checked`)
-          answers.push(answer.value) */
-
-
-
-        /*   const answerLabel = document.querySelector(`label[for="${questions[i].question}-${answer.value}"]`)
-          
-          if(questions[i].correct_answer === answer.value){
-
-              answerLabel.style.backgroundColor = "green" 
-  
-             } 
-             else{
-              console.log(answerLabel);
-              answerLabel.style.backgroundColor = "red" 
-             } */
-    }
-        /*  console.log(answers);
-         for(let i = 0; i < answers.length; i++ ){
-             if(answers[i] == questions[i].correct_answer){
-                 console.log("done");
-             }
-         } */
-
-
-
-
-    )
-
-}
-
-
-
 Videos.init()
+Users.init()
 unlockDifficulties();
 renderQuizzes(Videos.getAllVideos(), 'Easy');
-openQuizz();
-closeQuizz();
+

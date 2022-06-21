@@ -8,12 +8,6 @@ const editBtn = document.querySelector('#editBtn')
 const editModal = document.querySelector('#modal');
 
 const spanEdit = document.getElementById('closeModal');
-const logoutBtn = document.getElementById('logoutBtn');
-
-// When the user clicks on the button, open the modal
-logoutBtn.onclick = function () {
-    Users.logout()
-}
 
 // When the user clicks on the button, open the modal
 editButtonModal.onclick = function () {
@@ -41,7 +35,7 @@ function renderUserInfo() {
 
     const avatars = Avatar.getAllAvatars()
     console.log(avatars)
-    const avatar = avatars.find(avatar => avatar.level == 3) //Falar com o Jia Acerca Disto
+    const avatar = avatars.find(avatar => avatar.level == 5) //Falar com o Jia Acerca Disto
 
     user.avatarName = avatar.name
     user.avatarPhoto = avatar.url
