@@ -165,11 +165,13 @@ const getvideoFunctions = (currentVideo) => {
               currentVideo.likes = currentVideo.likes.filter(like => 
                 like.userId != loggedUser.id && like.videoId != currentVideo.id
             )
+            likeBtn.classList.toggle('liked');
         } else {
             currentVideo.likes.push({
                 userId: loggedUser.id,
                 videoId: currentVideo.id
             })
+            likeBtn.classList.toggle('liked');
         }
         likeCount.innerHTML = currentVideo.likes.length
         Videos.editVideo(currentVideo.name,currentVideo.theme,currentVideo.duration,currentVideo.photo,currentVideo.url,currentVideo.path,currentVideo.level,currentVideo.tag,currentVideo.timestamp,currentVideo.quizzes, currentVideo.likes);
@@ -252,14 +254,21 @@ const getvideoFunctions = (currentVideo) => {
     fullscreen.addEventListener('click', () => {
         video.requestFullscreen();
     })
-
-    likeBtn.addEventListener('click', () => {
-        likeBtn.classList.toggle('liked');
-    })
 }
 
 const renderVideo = (currentVideo) => {
     const modalContent = document.querySelector('.modal-content');
+    let liked = ''
+    const userlike = currentVideo.likes.find(like => 
+        like.userId == loggedUser.id && like.videoId == currentVideo.id
+    )
+
+    if (userlike) {
+        liked = 'liked'
+    } else {
+        liked = ''
+    }
+
     let result = ''
 
     result += `<span class="close">&times;</span>
@@ -289,7 +298,7 @@ const renderVideo = (currentVideo) => {
         </div>
     </div>
     <div class="video-options-container">
-        <button class="button button-like">
+        <button class="button button-like ${liked}">
             <i class="fas fa-thumbs-up"></i>
             <span>Like</span>
         </button>
