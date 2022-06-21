@@ -108,7 +108,7 @@ function editQuestion() {
           const answer3 = Swal.getPopup().querySelector('#answer3').value
           const answer4 = Swal.getPopup().querySelector('#answer4').value
 
-          return { question:question, correctAnswer:correctAnswer, answer1:answer1, answer2:answer2, answer3:answer3, answer4,answer4}
+          return { question:question, correctAnswer:correctAnswer, answer1:answer1, answer2:answer2, answer3:answer3, answer4:answer4}
         }
       }).then((result) => {
         if (result.isConfirmed) {
