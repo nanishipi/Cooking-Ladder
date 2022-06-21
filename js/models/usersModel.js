@@ -159,20 +159,20 @@ export function getCurrentUser() {
 
 class User {
     id =
-        name = ""
+    name = ""
     password = ""
     email = ""
     location = ""
     avatarName = ""
     avatarPhoto = ""
     gender = ""
-    birthday = ""
+    birthdate = ""
     level = 1
     experience = 0
     blocked = false
     quizzesCompleted = []
 
-    constructor(id, name, password, email, location, avatarName, avatarPhoto, gender, birthday, level = 1, experience = 0, blocked = false, quizzesCompleted = []) {
+    constructor(id, name, password, email, location, avatarName, avatarPhoto, gender, birthdate, level = 1, experience = 0, blocked = false, quizzesCompleted = []) {
         this.id = id,
             this.name = name,
             this.password = password,
