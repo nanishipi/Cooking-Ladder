@@ -13,21 +13,31 @@ export function remove(id,theme,question){
   console.log(id);
   const quizz = video.quizzes.find(quizz => quizz.theme == theme)
   const questionsFiltered = quizz.questions.filter(q => q.question !== question)
+
   
   let quizzFound
   for ( const v of videos){
     if(v.id === id){
-      quizzFound = v.quizzes.find(q => q.theme == theme)
+      quizzFound = v.quizzes.find(q => q.theme === theme )
     }
   }
   quizzFound.questions = questionsFiltered
   console.log(quizzFound);
-  const update = video.quizzes.map(q => q.theme == theme ? quizzFound : q)
-  console.log(update);
 
-/* 
-  videos = videos.filter((video) => video.id !== id);
-    localStorage.setItem("videos", JSON.stringify(videos)); */
+  let updated
+  for (const v of videos) {
+    if (v.id === id) {
+    updated = v.quizzes.map(q => q.theme === theme ? quizzFound : q); 
+
+  }
+  }
+  const data = videos.find(v => v.id === id)
+  data.quizzes = updated
+  
+  videos = videos.map(v => v.id === id ? data : v)
+  localStorage.setItem('videos', JSON.stringify(videos)); 
+
+
 
 }
 

@@ -43,7 +43,7 @@ export function setXP(videoID, theme, questions, xp) {
    }
    }
    const data = videos.find(v => v.id === videoID)
-   data.quizzes = video
+   data.quizzes = quizz
    videos = videos.map(v => v.id === videoID ? data : v)
    localStorage.setItem('videos', JSON.stringify(videos)); 
 

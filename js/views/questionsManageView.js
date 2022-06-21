@@ -38,8 +38,8 @@ function removeQuestion() {
           ).then((result) => {
             if (result) {
               Question.remove(data[0].videoID,btn.id,btn.name)
-/*               location.reload();
- */            }
+              location.reload();
+             }
           })
         }
       })
