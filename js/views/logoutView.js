@@ -55,8 +55,10 @@ const avatars = Avatar.getAllAvatars()
 
 
     
-    const avatar = avatars.find(avatar => avatar.level == level) //Falar com o Jia Acerca Disto
+    const avatar = avatars.find(avatar => avatar.level == level)
+    const username = document.getElementById('username');
     user.avatarPhoto = avatar.url
+    username.innerHTML = user.name
 
     document.getElementById('user').innerHTML = ` <img src=${user.avatarPhoto} alt="Profile Picture" id="userImg">`
     document.getElementById('user').addEventListener('click',()=>{

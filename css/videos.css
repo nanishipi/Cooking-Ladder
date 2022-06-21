@@ -747,3 +747,9 @@ p .timestamp-title {
     color: whitesmoke;
     line-height: 30px;
 }
+
+#username {
+    margin-right: 4vh;
+    color: #d5d5f6;
+    font-size: 20px;
+}
