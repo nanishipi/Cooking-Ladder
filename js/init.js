@@ -20,8 +20,6 @@ function initdata() {
        experience:0,
        blocked: false,
        quizzesCompleted:[]
-
-        
       }, 
       {
         id:2,
@@ -51,7 +49,7 @@ function initdata() {
         name:"How to Cook Rice",
         photo:"https://cdn.discordapp.com/attachments/822430293704441866/988163789474111539/unknown.png",
         url:"https://www.youtube.com/watch?v=Xx7sxWI9FNI",
-        path:"../videos/KDA_-_VILLAIN_ft_Madison_Beer_and_Kim_Petras_Official_ConceptVideo-_Starring_Evelynn - 10Convert.com.mp4.mp4",
+        path:"../videos/KDA_-_VILLAIN_ft_Madison_Beer_and_Kim_Petras_Official_Concept_Video_-_Starring_Evelynn - 10Convert.com.mp4.mp4",
         level:"Easy",
         tag:"Others",
         theme:"Rice",
@@ -71,8 +69,8 @@ function initdata() {
             }
         ],
            xp:0,
-        }]
-
+        }],
+      likes: []
       }
     ]
     

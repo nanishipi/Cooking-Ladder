@@ -5,12 +5,12 @@ export function init() {
     videos = localStorage.videos ? JSON.parse(localStorage.videos) : [];
 }
 
-export function add(id, name, theme, duration, photo, url,path, level, tag, timestamp, quizzes) {
+export function add(id, name, theme, duration, photo, url,path, level, tag, timestamp, quizzes, likes) {
     if (videos.some((video) => video.name === name)) {
         throw Error(`Video with name "${name}" already exists!`);
     }
     else {
-        videos.push(new Video(id, name, theme, duration, photo,url,path, level, tag, timestamp, quizzes));
+        videos.push(new Video(id, name, theme, duration, photo,url,path, level, tag, timestamp, quizzes, likes));
         localStorage.setItem("videos", JSON.stringify(videos));
     }
 }
@@ -24,7 +24,7 @@ export function removeVideo(id) {
     localStorage.setItem("videos", JSON.stringify(videos));
 }
 
-export function editVideo(name, theme, duration, photo, url,path, level, tag, timestamp, quizzes) {
+export function editVideo(name, theme, duration, photo, url,path, level, tag, timestamp, quizzes, likes) {
 
     const currentVideo = getCurrentVideo()
 
@@ -39,8 +39,8 @@ export function editVideo(name, theme, duration, photo, url,path, level, tag, ti
         level: level,
         tag: tag,
         timestamp: timestamp,
-        quizzes: quizzes
-
+        quizzes: quizzes,
+        likes: likes
     }
     videos = videos.map(video => video.id == currentVideo.id ? VideoNew : video)
     localStorage.setItem('videos', JSON.stringify(videos));
@@ -68,9 +68,10 @@ class Video {
     tag = ""
     timestamp = []
     quizzes = []
+    likes = []
 
 
-    constructor(id, name, theme, duration, photo, url,path, level, tag, timestamp, quizzes) {
+    constructor(id, name, theme, duration, photo, url,path, level, tag, timestamp, quizzes, likes) {
         this.id = id
         this.name = name,
             this.theme = theme,
@@ -82,5 +83,6 @@ class Video {
             this.tag = tag
         this.timestamp = timestamp
         this.quizzes = quizzes
+        this.likes = likes
     }
 }

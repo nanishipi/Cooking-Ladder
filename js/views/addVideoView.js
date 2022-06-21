@@ -17,9 +17,8 @@ function addVideo() {
         document.querySelector("#level").value,
         document.querySelector("#tag").value,
         [],
+        [],
         []
-
-
       );
       Swal.fire(
         'Done!',
