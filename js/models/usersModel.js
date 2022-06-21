@@ -181,7 +181,7 @@ class User {
             this.avatarName = avatarName,
             this.avatarPhoto = avatarPhoto,
             this.gender = gender,
-            this.birthday = birthday,
+            this.birthdate = birthdate,
             this.level = level,
             this.experience = experience,
             this.blocked = blocked,
