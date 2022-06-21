@@ -64,11 +64,11 @@ const renderVideos = (videos, difficulty) => {
             <div id="${video.id}" class="card video" style="width: 100% ;background-color: ${background}">
             <div class="row no-gutters">
                 <div class="col-sm-2">
-                    <img class="card-images" src="../images/turtle chef.jpg" alt="Card Image">
+                    <img class="card-images" src="${video.photo}" alt="Card Image">
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-6">
                     <div class="card-body">
-                        <h1 class="video-title">${video.name}</h1>
+                        <h2 class="video-title">${video.name}</h2>
                         <h3 class="card-theme">Theme</h3>
                         <p class="theme-text">${video.theme}</p>
                     </div>
@@ -106,7 +106,7 @@ const unlockDifficulties = () => {
     }
 }
 
-const getvideoFunctions = () => {
+const getvideoFunctions = (currentVideo) => {
     // Get the <span> element that closes the modal
     const spanVideo = document.getElementsByClassName('close')[0];
 
@@ -131,7 +131,7 @@ const getvideoFunctions = () => {
     })
 
     shareBtn.addEventListener('click', () => {
-        navigator.clipboard.writeText("https://www.youtube.com/watch?v=D9G1VOjN_84");
+        navigator.clipboard.writeText(currentVideo.url);
         Swal.fire(
             `Video URL copied to clipboard!`,
         )
@@ -221,12 +221,11 @@ const renderVideo = (currentVideo) => {
     <div class="video-container">
         <div class="video-player">
             <video class="video"
-                src="../videos/KDA_-_VILLAIN_ft_Madison_Beer_and_Kim_Petras_Official_Concept_Video_-_Starring_Evelynn - 10Convert.com.mp4.mp4"></video>
+                src="${currentVideo.path}"></video>
             <div class="player-controls">
                 <div class="video-progress">
                     <div class="video-progress-filled"></div>
                 </div>
-
                 <div class="inner-player-controls">
                     <button id="play-button"></button>
                     <button class="mute control-button">
@@ -234,7 +233,6 @@ const renderVideo = (currentVideo) => {
                         <i class="fas fa-volume-up"></i>
                     </button>
                     <input type="range" class="volume" min="0" max="1" step="0.01" value="1">
-
                     <button class="fullscreen control-button">
                         <i class="fas fa-expand"></i>
                     </button>
@@ -245,7 +243,6 @@ const renderVideo = (currentVideo) => {
             </div>
         </div>
     </div>
-
     <div class="video-options-container">
         <button class="button button-like">
             <i class="fas fa-thumbs-up"></i>
@@ -262,25 +259,26 @@ const renderVideo = (currentVideo) => {
         </div>
     </div>
     <div class="video-info-container">
-        <p class="tag">Rice</p>
-        <div class="timestapms">
-            <p class="timestapms-paragraphs"><span>0:00 - 2:37</span> --- <span class="timestamp-title">Introduction</span> </p>    
-        </div>
-        <div class="timestapms">
-            <p class="timestapms-paragraphs"><span>2:37 - 10:07</span> --- <span class="timestamp-title">Getting the ingredients ready</span> </p>
-        </div>
-        <div class="timestapms">
-            <p class="timestapms-paragraphs"><span>10:07 - 20:37</span> --- <span class="timestamp-title">Cooking the dish</span> </p>
-        </div>
-        <div class="comment-button-wrapper">
-            <button class="comments-button">Comments</button>
-        </div>
+        <p class="tag">${currentVideo.tag}</p>
+    
+    `
+    const timestamps = currentVideo.timestamp;
+
+    timestamps.forEach(timestamp => {
+        result += `<div class="timestapms">
+        <p class="timestapms-paragraphs"><span>0:00 - 2:37</span> --- <span class="timestamp-title">${timestamp.title}</span> </p>    
     </div>
     `
+    });
+    
+    result += `</div>
+    <div class="comment-button-wrapper">
+    <button class="comments-button">Comments</button>
+    </div>`
 
     modalContent.innerHTML = result;
 
-    getvideoFunctions();
+    getvideoFunctions(currentVideo);
 }
 
 const addCardListners = () => {
