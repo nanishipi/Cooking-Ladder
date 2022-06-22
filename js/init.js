@@ -78,7 +78,7 @@ function initdata() {
                     ],
                     xp: 200,
                 }],
-                likes: [{userId: 1, videoId: 1},{userId: 2, videoId: 1}],
+                likes: [],
                 comments: [{commentValue: "Incredible Rice!", user: "Macarrão"}]
             },
             {
@@ -124,7 +124,7 @@ function initdata() {
                     ],
                     xp: 200,
                 }],
-                likes: [{userId: 1, videoId: 2},{userId: 2, videoId: 2}],
+                likes: [],
                 comments: [{commentValue: "Nice!", user: "Jia"},{commentValue: "Incredible Soup!", user: "Macarrão"}]
             },
             {
@@ -153,7 +153,7 @@ function initdata() {
                     ],
                     xp: 350,
                 }],
-                likes: [{userId: 1, videoId: 3},{userId: 2, videoId: 3}],
+                likes: [],
                 comments: [{commentValue: "Incredible Pasta!", user: "Macarrão"}]
             },
             {
@@ -190,7 +190,7 @@ function initdata() {
                     ],
                     xp: 350,
                 }],
-                likes: [{userId: 1, videoId: 4},{userId: 2, videoId: 4}],
+                likes: [],
                 comments: [{commentValue: "Incredible Fish!", user: "Macarrão"}]
             },
             {
@@ -227,7 +227,7 @@ function initdata() {
                     ],
                     xp: 500,
                 }],
-                likes: [{userId: 1, videoId: 5},{userId: 2, videoId: 5}],
+                likes: [],
                 comments: [{commentValue: "Incredible Meat!", user: "Macarrão"}]
             }
         ]
