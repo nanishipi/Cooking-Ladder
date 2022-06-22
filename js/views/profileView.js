@@ -53,7 +53,7 @@ function renderUserInfo() {
 
 
     console.log(level);
-    const avatar = avatars.find(avatar => avatar.level == level) //Falar com o Jia Acerca Disto
+    const avatar = avatars.find(avatar => avatar.level == level)
     user.avatarName = avatar.name
     user.avatarPhoto = avatar.url
 
