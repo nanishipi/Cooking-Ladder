@@ -98,7 +98,7 @@ function initdata() {
             },
             {
               question:"What the most important ingredient for soup?",
-              correctAnswer:"water",
+              correctAnswer:"Water",
               answer1:"Juice",
               answer2:"Water",
               answer3:"Salt",
