@@ -294,7 +294,7 @@ a:hover {
 }
 
 .video-player {
-    max-width: 1000px;
+    width: 1000px;
     max-height: 700px;
     position: relative;
     overflow: hidden;
