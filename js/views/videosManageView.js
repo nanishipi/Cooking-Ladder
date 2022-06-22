@@ -54,11 +54,11 @@ function addTimestamp() {
         </div>
         <div>
             <label for="timeStart" >Start time</label>
-            <input type="text" id="timeStart" class="swal2-input" placeholder="Time in seconds" />
+            <input type="text" id="timeStart" class="swal2-input" placeholder="Time " />
         </div>
         <div>
             <label for="timeEnd" >End time</label>
-            <input type="text" id="timeEnd" class="swal2-input" placeholder="Time in seconds" />
+            <input type="text" id="timeEnd" class="swal2-input" placeholder="Time " />
         </div>
     
         `,
