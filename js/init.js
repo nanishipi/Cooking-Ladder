@@ -79,7 +79,7 @@ function initdata() {
                     xp: 200,
                 }],
                 likes: [],
-                comments: []
+                comments: [{commentValue: "Incredible Rice!", user: "Macarrão"}]
             },
             {
                 id: 2,
@@ -125,7 +125,7 @@ function initdata() {
                     xp: 200,
                 }],
                 likes: [],
-                comments: []
+                comments: [{commentValue: "Nice!", user: "Jia"},{commentValue: "Incredible Soup!", user: "Macarrão"}]
             },
             {
                 id: 3,
@@ -154,7 +154,7 @@ function initdata() {
                     xp: 350,
                 }],
                 likes: [],
-                comments: []
+                comments: [{commentValue: "Incredible Pasta!", user: "Macarrão"}]
             },
             {
                 id: 4,
@@ -191,7 +191,7 @@ function initdata() {
                     xp: 350,
                 }],
                 likes: [],
-                comments: []
+                comments: [{commentValue: "Incredible Fish!", user: "Macarrão"}]
             },
             {
                 id: 5,
@@ -228,7 +228,7 @@ function initdata() {
                     xp: 500,
                 }],
                 likes: [],
-                comments: []
+                comments: [{commentValue: "Incredible Meat!", user: "Macarrão"}]
             }
         ]
 
