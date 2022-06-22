@@ -53,7 +53,7 @@ function initdata() {
                 level: "Easy",
                 tag: "Rice",
                 theme: "Rice",
-                timestamp: [],
+                timestamp: [{title: "Introduction", timeStart: "0:00", timeEnd: "0:16"},{title: "Timing and Ratios", timeStart: "0:16", timeEnd: "0:48"}],
                 duration: "4:33",
                 quizzes: [{
                     videoID: 1,
@@ -78,7 +78,7 @@ function initdata() {
                     ],
                     xp: 200,
                 }],
-                likes: [],
+                likes: [{userId: 1, videoId: 1},{userId: 2, videoId: 1}],
                 comments: [{commentValue: "Incredible Rice!", user: "Macarrão"}]
             },
             {
@@ -124,7 +124,7 @@ function initdata() {
                     ],
                     xp: 200,
                 }],
-                likes: [],
+                likes: [{userId: 1, videoId: 1},{userId: 2, videoId: 1}],
                 comments: [{commentValue: "Nice!", user: "Jia"},{commentValue: "Incredible Soup!", user: "Macarrão"}]
             },
             {
@@ -153,7 +153,7 @@ function initdata() {
                     ],
                     xp: 350,
                 }],
-                likes: [],
+                likes: [{userId: 1, videoId: 1},{userId: 2, videoId: 1}],
                 comments: [{commentValue: "Incredible Pasta!", user: "Macarrão"}]
             },
             {
@@ -190,7 +190,7 @@ function initdata() {
                     ],
                     xp: 350,
                 }],
-                likes: [],
+                likes: [{userId: 1, videoId: 1},{userId: 2, videoId: 1}],
                 comments: [{commentValue: "Incredible Fish!", user: "Macarrão"}]
             },
             {
@@ -227,7 +227,7 @@ function initdata() {
                     ],
                     xp: 500,
                 }],
-                likes: [],
+                likes: [{userId: 1, videoId: 1},{userId: 2, videoId: 1}],
                 comments: [{commentValue: "Incredible Meat!", user: "Macarrão"}]
             }
         ]
