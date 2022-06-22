@@ -185,10 +185,9 @@ const getvideoFunctions = (currentVideo) => {
         const userlike = currentVideo.likes.find(like => 
             like.userId == loggedUser.id && like.videoId == currentVideo.id
         )
-
-        if (userlike) {
+        if (userlike != undefined) {
               currentVideo.likes = currentVideo.likes.filter(like => 
-                like.userId != loggedUser.id && like.videoId != currentVideo.id
+                like.userId != loggedUser.id && like.videoId == currentVideo.id
             )
             likeBtn.classList.toggle('liked');
         } else {
