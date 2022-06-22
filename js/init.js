@@ -182,7 +182,7 @@ function initdata() {
                         {
                             question: "What's the most versatile cut of a fish?",
                             correctAnswer: "Fillet",
-                            answer1: "Vision",
+                            answer1: "Fillet",
                             answer2: "Whole",
                             answer3: "Side",
                             answer4: "Smoked"
